@@ -147,6 +147,7 @@ article h2 {
   width: 100%;
   align-items: center;
   text-align: center;
+  justify-content: center;
   font-family: 'Montserrat', sans-serif;
   font-size: 14px;
   padding-left: 70px;
@@ -160,6 +161,10 @@ article h2 {
   justify-content: space-between;
   flex-wrap: wrap;
   width: 1200px;
+  text-align: center;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: center;
 }
 
 .footer-info,
