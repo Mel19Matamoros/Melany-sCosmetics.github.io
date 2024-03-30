@@ -54,27 +54,3 @@ $(document).ready(function() {
         $('#animated-heading').animate({'width': '100%'}, 2000);
     });
 });
-
-// Esto es para que cuando se envie el correo aparezca un mensaje 
-document.querySelector('form').addEventListener('submit', function(event) {
-    event.preventDefault(); // Evitar que el formulario se envíe automáticamente
-    
-    // Envía el formulario de forma asincrónica utilizando Fetch API o XMLHttpRequest
-    fetch('https://formsubmit.co/2a1680794fd69a882a28c2cdff5f6000', {
-        method: 'POST',
-        body: new FormData(this)
-    })
-    .then(response => {
-        if (response.ok) {
-            alert("El correo ha sido enviado satisfactoriamente al correo suministrado.");
-            // Redirigir a la página de destino después de enviar el formulario
-            window.location.href = 'https://mel19matamoros.github.io/MelanyCosmetics.github.io/contacto.html';
-        } else {
-            alert("Hubo un error al enviar el correo.");
-        }
-    })
-    .catch(error => {
-        alert("Hubo un error al enviar el correo.");
-        console.error('Error:', error);
-    });
-});
