@@ -55,18 +55,53 @@ $(document).ready(function() {
     });
 });
 
-document.querySelector('form').addEventListener('submit', function(event) {
-        // Evita que el formulario se envíe automáticamente
-        event.preventDefault();
+// Función para cargar los datos guardados y mostrarlos como opciones al hacer clic en la caja de texto
+    function cargarOpciones() {
+        var emailGuardado = localStorage.getItem('email');
+        var nombreGuardado = localStorage.getItem('nombre');
 
-        // Envía el formulario automáticamente
-        this.submit();
+        var emailInput = document.getElementById('Email');
+        var nombreInput = document.getElementById('Nombre');
 
-        // Muestra la alerta después de enviar el formulario
+        // Limpiar las opciones anteriores
+        emailInput.innerHTML = '';
+        nombreInput.innerHTML = '';
+
+        // Agregar opciones anteriores al campo de texto Email
+        if (emailGuardado) {
+            var optionEmail = document.createElement('option');
+            optionEmail.value = emailGuardado;
+            emailInput.appendChild(optionEmail);
+        }
+
+        // Agregar opciones anteriores al campo de texto Nombre
+        if (nombreGuardado) {
+            var optionNombre = document.createElement('option');
+            optionNombre.value = nombreGuardado;
+            nombreInput.appendChild(optionNombre);
+        }
+    }
+
+    // Cargar las opciones cuando la página se carga
+    window.onload = cargarOpciones;
+
+    // Guardar los datos cuando el formulario se envía
+    document.querySelector('form').addEventListener('submit', function(event) {
+        event.preventDefault(); // Evitar que el formulario se envíe
+        guardarDatos();
         alert("¡Correo enviado con éxito! Gracias por registrarte.");
     });
 
-// Función para guardar los datos del formulario en localStorage
+    // Cargar las opciones al hacer clic en los campos de texto
+    document.getElementById('Email').addEventListener('click', function() {
+        cargarOpciones();
+    });
+
+    document.getElementById('Nombre').addEventListener('click', function() {
+        cargarOpciones();
+    });
+
+    // Función para guardar los datos del formulario en localStorage
     function guardarDatos() {
         var email = document.getElementById('Email').value;
         var nombre = document.getElementById('Nombre').value;
@@ -74,33 +109,3 @@ document.querySelector('form').addEventListener('submit', function(event) {
         localStorage.setItem('email', email);
         localStorage.setItem('nombre', nombre);
     }
-
-    // Función para cargar los datos del almacenamiento local y completar automáticamente los campos de texto
-    function cargarDatos() {
-        var emailGuardado = localStorage.getItem('email');
-        var nombreGuardado = localStorage.getItem('nombre');
-
-        if (emailGuardado) {
-            document.getElementById('Email').value = emailGuardado;
-        }
-        if (nombreGuardado) {
-            document.getElementById('Nombre').value = nombreGuardado;
-        }
-    }
-
-    // Cargar los datos almacenados cuando la página se carga
-    window.onload = cargarDatos;
-
-    // Guardar los datos cuando el formulario se envía
-    document.querySelector('form').addEventListener('submit', function(event) {
-        guardarDatos();
-    });
-
-    // Autocompletar los campos de texto con los datos guardados al hacer foco en ellos
-    document.getElementById('Email').addEventListener('focus', function() {
-        cargarDatos();
-    });
-
-    document.getElementById('Nombre').addEventListener('focus', function() {
-        cargarDatos();
-    });
