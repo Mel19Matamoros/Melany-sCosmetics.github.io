@@ -61,3 +61,35 @@ document.querySelector('form').addEventListener('submit', function(event) {
 
         // Puedes agregar cualquier otra lógica adicional aquí, como redireccionar al usuario a otra página
     });
+
+// Función para guardar los valores de las cajas de texto en localStorage
+    function guardarDatos() {
+        var email = document.getElementById('Email').value;
+        var nombre = document.getElementById('Nombre').value;
+        var nacimiento = document.getElementById('Nacimiento').value;
+        var genero = document.getElementById('Genero').value;
+        var tipoPiel = document.getElementById('Tipo-Piel').value;
+
+        localStorage.setItem('email', email);
+        localStorage.setItem('nombre', nombre);
+        localStorage.setItem('nacimiento', nacimiento);
+        localStorage.setItem('genero', genero);
+        localStorage.setItem('tipoPiel', tipoPiel);
+    }
+
+    // Función para cargar los valores guardados en localStorage y colocarlos en las cajas de texto
+    function cargarDatos() {
+        document.getElementById('Email').value = localStorage.getItem('email') || '';
+        document.getElementById('Nombre').value = localStorage.getItem('nombre') || '';
+        document.getElementById('Nacimiento').value = localStorage.getItem('nacimiento') || '';
+        document.getElementById('Genero').value = localStorage.getItem('genero') || '';
+        document.getElementById('Tipo-Piel').value = localStorage.getItem('tipoPiel') || '';
+    }
+
+    // Cargar los datos almacenados cuando la página se carga
+    window.onload = cargarDatos;
+
+    // Guardar los datos cuando el formulario se envía
+    document.querySelector('form').addEventListener('submit', function(event) {
+        guardarDatos();
+    });
