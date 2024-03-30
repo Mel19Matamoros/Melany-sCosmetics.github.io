@@ -56,8 +56,8 @@ $(document).ready(function() {
 });
 
 document.querySelector('form').addEventListener('submit', function(event) {
-        // Muestra el mensaje apenas se envía el formulario
-        alert("El correo ha sido enviado satisfactoriamente al correo suministrado.");
+        // Muestra un mensaje personalizado cuando se envía el formulario
+        alert("¡Correo enviado con éxito!");
 
-        // Puedes agregar cualquier lógica adicional aquí, como redireccionar al usuario a otra página
-});
+        // Puedes agregar cualquier otra lógica adicional aquí, como redireccionar al usuario a otra página
+    });
