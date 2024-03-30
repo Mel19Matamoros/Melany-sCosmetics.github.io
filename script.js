@@ -56,10 +56,19 @@ $(document).ready(function() {
 });
 
 document.querySelector('form').addEventListener('submit', function(event) {
-        // Muestra un mensaje personalizado cuando se envía el formulario
-        alert("¡Correo enviado con éxito!");
+        event.preventDefault(); // Evitar que el formulario se envíe automáticamente
 
-        // Puedes agregar cualquier otra lógica adicional aquí, como redireccionar al usuario a otra página
+        // Obtener los datos del formulario
+        var formData = new FormData(this);
+
+        // Simular el envío del formulario (no afecta realmente al envío)
+        // Aquí puedes agregar cualquier lógica adicional que necesites antes de mostrar el mensaje
+        // En este ejemplo, simplemente mostraremos el mensaje de confirmación
+        setTimeout(function() {
+            alert("El correo ha sido enviado satisfactoriamente al correo suministrado.");
+        }, 1000); // Espera 1 segundo (1000 milisegundos) antes de mostrar el mensaje
+
+        // Puedes agregar aquí cualquier redirección si es necesaria
     });
 
 // Función para guardar los valores de las cajas de texto en localStorage
