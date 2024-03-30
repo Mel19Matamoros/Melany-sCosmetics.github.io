@@ -66,28 +66,26 @@ document.querySelector('form').addEventListener('submit', function(event) {
         alert("¡Correo enviado con éxito! Gracias por registrarte.");
     });
 
-// Función para guardar los valores de las cajas de texto en localStorage
+// Función para guardar los datos del formulario en localStorage
     function guardarDatos() {
         var email = document.getElementById('Email').value;
         var nombre = document.getElementById('Nombre').value;
-        var nacimiento = document.getElementById('Nacimiento').value;
-        var genero = document.getElementById('Genero').value;
-        var tipoPiel = document.getElementById('Tipo-Piel').value;
 
         localStorage.setItem('email', email);
         localStorage.setItem('nombre', nombre);
-        localStorage.setItem('nacimiento', nacimiento);
-        localStorage.setItem('genero', genero);
-        localStorage.setItem('tipoPiel', tipoPiel);
     }
 
-    // Función para cargar los valores guardados en localStorage y colocarlos en las cajas de texto
+    // Función para cargar los datos del almacenamiento local y completar automáticamente los campos de texto
     function cargarDatos() {
-        document.getElementById('Email').value = localStorage.getItem('email') || '';
-        document.getElementById('Nombre').value = localStorage.getItem('nombre') || '';
-        document.getElementById('Nacimiento').value = localStorage.getItem('nacimiento') || '';
-        document.getElementById('Genero').value = localStorage.getItem('genero') || '';
-        document.getElementById('Tipo-Piel').value = localStorage.getItem('tipoPiel') || '';
+        var emailGuardado = localStorage.getItem('email');
+        var nombreGuardado = localStorage.getItem('nombre');
+
+        if (emailGuardado) {
+            document.getElementById('Email').value = emailGuardado;
+        }
+        if (nombreGuardado) {
+            document.getElementById('Nombre').value = nombreGuardado;
+        }
     }
 
     // Cargar los datos almacenados cuando la página se carga
@@ -96,4 +94,13 @@ document.querySelector('form').addEventListener('submit', function(event) {
     // Guardar los datos cuando el formulario se envía
     document.querySelector('form').addEventListener('submit', function(event) {
         guardarDatos();
+    });
+
+    // Autocompletar los campos de texto con los datos guardados al hacer foco en ellos
+    document.getElementById('Email').addEventListener('focus', function() {
+        cargarDatos();
+    });
+
+    document.getElementById('Nombre').addEventListener('focus', function() {
+        cargarDatos();
     });
