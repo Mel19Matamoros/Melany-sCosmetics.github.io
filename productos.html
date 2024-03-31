@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Melany's Cosmetics</title> 
+        <link rel="icon" href="Imagenes/Logo Melany's Cosmetics.PNG" type="image/x-icon">
+        <script src="https://maps.googleapis.com/maps/api/js?key=TU_API_KEY"></script>
+        <link rel="stylesheet" href="style.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    </head>
+
+    <body>
+        <header>
+          <div class="contain-header">
+            <img src="Imagenes/Logo Melany's Cosmetics.PNG" alt="Logo">
+            <h1 id="animated-heading">Melany's Cosmetics</h1>
+          </div>
+        </header>
+
+        <nav class="navbar navbar-expand-lg bg-rosado" data-bs-theme="dark">
+          <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarColor01">
+              <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Inicio</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="productos.html">Productos</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="contacto.html">Contacto</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="acercaDe.html">Acerca de</a>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Mas</a>
+                    <div class="dropdown-menu">
+                      <a class="dropdown-item" href="#">Historia del sitio</a>
+                      <div class="dropdown-divider"></div>
+                      <a class="dropdown-item" href="#">Galería de imágenes</a>
+                      <div class="dropdown-divider"></div>
+                      <a class="dropdown-item" href="#">Ubicación</a>
+                      <div class="dropdown-divider"></div>
+                      <a class="dropdown-item" href="#">Multimedia</a>
+                    </div>
+                  </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+
+        <div class="contain-img-carrito">
+          <a href="carrito.html" class="button-img-carrito">
+            <img src="Imagenes/bolsa-de-regalo.png" class="img-carrito" alt="https://www.flaticon.es/icono-gratis/bolsa-de-regalo_1039718?term=bolsa+de+regalo&page=1&position=23&origin=search&related_id=1039718">
+          </a>
+        </div>
+      
+        <div class="contenedor-productos">
+          <div class="sidebar">
+              <h3>Categorías</h3>
+              <ul class="categories">
+                  <li data-category="bases">Bases</li>
+                  <li data-category="polvos">Polvos</li>
+                  <li data-category="labiales">Labiales</li>
+                  <li data-category="paletas">Paletas de sombras</li>
+              </ul>
+          </div>
+          <div class="main-content">
+              <div class="products">
+                  <div class="card bases">
+                      <div class="card-body">
+                          <img src="Imagenes/Base Loreal Paris.jpg" class="card-img-top" alt="https://www.chedraui.com.mx/base-de-maquillaje-liquida-loreal-paris-infallible-202-creamy-natural-30ml-3478365/p">
+                          <div class="info-card">
+                              <h5 class="card-title">Base de Maquillaje Líquida L'Oréal Paris Infallible 30ml</h5>
+                              <p>Protege tu piel del sol e hidrátala al mismo tiempo con la Base de Maquillaje Infallible pro glow de L'Oréal Paris.</p>
+                              <div class="detalle">
+                                <span>Código: BAS001</span>
+                                <span>Precio: &#8353;8,900</span>
+                              </div>
+                              <div class="cantidad">
+                                  <label for="cantidad_base1">Cantidad:</label>
+                                  <input type="number" id="cantidad_base1" class="cantidad" value="1" min="1">
+                              </div>
+                              <button class="btn btn-primary agregar-al-carrito" data-codigo="BAS001" data-nombre="Base de Maquillaje Líquida L'Oréal Paris Infallible 30ml" data-precio="8900">Agregar al carrito</button>
+                          </div>
+                      </div>
+                      <div class="card-body">
+                        <img src="Imagenes/Base Liquida-Maybelline-Fit-Me-Mate.jpg" class="card-img-top" alt="https://www.walmart.co.cr/maybelline-fit-me-matte-poreless-natural-beige/p">
+                        <div class="info-card">
+                            <h5 class="card-title">Base de Maquillaje Líquida Maybelline Fit Me Mate 30ml</h5>
+                            <p>Ideal para la piel normal a grasa, nuestra exclusiva fórmula con micropolvos 
+                              controla la grasa y difumina los poros para un acabado natural e impecable. 
+                              Probada por dermatólogos. Probada contra alergias.</p>
+                            <div class="detalle">
+                                <span>Código: BAS002</span>
+                                <span>Precio: &#8353;14.200</span>
+                            </div>
+                            <div class="cantidad">
+                                <label for="cantidad_base2">Cantidad:</label>
+                                <input type="number" id="cantidad_base2" class="cantidad" value="1" min="1">
+                            </div>
+                            <button class="btn btn-primary agregar-al-carrito" data-codigo="BAS002" data-nombre="Base de Maquillaje Líquida Maybelline Fit Me Mate 30ml" data-precio="14200">Agregar al carrito</button>
+                        </div>
+                    </div>
+                    <div class="card-body id="card-BAS003">
+                      <img src="Imagenes/Base Beauty Creations.jpg" class="card-img-top" alt="https://hibeautycr.com/products/flawless-stay-foundation?variant=33875048398988">
+                      <div class="info-card">
+                          <h5 class="card-title">Base de Maquillaje Líquida Beauty Creations Flawless Stay Foundation 30ml</h5>
+                          <p>Base Beauty Creations Flawless Stay Fundation. Excelente base para mantener de media 
+                            a alta cobertura.</p>
+                          <div class="detalle">
+                              <span>Código: BAS003</span>
+                              <span>Precio: &#8353;8,800</span>
+                          </div>
+                          <div class="cantidad">
+                              <label for="cantidad_base3">Cantidad:</label>
+                              <input type="number" id="cantidad_base3" class="cantidad" value="1" min="1">
+                          </div>
+                          <button class="btn btn-primary agregar-al-carrito" data-codigo="BAS003" data-nombre="Base de Maquillaje Líquida Beauty Creations Flawless Stay Foundation 30ml" data-precio="8800">Agregar al carrito</button>
+                      </div>
+                  </div>
+                  <div class="card-body">
+                    <img src="Imagenes/Base-MAC.jpg" class="card-img-top" alt="https://www.maccosmetics.cr/products/14775/products/vips/studio">
+                    <div class="info-card">
+                        <h5 class="card-title">Base de Maquillaje Líquida Studio Fix Fluid SPF 15 30ml</h5>
+                        <p>Fórmula de larga duración, que controla el exceso de grasa y proporciona un acabado mate y 
+                           una cobertura media a alta modulable.</p>
+                        <div class="detalle">
+                            <span>Código: BAS004</span>
+                            <span>Precio: &#8353;36,000</span>
+                        </div>
+                        <div class="cantidad">
+                            <label for="cantidad_base4">Cantidad:</label>
+                            <input type="number" id="cantidad_base4" class="cantidad" value="1" min="1">
+                        </div>
+                        <button class="btn btn-primary agregar-al-carrito" data-codigo="BAS004" data-nombre="Base de Maquillaje Líquida Studio Fix Fluid SPF 15 30ml" data-precio="36000">Agregar al carrito</button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="card polvos">
+                  <div class="card-body">
+                      <img src="Imagenes/Polvo-Compacto-Maybelline.jpg" class="card-img-top" alt="https://www.walmart.co.cr/polvo-loreal-compac-sand-220/p">
+                      <div class="info-card">
+                          <h5 class="card-title">Polvos compactos L'Oréal Paris infallible 24h Fresh Wear 0.31oz</h5>
+                          <p>La base en polvo Infallible Fresh Wear cubre como un líquido 
+                            y matifica por hasta 24 horas. Textura de polvo ligera que te ofrece una 
+                            cobertura completa y un acabado mate natural. Resistentes al agua.</p>
+                          <div class="detalle">
+                              <span>Código: POL001</span>
+                              <span>Precio: &#8353;13,800</span>
+                          </div>
+                          <div class="cantidad">
+                              <label for="cantidad_polvos1">Cantidad:</label>
+                              <input type="number" id="cantidad_polvos1" class="cantidad" value="1" min="1">
+                          </div>
+                          <button class="btn btn-primary agregar-al-carrito" data-codigo="POL001" data-nombre="Polvos compactos L'Oréal Paris infallible 24h Fresh Wear 0.31oz" data-precio="13800">Agregar al carrito</button>
+                      </div>
+                  </div>
+                  <div class="card-body">
+                    <img src="Imagenes/Polvos Compactos Beauty Creations.jpeg" class="card-img-top" alt="https://www.jccosmeticos.net/product/polvos-compactos-beauty-creations-fsp10/">
+                    <div class="info-card">
+                        <h5 class="card-title">Polvos compactos Beauty Creations</h5>
+                        <p>La base Flawless Stay Powder es un polvo compacto de larga 
+                          duración. Puedes usar esta base en polvo sola o encima de nuestra base 
+                          líquida Flawless Stay para un glamour a prueba total.</p>
+                        <div class="detalle">
+                            <span>Código: POL002</span>
+                            <span>Precio: &#8353;8,500</span>
+                        </div>
+                        <div class="cantidad">
+                            <label for="cantidad_polvos2">Cantidad:</label>
+                            <input type="number" id="cantidad_polvos2" class="cantidad" value="1" min="1">
+                        </div>
+                        <button class="btn btn-primary agregar-al-carrito" data-codigo="POL002" data-nombre="Polvos compactos Beauty Creations" data-precio="8500">Agregar al carrito</button>
+                    </div>
+                </div>
+                <div class="card-body">
+                  <img src="Imagenes/Polvos Banana Beauty Creations.jpeg" class="card-img-top" alt="https://beautymarketcr.com/Invent/producto/polvo-banana-beauty-creations/">
+                  <div class="info-card">
+                      <h5 class="card-title">Polvo translúcido Banana- Beauty Creations</h5>
+                      <p>Beauty Creations Banana Setting Powder es un polvo ultra fino y proporcionan
+                         un acabado matte/sedoso. Ayuda a sellar el maquillaje todo el día.</p>
+                      <div class="detalle">
+                          <span>Código: POL003</span>
+                          <span>Precio: &#8353;3,900</span>
+                      </div>
+                      <div class="cantidad">
+                          <label for="cantidad_polvos3">Cantidad:</label>
+                          <input type="number" id="cantidad_polvos3" class="cantidad" value="1" min="1">
+                      </div>
+                      <button class="btn btn-primary agregar-al-carrito" data-codigo="POL003" data-nombre="Polvo translúcido Banana- Beauty Creations" data-precio="3900">Agregar al carrito</button>
+                  </div>
+              </div>
+              <div class="card-body">
+                <img src="Imagenes/Mac-Polvo-Suelto.jpg" class="card-img-top" alt="https://cr.siman.com/studio-fix-pro-set-blur-loose-powder-104190543/p">
+                <div class="info-card">
+                    <h5 class="card-title">Polvo translúcido MAC Studio Fix Pro Fija</h5>
+                    <p>Fija tu maquillaje con el poder de Studio Fix. Nuestros polvos fijadores transpirables,
+                      están fusionados con polvos dobles que absorben la grasa para ayudar a controlar el 
+                      brillo y matificar al instante.</p>
+                    <div class="detalle">
+                        <span>Código: POL004</span>
+                        <span>Precio: &#8353;33,000</span>
+                    </div>
+                    <div class="cantidad">
+                        <label for="cantidad_polvos4">Cantidad:</label>
+                        <input type="number" id="cantidad_polvos4" class="cantidad" value="1" min="1">
+                    </div>
+                    <button class="btn btn-primary agregar-al-carrito" data-codigo="POL004" data-nombre="Polvo translúcido MAC Studio Fix Pro Fija" data-precio="33000">Agregar al carrito</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="card labiales">
+              <div class="card-body">
+                  <img src="Imagenes/Labial loreal.jpg" class="card-img-top" alt="https://www.druni.es/color-riche-intense-volume-edicion-limitada-loreal-paris-barra-labios-acabado-mate">
+                  <div class="info-card">
+                      <h5 class="card-title">Labial en barra mate Riche Intense Volume Edición Limitada L'Oreal Paris</h5>
+                      <p>Nuestro icónico labial Color Riche en acabado mate, fórmula mejorada 
+                        que aporta volumen y larga duración de 16H a tus labios. También los cuida gracias 
+                        a su aceite de argán y ácido hialurónico, ofreciendo una sensación de hidratación 
+                        durante todo el día. No se transfiere.</p>
+                      <div class="detalle">
+                          <span>Código: LAB001</span>
+                          <span>Precio: &#8353;9,600</span>
+                      </div>
+                      <div class="cantidad">
+                          <label for="cantidad_labiales1">Cantidad:</label>
+                          <input type="number" id="cantidad_labiales1" class="cantidad" value="1" min="1">
+                      </div>
+                      <button class="btn btn-primary agregar-al-carrito" data-codigo="LAB001" data-nombre="Labial en barra mate Riche Intense Volume Edición Limitada L'Oreal Paris" data-precio="9600">Agregar al carrito</button>
+                  </div>
+              </div>
+              <div class="card-body">
+                <img src="Imagenes/Labial-Maybelline.jpg" class="card-img-top" alt="https://hibeautycr.com/products/labial-maybelline-superstay-ink?variant=41111649419404">
+                <div class="info-card">
+                    <h5 class="card-title">Labial Liquido Maybelline Superstay Ink</h5>
+                    <p>Superstay Matte Ink garantiza un acabado impecable que dura hasta 12 horas. 
+                      Su textura cremosa se desliza con facilidad por los labios, proporcionando un 
+                      resultado perfecto y completo.
+                    </p>
+                    <div class="detalle">
+                        <span>Código: LAB002</span>
+                        <span>Precio: &#8353;7,995</span>
+                    </div>
+                    <div class="cantidad">
+                        <label for="cantidad_labiales2">Cantidad:</label>
+                        <input type="number" id="cantidad_labiales2" class="cantidad" value="1" min="1">
+                    </div>
+                    <button class="btn btn-primary agregar-al-carrito" data-codigo="LAB002" data-nombre="Labial Liquido Maybelline Superstay Ink" data-precio="7995">Agregar al carrito</button>
+                </div>
+            </div>
+            <div class="card-body">
+              <img src="Imagenes/Labial-Liquido-S-Beauty-Creations.jpg" class="card-img-top" alt="https://kalaluacr.com/producto/labial-liquido-beauty-creations/">
+              <div class="info-card">
+                  <h5 class="card-title">Labial Liquido Beauty Creations</h5>
+                  <p>Labial Liquido Beauty Creations te dará un color, brillo y humectación que te encantarán.</p>
+                  <div class="detalle">
+                      <span>Código: LAB003</span>
+                      <span>Precio: &#8353;5,300</span>
+                  </div>
+                  <div class="cantidad">
+                      <label for="cantidad_labiales3">Cantidad:</label>
+                      <input type="number" id="cantidad_labiales3" class="cantidad" value="1" min="1">
+                  </div>
+                  <button class="btn btn-primary agregar-al-carrito" data-codigo="LAB003" data-nombre="Labial Liquido Beauty Creations" data-precio="5300">Agregar al carrito</button>
+              </div>
+          </div>
+          <div class="card-body">
+            <img src="Imagenes/Labial MAC.jpg" class="card-img-top" alt="https://cr.faces.com/love-me-lipstick-bmac3028/p">
+            <div class="info-card">
+                <h5 class="card-title">Labial en barra MAC Love Me</h5>
+                <p>Fórmula innovadora que contiene una infusión de aceite de argán que brinda humectación, 
+                   color intenso y cobertura total dejando un acabado satinado durante todo el día.</p>
+                <div class="detalle">
+                    <span>Código: LAB004</span>
+                    <span>Precio: &#8353;9,400</span>
+                </div>
+                <div class="cantidad">
+                    <label for="cantidad_labiales4">Cantidad:</label>
+                    <input type="number" id="cantidad_labiales4" class="cantidad" value="1" min="1">
+                </div>
+                <button class="btn btn-primary agregar-al-carrito" data-codigo="LAB004" data-nombre="Labial en barra MAC Love Me" data-precio="9400">Agregar al carrito</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card paletas">
+          <div class="card-body">
+              <img src="Imagenes/Paleta Tease Me Beauty Creations.jpg" class="card-img-top" alt="https://www.jccosmeticos.net/product/paleta-tease-me-beauty-creations/">
+              <div class="info-card">
+                  <h5 class="card-title">Paleta de Sombras Tease me Beauty Creations</h5>
+                  <p>Paleta de sombras Tease Me de Beauty Creations tiene una gama de colores 
+                    para diseños clásicos e impactantes. Tiene textura suave y un pigmento increíble. 
+                    18 sombras en increíbles tonos. Colores metálicos de alta pigmentación.</p>
+                  <div class="detalle">
+                      <span>Código: PAL001</span>
+                      <span>Precio: &#8353;10,000</span>
+                  </div>
+                  <div class="cantidad">
+                      <label for="cantidad_paletas1">Cantidad:</label>
+                      <input type="number" id="cantidad_paletas1" class="cantidad" value="1" min="1">
+                  </div>
+                  <button class="btn btn-primary agregar-al-carrito" data-codigo="PAL001" data-nombre="Paleta de Sombras Tease me Beauty Creations" data-precio="10000">Agregar al carrito</button>
+              </div>
+          </div>
+          <div class="card-body">
+            <img src="Imagenes/Paleta-Maybelline-Nudes-of-New-York.jpg" class="card-img-top" alt="https://hibeautycr.com/products/sin-nombre-5ago_15-57">
+            <div class="info-card">
+                <h5 class="card-title">Paleta de Sombras Maybelline Nudes of New York</h5>
+                <p>La paleta de Sombras Nudes of New York es la primera paleta de sombras de ojos 
+                  con diseño universal, pensada para favorecer a todo tipo de complexiones faciales 
+                  y tonos de piel, contando con 16 tonos neutrales con acabados matte y brillante.</p>
+                <div class="detalle">
+                    <span>Código: PAL002</span>
+                    <span>Precio: &#8353;16,200</span>
+                </div>
+                <div class="cantidad">
+                    <label for="cantidad_paletas2">Cantidad:</label>
+                    <input type="number" id="cantidad_paletas2" class="cantidad" value="1" min="1">
+                </div>
+                <button class="btn btn-primary agregar-al-carrito" data-codigo="PAL002" data-nombre="Paleta de Sombras Maybelline Nudes of New York" data-precio="16200">Agregar al carrito</button>
+            </div>
+        </div>
+        <div class="card-body">
+          <img src="Imagenes/Paleta-Milani-Gilded-Flora.jpg" class="card-img-top" alt="https://bellisima.mx/products/milani-gilded-flora-eyeshadow-palette">
+          <div class="info-card">
+              <h5 class="card-title">Paleta de Sombras Milani Gilded Flora</h5>
+              <p>Paleta repleta de tonos neutros y de inspiración floral, esta paleta 
+                contiene 15 tonos multidimensionales súper pigmentados, desde mates mantecosos
+                hasta sombras súper brillantes y tonos metálicos complementarios.</p>
+              <div class="detalle">
+                  <span>Código: PAL003</span>
+                  <span>Precio: &#8353;18,500</span>
+              </div>
+              <div class="cantidad">
+                  <label for="cantidad_paletas3">Cantidad:</label>
+                  <input type="number" id="cantidad_paletas3" class="cantidad" value="1" min="1">
+              </div>
+              <button class="btn btn-primary agregar-al-carrito" data-codigo="PAL003" data-nombre="Paleta de Sombras Milani Gilded Flora" data-precio="18500">Agregar al carrito</button>
+          </div>
+      </div>
+      <div class="card-body">
+        <img src="Imagenes/Paleta-Mac-Connect.jpg" class="card-img-top" alt="https://cr.faces.com/paleta-de-sombras-mac-connect-in-colour-bmac3157/p">
+        <div class="info-card">
+            <h5 class="card-title">Paleta de sombras MAC Connect In Colour</h5>
+            <p>Paleta de sombras de ojos de 12 bandejas, con colores llenos 
+              de pigmentos en una sola pasada para looks mínimos a máximos ilimitados. Esta línea de colores 
+              neutros y esenciales presenta una textura liviana y suave en una variedad de 
+              acabados mate, brillante, brillante y metálico.</p>
+            <div class="detalle">
+                <span>Código: PAL004</span>
+                <span>Precio: &#8353;22,400</span>
+            </div>
+            <div class="cantidad">
+                <label for="cantidad_paletas4">Cantidad:</label>
+                <input type="number" id="cantidad_paletas4" class="cantidad" value="1" min="1">
+            </div>
+            <button class="btn btn-primary agregar-al-carrito" data-codigo="PAL004" data-nombre="Paleta de sombras MAC Connect In Colour" data-precio="22400">Agregar al carrito</button>
+        </div>
+      </div>
+    </div>
+    </div>
+    </div>
+    </div>
+
+    <main>
+      <table class="styled-table">
+          <thead>
+              <tr>
+                  <th>Código</th>
+                  <th>Nombre del Producto</th>
+                  <th>Precio Unitario</th>
+                  <th>Cantidad</th>
+                  <th>Total</th>
+                  <th>Acciones</th> 
+              </tr>
+          </thead>
+          <tbody>
+              <!-- Aquí se agregarán dinámicamente las filas de productos -->
+          </tbody>
+          <tfoot>
+              <tr>
+                  <td colspan="4"><strong>Total General</strong></td>
+                  <td><strong>₡0</strong></td>
+              </tr>
+          </tfoot>
+      </table>
+     </main>
+      
+        <footer class="footer">
+          <div class="container-footer">
+              <div class="footer-info">
+                  <h3>Sobre Melany's Cosmetics</h3>
+                  <p>Nuestra pasión por el maquillaje nos impulsa a ofrecerte 
+                    una selección única de productos que realzan tu belleza natural
+                    y te permiten expresar tu estilo personal. Descubre la autenticidad 
+                    en cada producto que ofrecemos, diseñados con amor y cuidado para 
+                    brindarte una experiencia de maquillaje excepcional.</p>
+              </div>
+              <div class="footer-contacto">
+                  <h3>Contacto</h3>
+                  <p>Correo electrónico: melanymatamoros19@gmail.com</p>
+                  <p>Teléfono: (506) 6320-6544</p>
+                  <p>Dirección: 50 metros de la iglesia Catolica del Cajon de Grecia, Grecia, Alajuela, Costa Rica</p>
+              </div>
+              <div class="footer-social">
+                <h3>Síguenos</h3>
+                <ul>
+                  <li><a href="#"><img src="Imagenes/instagram_2111463.png" alt="Instagram"> Instagram</a></li>
+                  <li><a href="#"><img src="Imagenes/facebook_5968764.png" alt="Facebook"> Facebook</a></li>
+                  <li><a href="#"><img src="Imagenes/whatsapp_3670051.png" alt="Whatsapp"> Whatsapp</a></li>
+                </ul>
+              </div>
+            <div class="linea-separadora"></div>
+          </div>
+          <div class="copyright">
+            <p>&copy; 2024 Melany's Cosmetics. Todos los derechos reservados.</p>
+          </div>
+        </footer>
+
+        <button id="location-btn" class="location-btn">Mostrar Ubicación</button>
+
+        <div id="map-container">
+        <iframe id="map-iframe" src="" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+
+        <script src="script.js"></script>
+
+        <!-- Enlace a Bootstrap JS y jQuery (requeridos para funcionalidad de la barra de navegación) -->
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

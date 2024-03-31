@@ -1,0 +1,994 @@
+/* Efecto de desplazamiento suave */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Poppins', sans-serif; /* Aplica la fuente de Google Fonts a todo el cuerpo */
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(120deg, #ff69b4, #87ceeb, #ff69b4);
+  animation: gradientBG 10s ease infinite;
+}
+
+@keyframes gradientBG {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Efecto de sombra suave para los elementos principales */
+ header, .footer {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+header {
+  background-color: lightpink;
+  padding: 20px 0;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  display: flex;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 28px;
+  color: white;
+}
+
+.contain-header{
+  width: 1000px;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.negrita {
+  font-weight: bold;
+}
+
+#animated-heading {
+  opacity: 0;
+  animation: fadeIn 2s ease forwards;
+}
+
+@keyframes fadeIn {
+  to {
+      opacity: 1;
+  }
+}
+
+header img {
+  height: 80px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  transition: transform 0.3s ease;
+}
+
+header img:hover {
+  transform: scale(1.1);
+}
+
+main {
+  justify-content: center;
+  padding: 20px 0;
+  display: flex;
+}
+
+/* Estilos para el contenedor de "Nuestras Marcas" */
+.nuestras-marcas {
+  background-color: transparent;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  transition: opacity 0.3s; /* Transición suave para la opacidad */
+}
+
+/* Estilos para el título "Nuestras Marcas" */
+.nuestras-marcas h2 {
+  font-size: 24px;
+  font-family: 'Poppins', sans-serif;
+  color: #191919;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+/* Estilos para la lista de marcas */
+.nuestras-marcas ul {
+  list-style: none;
+  padding: 0;
+}
+
+/* Estilos para los elementos de la lista de marcas */
+.nuestras-marcas li {
+  display: inline-block; /* Mostrar elementos en línea */
+  margin-right: 10px; /* Espacio entre elementos */
+}
+
+/* Estilos para las imágenes de las marcas */
+.nuestras-marcas li img {
+  width: 100px; /* Ancho de las imágenes */
+  height: auto; /* Altura ajustada automáticamente */
+}
+
+/* Estilos para las imágenes de las marcas al pasar el mouse por encima */
+.nuestras-marcas li img:hover {
+  opacity: 0.7; /* Cambia la opacidad al pasar el mouse por encima */
+}
+
+/* Estilos para el contenedor de promociones */
+.promociones .container-promociones {
+  background-color: pink;
+  padding: 20px 0; /* Relleno superior e inferior de 20px, y sin relleno a los lados */
+  margin: 0 auto 50px; /* Margen superior e inferior de 50px y márgenes laterales automáticos */
+  display: flex; /* Activar el modelo de caja flexible */
+  flex-direction: column; /* Apilar los elementos hijos verticalmente */
+  align-items: center; /* Centrar horizontalmente los elementos hijos */
+  text-align: center; /* Alinear horizontalmente el texto dentro de los elementos */
+  justify-content: center; /* Centrar verticalmente los elementos */
+  height: 150px; /* Establecer una altura fija de 150px */
+  width: 82%;
+}
+
+.promociones h2,
+.promociones p {
+  padding-left: 20px;
+  text-align: center;
+}
+
+aside {
+  height: 1120px;
+  display: flex;
+  flex-direction: column;
+  width: 35%; 
+  background-color: transparent; 
+  padding: 20px 0;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+aside h2 {
+  color: #d81b60; /* Rosa más oscuro para el título */
+}
+
+aside ul li {
+  list-style: none;
+  text-align: left;
+  padding-right: 28px;
+  color: black; 
+  text-decoration: none;
+}
+
+.li1,
+.li2,
+.li3,
+.li4,
+.li5 {
+  text-align: left;
+  padding-bottom: 15px;
+}
+
+.li1:before {
+  content: ""; /* Crea un contenido vacío antes del elemento li4 */
+  display: inline-block; /* Hace que el elemento sea un bloque en línea */
+  width: 30px; /* Establece el ancho del elemento en 60 píxeles */
+  height: 30px; /* Establece la altura del elemento en 60 píxeles */
+  background-image: url('Imagenes/numero-1.png'); /* Establece la imagen de fondo */
+  background-size: cover; /* Escala la imagen de fondo para cubrir todo el área */
+  margin-right: 10px; /* Establece el margen derecho en 10 píxeles */
+  margin-top: 1px; /* Establece el margen superior en 41 píxeles */
+  vertical-align: middle; /* Alinea verticalmente el elemento */
+}
+
+.li2:before {
+  content: ""; 
+  display: inline-block;
+  width: 30px; 
+  height: 30px; 
+  background-image: url('Imagenes/dos.png'); 
+  background-size: cover; 
+  margin-right: 10px;
+  margin-top: 1px; 
+  vertical-align: middle; 
+}
+
+.li3:before {
+  content: ""; 
+  display: inline-block;
+  width: 30px; 
+  height: 30px; 
+  background-image: url('Imagenes/tres.png'); 
+  background-size: cover; 
+  margin-right: 10px;
+  margin-top: 1px; 
+  vertical-align: middle;
+}
+
+.li4:before{
+  content: ""; 
+  display: inline-block;
+  width: 30px; 
+  height: 30px; 
+  background-image: url('Imagenes/cuatro.png'); 
+  background-size: cover; 
+  margin-right: 10px;
+  margin-top: 1px; 
+  vertical-align: middle;
+}
+
+.li5:before {
+  content: ""; 
+  display: inline-block;
+  width: 30px; 
+  height: 30px; 
+  background-image: url('Imagenes/cinco.png'); 
+  background-size: cover; 
+  margin-right: 10px;
+  margin-top: 1px; 
+  vertical-align: middle;
+}
+
+.li1:hover,
+.li2:hover,
+.li3:hover,
+.li4:hover,
+.li5:hover {
+  transform: scale(1.1); /* Aumentar el tamaño */
+  transition: transform 0.3s ease; /* Agregar una transición suave */
+}
+
+article {
+  height: 1120px;
+  display: flex;
+  flex-direction: column;
+  margin-left: 50px;
+  background-color: transparent; /* Rosa más claro */
+  width: 65%;
+  padding: 20px;
+  margin-bottom: 50px;
+  max-width: 800px;
+  box-shadow: 0 0 20px gray;
+}
+
+article h2 {
+  color: #d81b60; /* Rosa más oscuro para el título */
+  text-align: center;
+}
+
+.tendencia {
+  margin-bottom: 30px;
+}
+
+.tendencia h3 {
+  color: #FF69B4; /* Color rosa */
+}
+
+/* Estilos para los videos */
+.video-contain-tendencia {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* Proporción 16:9 para videos */
+  overflow: hidden;
+}
+
+.video-contain-tendencia iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.footer {
+  display: inline-block;
+  background-color: lightpink;
+  color: #333333;
+  width: 100%;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  padding-left: 70px;
+  padding-right: 70px;
+  padding-top: 40px;
+  margin-top: 50px;
+}
+
+.container-footer {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 1200px;
+  text-align: center;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-info,
+.footer-contacto,
+.footer-social {
+  flex: 0 0 30%;
+  max-width: 30%;
+  padding: 0 20px;
+}
+
+.footer-info h3,
+.footer-contacto h3,
+.footer-social h3 {
+  font-weight: bold;
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+.footer-info p,
+.footer-contacto p,
+.footer-social ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
+
+.footer-contacto p {
+  margin-bottom: 10px;
+}
+
+.footer-social ul li {
+  margin-bottom: 8px;
+}
+
+.footer-social ul li a {
+  text-decoration: none;
+  color: #333333;
+}
+
+.footer-social a:hover {
+  color: #ff1493; 
+  font-weight: bold;
+}
+
+.footer-social img {
+  width: 30px; /* Ajusta el ancho de las imágenes según sea necesario */
+  height: auto; /* Esto mantiene la proporción de la imagen */
+}
+
+.linea-separadora {
+  border-top: 1px solid #837c7c;
+  margin-top: 45px;
+  margin-bottom: 20px;
+  width: 1160px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.copyright {
+  text-align: center;
+  margin-top: 30px;
+  color: #666;
+  font-size: 14px;
+}
+
+.galeria-productos {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  width: 100%;
+}
+
+.featured-products {
+  margin-bottom: 50px;
+  margin-top: 50px;
+  text-align: center; 
+}
+
+.featured-products h2 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.featured-products .container {
+  display: flex; 
+  justify-content: center; 
+  width: 2000px;
+  margin-left: 120px;
+}
+
+.featured-products .product {
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+  text-align: center; 
+  background-color: transparent;
+  box-shadow: 0 1px 20px rgba(0, 0, 0, 0.3);
+  padding-top: 20px;
+  padding-bottom: 20px;
+  width: 600px;
+}
+
+.featured-products .product img {
+  max-width: 100%; 
+  height: auto; 
+  max-width: 200px; 
+  margin-bottom: 20px;
+}
+
+.container {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+}
+  
+nav {
+    width: 100%;
+    background-color: #ff1493;
+    float: right;
+    margin-bottom: 50px; 
+}
+  
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+  
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+  
+nav ul li a {
+    text-decoration: none;
+    color: white;
+}
+
+.navbar-nav {
+    width: 100%; /* Asegura que la lista de navegación ocupe todo el ancho disponible */
+    display: flex; /* Usa flexbox para alinear los elementos */
+    justify-content: center; /* Centra horizontalmente los elementos */
+}
+
+.navbar-nav .nav-item {
+    text-align: center; /* Centra el texto dentro de cada elemento */
+    font-size: 17px;
+    font-weight: bold;
+}
+  
+.btn-rosa {
+    background-color: #c71585;
+    border-color: #c71585;
+    color: #fff;
+}
+  
+.product {
+    float: left;
+    width: 30%;
+    margin-right: 3%;
+    text-align: center;
+}
+  
+.product img {
+    width: 100%;
+    border-radius: 5px;
+}
+  
+button {
+    background-color: pink;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.carousel-item {
+  position: absolute; /* Para que las imágenes no se superpongan */
+  display: block; /* Muestra la imagen activa */
+}
+
+.manual-transition {
+  transition: transform 0.8s ease;
+}
+
+.carousel-item img {
+  width: 200px; /* Ajusta el ancho de la imagen al 100% del contenedor */
+  height: 500px;
+  animation: slideInOut 13s infinite; /* Aplica la animación a todas las imágenes */
+}
+
+.carousel-item.active {
+  display: block; /* Muestra la imagen activa */
+}
+
+@keyframes slideInOut {
+  0% {
+    transform: translateX(100%); /* Desliza la imagen fuera de la pantalla hacia la derecha */
+  }
+  25% {
+    transform: translateX(0%); /* Detiene la imagen en su posición durante el 25% de la animación */
+  }
+  75% {
+    transform: translateX(0%); /* Mantiene la imagen en su posición durante el 75% de la animación */
+  }
+  100% {
+    transform: translateX(-100%); /* Desliza la imagen fuera de la pantalla hacia la izquierda */
+  }
+}
+
+#transicion1,
+#transicion2,
+#transicion3,
+#transicion4,
+#transicion5,
+#transicion6,
+#transicion7,
+#transicion8,
+#transicion9,
+#transicion10,
+#transicion11,
+#transicion12,
+#transicion13,
+#transicion14,
+#transicion15,
+#transicion16 {
+  transition: transform 0.5s ease;
+}
+
+#tran1,
+#tran2,
+#tran3,
+#tran4,
+#tran5,
+#tran6,
+#tran7,
+#tran8,
+#tran9,
+#tran10,
+#tran11,
+#tran12,
+#tran13,
+#tran14,
+#tran15,
+#tran16 {
+  float: inline-start;
+  margin-left: 25%;
+}
+
+/* Estilos básicos del botón de ubicación */
+.location-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #ff69b4;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  z-index: 9999; /* Asegura que esté por encima de otros elementos */
+}
+
+/* Efecto de hover */
+.location-btn:hover {
+  background-color: #ff1493;
+}
+
+#map-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 300px; /* Ancho deseado del contenedor */
+    height: 300px; /* Alto deseado del contenedor */
+    border-radius: 10px; /* Añade bordes redondeados */
+    overflow: hidden; /* Oculta el desbordamiento */
+    z-index: 9998; /* Asegura que esté por debajo del botón */
+}
+
+/* Estilos adicionales para el logotipo */
+#logo {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Agrega una sombra al logotipo */
+  border-radius: 10px; /* Redondea las esquinas del logotipo */
+}
+
+@media (min-width: 790px) {
+    footer {
+    background: #1b1e23;
+    padding-left: 120px;
+    padding-right: 80px;
+  }
+}
+
+.contain-form {
+  max-width: 400px;
+  margin: 70px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.contain-form h2 {
+  margin-bottom: 20px;
+  text-align: center;
+  color: #333;
+}
+
+.contain-form p {
+  max-width: 300px; /* Establece el mismo ancho máximo que el formulario */
+  margin: 0 auto; /* Centra el párrafo horizontalmente dentro del formulario */
+  text-align: justify;
+  margin-bottom: 25px;
+}
+
+.contain-form h2:hover {
+  color: rgb(151, 46, 151);
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.contain-form label {
+  font-weight: bold;
+}
+
+.contain-form input[type="text"],
+.contain-form input[type="email"],
+.contain-form select,
+.contain-form button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.contain-form input[type="date"] {
+  width: calc(100% - 22px);
+}
+
+.contain-form button {
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.contain-form button:hover {
+  background-color: #45a049;
+}
+
+.contain-form button:active {
+  background-color: #3e8e41;
+}
+
+.contain-form select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url('data:image/svg+xml;utf8,<svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>');
+  background-repeat: no-repeat;
+  background-position-x: 95%;
+  background-position-y: 50%;
+}
+
+.contain-form select::-ms-expand {
+  display: none;
+}
+
+.styled-table {
+  width: 80%;
+  border-collapse: collapse;
+  border: 1px solid #ddd;
+  margin: 0 auto;
+}
+
+.styled-table th, .styled-table td {
+  padding: 10px;
+  text-align: left;
+}
+
+.styled-table th {
+  background-color: #f2f2f2;
+  border-bottom: 1px solid #ddd;
+}
+
+.styled-table tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.styled-table tbody tr:hover {
+  background-color: #ddd;
+}
+
+.styled-table tfoot td:last-child {
+  font-weight: bold; /* Hace que el texto sea más grueso */
+  color: blue; /* Cambia el color del texto a rojo para destacarlo */
+}
+
+input[type="text"] {
+  border: none; /* Oculta el borde del input */
+  background-color: transparent; /* Hace el fondo transparente */
+  width: 100%; /* Ajusta el ancho del input */
+  text-align: center; /* Centra el texto */
+}
+
+.contain-informacionAcercaDe {
+  max-width: 800px;
+  margin: 120px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+}
+
+.profile img {
+  width: 200px;
+  height: 200px;
+  border-radius: 100px;
+  margin-right: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); 
+}
+
+.info {
+  flex-grow: 1;
+  background-color: #f9f9f9; /* Fondo ligeramente gris */
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.info h1 {
+  margin-top: 0;
+  color: #333;
+}
+
+.info p {
+  margin: 10px 0;
+  color: #666;
+}
+
+.info strong {
+  font-weight: bold;
+  color: #333;
+}
+
+.sidebar {
+  width: 200px;
+  padding: 20px;
+  background-color: #f2f2f2;
+  margin-left: 100px;
+  margin-top: 150px;
+  margin-bottom: 100px;
+  border-radius: 10px;
+  height: 250px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.categories {
+  list-style: none;
+  padding: 0;
+}
+
+.categories li {
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.contenedor-productos {
+  display: flex;
+}
+
+.main-content {
+  margin-top: 130px;
+  margin-left: 50px;
+  display: flex;
+}
+
+.products {
+  width: 900px;
+  height: auto;
+  gap: 10px;
+  overflow-x: auto;
+  padding-bottom: 20px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card {
+  width: 100%; /* Ocupar todo el ancho del contenedor */
+  margin-right: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Cambia esto a flex-start para alinear los elementos a la izquierda */
+}
+
+.card-body {
+  width: 100%;
+  margin-bottom: 50px;
+  background-color: transparent;
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+  flex: 1;
+  box-shadow: 0 1px 20px rgba(0, 0, 0, 0.3);
+}
+
+.card-body p {
+  color: white;
+  margin-bottom: 15px;
+  text-align: right;
+  margin-top: 5px;
+}
+
+.card-body img {
+  width: 30%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.info-card {
+  width: 70%; /* Ajusta el ancho del contenido de la tarjeta */
+  background-color: transparent;
+  margin-left: 50px;
+}
+
+.card-title,
+.btn-primary,
+.cantidad {
+  text-align: right;
+  margin-top: 5px; /* Ajusta el margen superior */
+}
+
+.card-title {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+/* Estilos para los detalles del producto (código y precio) */
+.detalle {
+  margin-top: 10px;
+  font-size: 14px;
+  text-align: right;
+}
+
+.detalle span {
+  display: block;
+}
+
+.detalle span:first-child {
+  font-weight: bold;
+  color: #333; /* Color del texto */
+}
+
+.detalle span:last-child {
+  color: #666; /* Color del texto */
+}
+
+.cantidad label {
+  margin-right: 5px; /* Ajusta el margen derecho del etiqueta */
+}
+
+.cantidad input {
+  height: 46px;
+  width: 100px;
+}
+
+/* Estilo para los botones de incremento y decremento */
+.increment-button,
+.decrement-button {
+    height: 30px;
+    width: 30px;
+    background-color: #f0f0f0;
+    cursor: pointer;
+}
+
+/* Estilo para separar los botones */
+.increment-button {
+    border-right: 1px solid #ccc;
+}
+
+.btn-primary {
+  background-color: #4caf50;
+  border: none;
+  width: fit-content;
+  margin-left: auto; /* Mueve el botón hacia la derecha */
+}
+
+.btn-primary:hover {
+  background-color: #45a049; /* Cambiar el color de fondo cuando se pasa el mouse sobre el botón */
+}
+
+.btn-primary:active {
+  background-color: #3e8e41;
+}
+
+.card.bases,
+.card.labiales,
+.card.polvos,
+.card.paletas {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: transparent;
+  border: none;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.contain-carrito {
+  max-width: 1000px;
+  margin: 70px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.contain-img-carrito {
+  width: 100%;
+  background-color: transparent;
+  height: 20px;
+  text-align: right;
+  margin: 0 auto;
+}
+
+.button-img-carrito {
+  border: none;
+  background-color: transparent;
+  padding: 0; /* Eliminar el relleno predeterminado del botón */
+  cursor: pointer;
+  margin-right: 136px;
+}
+
+.button-img-carrito img {
+  width: 50px;
+  height: 50px;
+  margin-top: -15px; /* Mueve la imagen hacia arriba */
+}
+
+.button-img-carrito:hover img {
+  transform: scale(1.1);
+}
+
+.video-container {
+  margin-top: -100px; /* Ajusta este valor según sea necesario para mover el video hacia arriba */
+  display: block; /* Asegura que el video sea un elemento de bloque para aplicar los márgenes correctamente */
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.audio-container {
+  margin-top: 20px; /* Ajusta este valor según sea necesario para mover el video hacia arriba */
+  display: block; /* Asegura que el video sea un elemento de bloque para aplicar los márgenes correctamente */
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
