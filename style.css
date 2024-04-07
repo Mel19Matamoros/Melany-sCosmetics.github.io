@@ -396,10 +396,11 @@ article h2 {
 }
 
 .featured-products .container {
-  display: flex; 
-  justify-content: center; 
-  width: 2000px;
-  margin-left: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
 }
 
 .featured-products .product {
@@ -602,14 +603,6 @@ button {
   border-radius: 10px; /* Redondea las esquinas del logotipo */
 }
 
-@media (min-width: 790px) {
-    footer {
-    background: #1b1e23;
-    padding-left: 120px;
-    padding-right: 80px;
-  }
-}
-
 .contain-form {
   max-width: 400px;
   margin: 70px auto;
@@ -688,6 +681,10 @@ button {
 
 .contain-form select::-ms-expand {
   display: none;
+}
+
+#temporizador {
+  text-align: center;
 }
 
 .styled-table {
@@ -992,3 +989,214 @@ input[type="text"] {
   justify-content: center;
 }
 
+@media (min-width: 790px) {
+  footer {
+  background: #1b1e23;
+  padding-left: 120px;
+  padding-right: 80px;
+}
+}
+
+/* Media query para pantallas pequeñas (máximo 767px) */
+@media screen and (max-width: 767px) {
+  /* Estilos para el encabezado */
+  .contain-header {
+      text-align: center;
+  }
+  .navbar-nav {
+      text-align: center;
+  }
+  .nav-item {
+      margin-bottom: 10px;
+  }
+  /* Estilos para la galería de productos */
+  .galeria {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+  }
+  .product {
+      width: 45%;
+      margin-bottom: 20px;
+  }
+  /* Estilos para el aside y el artículo */
+  aside, article {
+      width: 100%;
+      margin-bottom: 20px;
+  }
+  .li1, .li2, .li3, .li4, .li5 {
+      padding-left: 20px;
+  }
+  /* Estilos para el footer */
+  .footer-info, .footer-contacto, .footer-social {
+      text-align: center;
+  }
+  .footer-social ul {
+      display: flex;
+      justify-content: center;
+  }
+}
+
+/* Media query para pantallas muy pequeñas (máximo 575px) */
+@media screen and (max-width: 575px) {
+  /* Estilos para el encabezado */
+  #animated-heading {
+      font-size: 24px;
+  }
+
+  /* Estilos para el navbar colapsable */
+  .navbar-collapse {
+      text-align: center;
+  }
+
+  .navbar-toggler {
+      display: block;
+      margin: 0 auto;
+  }
+
+  .navbar-nav {
+      text-align: center;
+  }
+
+  .navbar-nav .nav-item {
+      margin-bottom: 10px;
+  }
+
+  .navbar-nav .dropdown-menu {
+      position: static;
+  }
+
+  /* Estilos para el footer */
+  .footer-social ul {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  /* Estilos para el contenedor de aside y article */
+  .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+  }
+
+  /* Estilos para el aside y el artículo */
+  aside, article {
+      width: 90%; /* Ancho del 90% del contenedor */
+      margin-bottom: 20px; /* Separación entre aside y article */
+      box-sizing: border-box; /* Incluir padding en el ancho total */
+  }
+
+  /* Estilos para los elementos de lista dentro del aside y el artículo */
+  .li1, .li2, .li3, .li4, .li5 {
+      padding-left: 0; /* Reiniciar el padding izquierdo */
+      margin-left: 20px; /* Añadir margen izquierdo */
+  }
+  
+   /* Estilos para cada cuadro de productos o tendencias */
+   .featured-products .product,
+   .tendencia {
+       width: 90%; /* Ancho del 90% del contenedor */
+       margin: 0 auto 20px; /* Margen inferior para separación */
+   }
+
+   /* Estilos para las imágenes dentro de los cuadros */
+   .featured-products img,
+   .tendencia img {
+       width: 100%; /* Ancho del 100% del contenedor */
+       height: auto; /* Altura automática para mantener la proporción */
+   }
+}
+
+/* Estilos para el contenedor del carrito */
+.cart-container {
+  display: none; /* El carrito estará oculto inicialmente */
+  position: fixed;
+  top: 0;
+  right: -100%; /* Comienza fuera de la pantalla */
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* Fondo negro semi-transparente */
+  z-index: 999; /* Asegura que esté sobre otros elementos */
+  transition: right 0.3s ease; /* Transición suave al mostrar/ocultar */
+}
+
+.cart-content {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 80%; /* Ancho del contenido del carrito */
+  background-color: #fff; /* Fondo blanco del contenido */
+  padding: 20px;
+  overflow-y: auto; /* Agrega desplazamiento si el contenido es demasiado largo */
+}
+
+/* Estilo para mostrar el contenedor del carrito */
+#cart-container.active {
+  right: 0; /* Muestra el contenedor desde la derecha */
+  display: block; /* Mostrar el carrito cuando tenga la clase 'active' */
+}
+
+/* Estilos para el botón "Ocultar Carrito" dentro del carrito */
+#hideCartButton {
+  border-radius: 20px; /* Radio de borde para redondear el botón */
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 5px 10px; /* Espaciado interno */
+  cursor: pointer; /* Cambia el cursor al pasar por encima */
+}
+
+#cartItemCount {
+  background-color: #ff0000;
+  color: #ffffff;
+  border-radius: 50%;
+  padding: 2px 6px;
+  font-size: 12px;
+  margin-left: 5px;
+  animation: pulse 0.5s infinite alternate;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.1); }
+}
+
+#toggleCartButton {
+  justify-content: left; /* Alineamos el contenido a la derecha */
+  margin-left: 1025px;
+  margin-bottom: -150px;
+}
+
+/* Boton Mostrar Carrito */ 
+#cartButton {
+  border-radius: 20px; /* Radio de borde para redondear el botón */
+  color: #fff; /* Color del texto del botón */
+  cursor: pointer; /* Cambiar el cursor al pasar sobre el botón */
+}
+
+#temporizador {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+#map {
+  position: fixed;
+  bottom: 20px;
+  left: 20px; /* Cambia 'right' a 'left' para posicionar a la izquierda */
+  width: 300px; /* Ancho deseado del contenedor */
+  height: 300px; /* Alto deseado del contenedor */
+  border-radius: 10px; /* Añade bordes redondeados */
+  overflow: hidden; /* Oculta el desbordamiento */
+  z-index: 9998; /* Asegura que esté por debajo del botón */
+}
+
+#info-panel {
+  position: absolute;
+  top: 20px;
+  right: 20px; /* Cambia la propiedad left por right */
+  width: 300px;
+  background-color: white;
+  padding: 20px;
+  border: 1px solid #ccc;
+}
