@@ -129,7 +129,7 @@ document.addEventListener('DOMContentLoaded', function() {
             input.parentNode.appendChild(incrementButton);
             input.parentNode.appendChild(decrementButton);
         }
-});
+    });
 
     function increment(input) {
         const currentValue = parseInt(input.value);
@@ -146,139 +146,26 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Funcion para la table del agregar al carrito
 document.addEventListener('DOMContentLoaded', function() {
-    // Función para incrementar y decrementar la cantidad
-    function increment(input) {
-        const currentValue = parseInt(input.value);
-        input.value = currentValue + 1;
-    }
+    const toggleCartButton = document.getElementById('toggleCartButton');
+    const cartContainer = document.getElementById('cartContainer');
+    const hideCartButton = document.getElementById('hideCartButton');
 
-    function decrement(input) {
-        const currentValue = parseInt(input.value);
-        if (currentValue > 1) {
-            input.value = currentValue - 1;
-        }
-    }
+    // Ocultar el carrito al cargar la página
+    cartContainer.classList.remove('active');
 
-    // Botones para incrementar y decrementar la cantidad
-    function createQuantityButtons(input) {
-        const incrementButton = document.createElement('button');
-        incrementButton.textContent = '+';
-        incrementButton.style.fontWeight = 'bold';
-        incrementButton.addEventListener('click', function() {
-            increment(input);
-        });
-
-        const decrementButton = document.createElement('button');
-        decrementButton.textContent = '-';
-        decrementButton.style.fontWeight = 'bold';
-        decrementButton.addEventListener('click', function() {
-            decrement(input);
-        });
-
-        input.parentNode.appendChild(incrementButton);
-        input.parentNode.appendChild(decrementButton);
-    }
-
-    // Agrega los botones de cantidad a cada input
-    const cantidadInputs = document.querySelectorAll('.cantidad');
-    cantidadInputs.forEach(input => {
-        input.addEventListener('click', function() {
-            this.select(); // Selecciona todo el texto en el input al hacer clic en él
-        });
-
-        // Verificar si ya se han agregado los botones
-        if (!input.parentNode.querySelector('button')) {
-            createQuantityButtons(input);
-        }
+    toggleCartButton.addEventListener('click', function() {
+        cartContainer.classList.toggle('active'); // Mostrar/ocultar el carrito al hacer clic en el botón principal
     });
 
-    // Agrega un evento click a cada botón "Agregar al carrito"
-    const addToCartButtons = document.querySelectorAll('.agregar-al-carrito');
-    addToCartButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            const codigo = button.getAttribute('data-codigo');
-            const nombre = button.getAttribute('data-nombre');
-            const precio = parseFloat(button.getAttribute('data-precio'));
-            const cantidadInput = button.parentElement.querySelector('.cantidad input');
-            const cantidad = parseInt(cantidadInput.value);
-            const total = precio * cantidad;
-    
-            // Buscar si ya existe una fila con el mismo código
-            const existingRow = document.querySelector(`.styled-table tbody tr[data-codigo="${codigo}"]`);
-    
-            if (existingRow) {
-                // Si existe, actualizar la cantidad y el total
-                const cantidadCell = existingRow.querySelector('.cantidad input');
-                const nuevaCantidad = parseInt(cantidadCell.value) + cantidad;
-                cantidadCell.value = nuevaCantidad;
-                existingRow.querySelector('.total').textContent = precio * nuevaCantidad;
-            } else {
-                // Si no existe, agregar una nueva fila
-                const newRow = document.createElement('tr');
-                newRow.dataset.codigo = codigo;
-                newRow.innerHTML = `
-                    <td>${codigo}</td>
-                    <td>${nombre}</td>
-                    <td>${precio}</td>
-                    <td class="cantidad"><input type="text" value="${cantidad}" readonly></td>
-                    <td class="total">${total}</td>
-                `;
-    
-                const tableBody = document.querySelector('.styled-table tbody');
-                tableBody.appendChild(newRow);
-            }
-    
-            // Calcular el total general
-            calcularTotalGeneral();
-
-            // Restablecer la cantidad a 1
-            cantidadInput.value = 1;
-        });
+    hideCartButton.addEventListener('click', function() {
+        cartContainer.classList.remove('active'); // Ocultar el carrito al hacer clic en el botón "Ocultar Carrito"
     });
 
-    // Función para calcular el total general
-    function calcularTotalGeneral() {
-        const rows = document.querySelectorAll('.styled-table tbody tr');
-        let totalGeneral = 0;
-        rows.forEach(row => {
-            const totalRow = parseFloat(row.cells[4].textContent);
-            totalGeneral += totalRow;
-        });
+    let temporizadorIntervalo; // Variable para almacenar el intervalo del temporizador
+    let segundosRestantes = 60; // Duración inicial del temporizador en segundos (1 minuto)
 
-        // Redondear hacia abajo el total general y mostrarlo como número entero
-        totalGeneral = Math.floor(totalGeneral);
-
-        // Actualizar el total general en el pie de la tabla
-        const totalGeneralElement = document.querySelector('.styled-table tfoot td:last-child');
-        totalGeneralElement.textContent = '₡' + totalGeneral;
-    }
-
-    // Guardar los elementos de la tabla en el almacenamiento local antes de cerrar la pestaña
-    window.addEventListener('beforeunload', function() {
-        const tableRows = document.querySelectorAll('.styled-table tbody tr');
-        const savedData = [];
-
-        tableRows.forEach(row => {
-            const codigo = row.dataset.codigo;
-            const nombre = row.cells[1].textContent;
-            const precio = parseFloat(row.cells[2].textContent);
-            const cantidad = parseInt(row.querySelector('.cantidad input').value);
-            const total = parseFloat(row.cells[4].textContent);
-
-            savedData.push({
-                codigo: codigo,
-                nombre: nombre,
-                precio: precio,
-                cantidad: cantidad,
-                total: total
-            });
-        });
-
-        localStorage.setItem('cartData', JSON.stringify(savedData));
-    });
-
-    // Cargar los elementos de la tabla desde el almacenamiento local al abrir la página
-    window.addEventListener('load', function() {
+    // Función para cargar los datos del carrito desde el almacenamiento local
+    function cargarCarritoDesdeLocalStorage() {
         const savedData = localStorage.getItem('cartData');
 
         if (savedData) {
@@ -302,6 +189,146 @@ document.addEventListener('DOMContentLoaded', function() {
             // Calcular el total general
             calcularTotalGeneral();
         }
+    }
+
+    // Función para guardar los datos del carrito en el almacenamiento local
+    function guardarCarritoEnLocalStorage() {
+        const tableRows = document.querySelectorAll('.styled-table tbody tr');
+        const savedData = [];
+
+        tableRows.forEach(row => {
+            const codigo = row.dataset.codigo;
+            const nombre = row.cells[1].textContent;
+            const precio = parseFloat(row.cells[2].textContent);
+            const cantidad = parseInt(row.querySelector('.cantidad input').value);
+            const total = parseFloat(row.cells[4].textContent);
+
+            savedData.push({
+                codigo: codigo,
+                nombre: nombre,
+                precio: precio,
+                cantidad: cantidad,
+                total: total
+            });
+        });
+
+        localStorage.setItem('cartData', JSON.stringify(savedData));
+    }
+
+    // Función para calcular el total general
+    function calcularTotalGeneral() {
+        const rows = document.querySelectorAll('.styled-table tbody tr');
+        let totalGeneral = 0;
+        rows.forEach(row => {
+            const totalRow = parseFloat(row.cells[4].textContent);
+            totalGeneral += totalRow;
+        });
+
+        // Redondear hacia abajo el total general y mostrarlo como número entero
+        totalGeneral = Math.floor(totalGeneral);
+
+        // Actualizar el total general en el pie de la tabla
+        const totalGeneralElement = document.querySelector('.styled-table tfoot td:last-child');
+        totalGeneralElement.textContent = '₡' + totalGeneral;
+    }
+
+    // Función para actualizar el temporizador en la página del carrito
+    function actualizarTemporizador() {
+        const temporizadorElemento = document.getElementById('temporizador');
+
+        temporizadorIntervalo = setInterval(function() {
+            segundosRestantes--;
+            if (segundosRestantes <= 0) {
+                clearInterval(temporizadorIntervalo); // Detener el temporizador cuando llegue a cero
+                temporizadorElemento.textContent = 'El tiempo ha expirado';
+                // Eliminar los datos del carrito del almacenamiento local
+                localStorage.removeItem('cartData');
+                // Actualizar la página después de eliminar el almacenamiento
+                location.reload();
+            } else {
+                const minutos = Math.floor(segundosRestantes / 60);
+                const segundos = segundosRestantes % 60;
+                temporizadorElemento.textContent = `Tiempo restante: ${minutos}:${segundos < 10 ? '0' : ''}${segundos}`;
+            }
+        }, 1000); // Actualizar cada segundo
+    }
+
+    function actualizarCantidadCarrito() {
+        const cartItemCountElement = document.getElementById('cartItemCount');
+        const cartItemCount = parseInt(cartItemCountElement.textContent) || 0;
+        cartItemCountElement.textContent = cartItemCount + 1;
+    }
+
+    // Llamar a la función para cargar los datos del carrito al cargar la página
+    cargarCarritoDesdeLocalStorage();
+
+    // Agregar un evento click a cada botón "Agregar al carrito"
+    const addToCartButtons = document.querySelectorAll('.agregar-al-carrito');
+    addToCartButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            // Iniciar el temporizador solo si aún no ha sido iniciado
+            if (!temporizadorIntervalo) {
+                actualizarTemporizador();
+            }
+
+            const codigo = button.getAttribute('data-codigo');
+            const nombre = button.getAttribute('data-nombre');
+            const precio = parseFloat(button.getAttribute('data-precio'));
+            const cantidadInput = button.parentElement.querySelector('.cantidad input');
+            const cantidad = parseInt(cantidadInput.value);
+            const total = precio * cantidad;
+
+            // Buscar si ya existe una fila con el mismo código
+            const existingRow = document.querySelector(`.styled-table tbody tr[data-codigo="${codigo}"]`);
+
+            if (existingRow) {
+                // Si existe, actualizar la cantidad y el total
+                const cantidadCell = existingRow.querySelector('.cantidad input');
+                const nuevaCantidad = parseInt(cantidadCell.value) + cantidad;
+                cantidadCell.value = nuevaCantidad;
+                existingRow.querySelector('.total').textContent = precio * nuevaCantidad;
+            } else {
+                // Si no existe, agregar una nueva fila
+                const newRow = document.createElement('tr');
+                newRow.dataset.codigo = codigo;
+                newRow.innerHTML = `
+                    <td>${codigo}</td>
+                    <td>${nombre}</td>
+                    <td>${precio}</td>
+                    <td class="cantidad"><input type="text" value="${cantidad}" readonly></td>
+                    <td class="total">${total}</td>
+                    <td><button class="eliminar-fila">Eliminar</button></td>
+                `;
+
+                const tableBody = document.querySelector('.styled-table tbody');
+                tableBody.appendChild(newRow);
+
+                // Agregar evento al botón de eliminar después de crear la fila
+                const deleteButton = newRow.querySelector('.eliminar-fila');
+                deleteButton.addEventListener('click', () => {
+                const tableRow = deleteButton.closest('tr'); // Obtener la fila que contiene el botón
+                tableRow.remove(); // Eliminar la fila al hacer clic en Eliminar
+
+                // Recalcular el total general y guardar el carrito en el almacenamiento local
+                calcularTotalGeneral();
+                guardarCarritoEnLocalStorage();
+                // Actualizar la cantidad en el botón
+                actualizarCantidadCarrito();
+                });
+
+                // Estilo para el botón de eliminar (cursor pointer)
+                deleteButton.style.cursor = 'pointer';
+            }
+
+            // Calcular el total general
+            calcularTotalGeneral();
+
+            // Guardar el carrito en el almacenamiento local
+            guardarCarritoEnLocalStorage();
+
+            // Actualizar la cantidad en el botón
+            actualizarCantidadCarrito();
+        });
     });
 });
 
@@ -360,3 +387,22 @@ window.onload = cargarDatos;
 document.querySelector('form').addEventListener('submit', function(event) {
     guardarDatos();
 });
+
+function toggleCarrito() {
+    var carritoContainer = document.getElementById('carrito-container');
+    var btn = document.getElementById('toggle-carrito-btn');
+    
+    // Si el contenedor del carrito está visible, ocúltalo; de lo contrario, muéstralo
+    if (carritoContainer.style.display === 'block') {
+        carritoContainer.style.display = 'none';
+        btn.textContent = 'Mostrar Carrito';
+    } else {
+        carritoContainer.style.display = 'block';
+        btn.textContent = 'Ocultar Carrito';
+    }
+}
+
+// Asociar la función toggleCarrito al evento clic del botón
+document.getElementById('toggle-carrito-btn').addEventListener('click', toggleCarrito);
+
+
