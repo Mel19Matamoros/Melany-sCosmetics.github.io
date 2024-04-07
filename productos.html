@@ -5,7 +5,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Melany's Cosmetics</title> 
         <link rel="icon" href="Imagenes/Logo Melany's Cosmetics.PNG" type="image/x-icon">
-        <script src="https://maps.googleapis.com/maps/api/js?key=TU_API_KEY"></script>
         <link rel="stylesheet" href="style.css">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -56,12 +55,44 @@
           </div>
         </nav>
 
-        <div class="contain-img-carrito">
-          <a href="carrito.html" class="button-img-carrito">
-            <img src="Imagenes/bolsa-de-regalo.png" class="img-carrito" alt="https://www.flaticon.es/icono-gratis/bolsa-de-regalo_1039718?term=bolsa+de+regalo&page=1&position=23&origin=search&related_id=1039718">
-          </a>
-        </div>
-      
+    <main>
+      <div id="toggleCartButton">
+        <button id="cartButton" class="active">
+          <span id="cartItemCount">0</span>
+          Mostrar carrito
+        </button>
+      </div>
+
+      <div id="cartContainer" class="cart-container active">
+       <div class="cart-content">
+        <button id="hideCartButton" class="hide-cart-button">Ocultar Carrito</button>
+         <div id="temporizador"></div>
+          <table class="styled-table">
+          <thead>
+              <tr>
+                  <th>Código</th>
+                  <th>Nombre del Producto</th>
+                  <th>Precio Unitario</th>
+                  <th>Cantidad</th>
+                  <th>Total</th>
+                  <th>Acciones</th> 
+              </tr>
+          </thead>
+          <tbody>
+              <!-- Aquí se agregarán dinámicamente las filas de productos -->
+          </tbody>
+          <tfoot>
+              <tr>
+                  <td colspan="4"><strong>Total General</strong></td>
+                  <td><strong>₡0</strong></td>
+              </tr>
+          </tfoot>
+      </table>
+      </div>
+      </div>
+     </main>
+
+        <div clas
         <div class="contenedor-productos">
           <div class="sidebar">
               <h3>Categorías</h3>
@@ -371,30 +402,6 @@
     </div>
     </div>
     </div>
-
-    <main>
-      <table class="styled-table">
-          <thead>
-              <tr>
-                  <th>Código</th>
-                  <th>Nombre del Producto</th>
-                  <th>Precio Unitario</th>
-                  <th>Cantidad</th>
-                  <th>Total</th>
-                  <th>Acciones</th> 
-              </tr>
-          </thead>
-          <tbody>
-              <!-- Aquí se agregarán dinámicamente las filas de productos -->
-          </tbody>
-          <tfoot>
-              <tr>
-                  <td colspan="4"><strong>Total General</strong></td>
-                  <td><strong>₡0</strong></td>
-              </tr>
-          </tfoot>
-      </table>
-     </main>
       
         <footer class="footer">
           <div class="container-footer">
@@ -426,13 +433,7 @@
             <p>&copy; 2024 Melany's Cosmetics. Todos los derechos reservados.</p>
           </div>
         </footer>
-
-        <button id="location-btn" class="location-btn">Mostrar Ubicación</button>
-
-        <div id="map-container">
-        <iframe id="map-iframe" src="" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div>
-
+        
         <script src="script.js"></script>
 
         <!-- Enlace a Bootstrap JS y jQuery (requeridos para funcionalidad de la barra de navegación) -->
