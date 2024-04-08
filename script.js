@@ -19,24 +19,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// Esto es para el mapa
-document.getElementById("location-btn").addEventListener("click", function() {
-    var mapContainer = document.getElementById("map-container");
-    var mapIframe = document.getElementById("map-iframe");
-  
-    // Si el mapa ya está visible, lo oculta
-    if (mapContainer.style.display === "block") {
-        mapContainer.style.display = "none";
-    } else {
-        // Si el mapa no está visible, muestra el mapa
-        // Reemplaza la URL del iframe con la URL de Google Maps que proporciona la ubicación exacta
-        mapIframe.src = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d291.931031014439!2d-84.29977203391974!3d10.120345706202865!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8fa058cd3aa97a0b%3A0xe9101af95f237827!2s4PC2%2B545%2C%20Provincia%20de%20Alajuela%2C%20Caj%C3%B3n!5e0!3m2!1ses!2scr!4v1711485368124!5m2!1ses!2scr";
-      
-        // Muestra el contenedor del mapa
-        mapContainer.style.display = "block";
-    }
-});
-
 // Función que se ejecuta cuando el mouse entra o sale de la línea separadora
 $(document).ready(function() {
     $('.linea-separadora').mouseenter(function() {
@@ -146,20 +128,20 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Funcion para la table del agregar al carrito
 document.addEventListener('DOMContentLoaded', function() {
-    const toggleCartButton = document.getElementById('toggleCartButton');
-    const cartContainer = document.getElementById('cartContainer');
-    const hideCartButton = document.getElementById('hideCartButton');
+  const toggleCartButton = document.getElementById('toggleCartButton');
+  const cartContainer = document.getElementById('cartContainer');
+  const hideCartButton = document.getElementById('hideCartButton');
 
-    // Ocultar el carrito al cargar la página
-    cartContainer.classList.remove('active');
+  // Ocultar el carrito al cargar la página
+  cartContainer.classList.remove('active');
 
-    toggleCartButton.addEventListener('click', function() {
-        cartContainer.classList.toggle('active'); // Mostrar/ocultar el carrito al hacer clic en el botón principal
-    });
+  toggleCartButton.addEventListener('click', function() {
+    cartContainer.classList.toggle('active'); // Mostrar/ocultar el carrito al hacer clic en el botón principal
+  });
 
-    hideCartButton.addEventListener('click', function() {
-        cartContainer.classList.remove('active'); // Ocultar el carrito al hacer clic en el botón "Ocultar Carrito"
-    });
+  hideCartButton.addEventListener('click', function() {
+    cartContainer.classList.remove('active'); // Ocultar el carrito al hacer clic en el botón "Ocultar Carrito"
+  });
 
     let temporizadorIntervalo; // Variable para almacenar el intervalo del temporizador
     let segundosRestantes = 60; // Duración inicial del temporizador en segundos (1 minuto)
@@ -315,9 +297,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Actualizar la cantidad en el botón
                 actualizarCantidadCarrito();
                 });
-
+                
                 // Estilo para el botón de eliminar (cursor pointer)
                 deleteButton.style.cursor = 'pointer';
+
+                cantidadInput.value = 1; // Establecer el valor a 1
             }
 
             // Calcular el total general
@@ -387,22 +371,4 @@ window.onload = cargarDatos;
 document.querySelector('form').addEventListener('submit', function(event) {
     guardarDatos();
 });
-
-function toggleCarrito() {
-    var carritoContainer = document.getElementById('carrito-container');
-    var btn = document.getElementById('toggle-carrito-btn');
-    
-    // Si el contenedor del carrito está visible, ocúltalo; de lo contrario, muéstralo
-    if (carritoContainer.style.display === 'block') {
-        carritoContainer.style.display = 'none';
-        btn.textContent = 'Mostrar Carrito';
-    } else {
-        carritoContainer.style.display = 'block';
-        btn.textContent = 'Ocultar Carrito';
-    }
-}
-
-// Asociar la función toggleCarrito al evento clic del botón
-document.getElementById('toggle-carrito-btn').addEventListener('click', toggleCarrito);
-
 
