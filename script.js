@@ -68,13 +68,17 @@ document.addEventListener('DOMContentLoaded', function() {
       category.addEventListener('click', function() {
         const selectedCategory = this.dataset.category;
         filterProducts(selectedCategory);
+  
+        // Remover la clase 'active' de todos los elementos y luego agregarla al elemento seleccionado
+        categories.forEach(item => item.classList.remove('active'));
+        this.classList.add('active');
       });
     });
   
     function filterProducts(category) {
       products.forEach(product => {
-        if (product.classList.contains(category)) {
-          product.style.display = 'block'; // Cambiar la visualización para mostrar elementos como flex
+        if (category === 'todo' || product.classList.contains(category)) {
+          product.style.display = 'block';
         } else {
           product.style.display = 'none';
         }
