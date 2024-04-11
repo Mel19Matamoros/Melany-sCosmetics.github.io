@@ -1,3 +1,8 @@
+
+.card .card-body img {
+  width: 10%; /* La imagen ocupa todo el ancho de su contenedor */
+  height: auto; /* Altura automática para mantener la proporción */
+}
 /* -------------------------------------------- HTML ---------------------------------------------------- */
 html {
   scroll-behavior: smooth; /* Efecto de desplazamiento suave */
