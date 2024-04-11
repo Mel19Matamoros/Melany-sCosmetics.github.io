@@ -1,17 +1,18 @@
-/* Efecto de desplazamiento suave */
+/* -------------------------------------------- HTML ---------------------------------------------------- */
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: smooth; /* Efecto de desplazamiento suave */
 }
 
+/* ----------------------------------------- BODY Y FONDO ----------------------------------------------- */
 body {
   font-family: 'Poppins', sans-serif; /* Aplica la fuente de Google Fonts a todo el cuerpo */
   margin: 0;
   padding: 0;
   background: linear-gradient(120deg, #ff69b4, #87ceeb, #ff69b4);
-  animation: gradientBG 10s ease infinite;
+  animation: graduacion-del-fondo 10s ease infinite;
 }
 
-@keyframes gradientBG {
+@keyframes graduacion-del-fondo {
     0% {
         background-position: 0% 50%;
     }
@@ -23,9 +24,13 @@ body {
     }
 }
 
-/* Efecto de sombra suave para los elementos principales */
- header, .footer {
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+/* -------------------------------------------- HEADER ---------------------------------------------------- */
+.contain-header{
+  width: 1000px;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 header {
@@ -35,35 +40,13 @@ header {
   z-index: 1;
   width: 100%;
   display: flex;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* Efecto de sombra suave */
 }
 
 header h1 {
   margin: 0;
   font-size: 28px;
   color: white;
-}
-
-.contain-header{
-  width: 1000px;
-  margin: 0 auto;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-
-.negrita {
-  font-weight: bold;
-}
-
-#animated-heading {
-  opacity: 0;
-  animation: fadeIn 2s ease forwards;
-}
-
-@keyframes fadeIn {
-  to {
-      opacity: 1;
-  }
 }
 
 header img {
@@ -77,73 +60,176 @@ header img:hover {
   transform: scale(1.1);
 }
 
+.negrita {
+  font-weight: bold;
+}
+
+#animacion-header {
+  opacity: 0;
+  animation: animacionOpacacidad 2s ease forwards;
+}
+
+@keyframes animacionOpacacidad {
+  to {
+      opacity: 1;
+  }
+}
+
+#logo {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Agrega una sombra al logotipo */
+  border-radius: 10px; /* Redondea las esquinas del logotipo */
+}
+
+/* ---------------------------------------------- NAV ---------------------------------------------------- */
+nav {
+  width: 100%;
+  background-color: #ff1493;
+  float: right;
+  margin-bottom: 50px; 
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline;
+  margin-right: 20px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: white;
+}
+
+.navbar-nav {
+  width: 100%; /* Asegura que la lista de navegación ocupe todo el ancho disponible */
+  display: flex; /* Usa flexbox para alinear los elementos */
+  justify-content: center; /* Centra horizontalmente los elementos */
+}
+
+.navbar-nav .nav-item {
+  text-align: center; /* Centra el texto dentro de cada elemento */
+  font-size: 17px;
+  font-weight: bold;
+}
+
+/* -------------------------------------------- FOOTER --------------------------------------------------- */
+.container-footer {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 1200px;
+  text-align: center;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer {
+  display: inline-block;
+  background-color: lightpink;
+  color: #333333;
+  width: 100%;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  padding-left: 70px;
+  padding-right: 70px;
+  padding-top: 40px;
+  margin-top: 50px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* Efecto de sombra suave */
+}
+
+.footer-info,
+.footer-contacto,
+.footer-social {
+  flex: 0 0 30%;
+  max-width: 30%;
+  padding: 0 20px;
+}
+
+.footer-info h3,
+.footer-contacto h3,
+.footer-social h3 {
+  display: inline-block;
+  font-weight: bold;
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+.footer-info p,
+.footer-contacto p,
+.footer-social ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
+
+.footer-contacto p {
+  margin-bottom: 10px;
+}
+
+.footer-social ul li {
+  margin-bottom: 8px;
+}
+
+.footer-social ul li a {
+  text-decoration: none;
+  color: #333333;
+}
+
+.footer-social a:hover {
+  color: #ff1493; 
+  font-weight: bold;
+}
+
+.footer-social img {
+  width: 30px; /* Ajusta el ancho de las imágenes según sea necesario */
+  height: auto; /* Esto mantiene la proporción de la imagen */
+}
+
+.linea-separadora {
+  border-top: 1px solid #837c7c;
+  margin-top: 45px;
+  margin-bottom: 20px;
+  width: 1160px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.copyright {
+  text-align: center;
+  margin-top: 30px;
+  color: #666;
+  font-size: 14px;
+}
+
+/* -------------------------------------------- BUTTON ---------------------------------------------------- */
+button {
+  background-color: pink;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-transform: uppercase;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* -------------------------------------------- MAIN ---------------------------------------------------- */
 main {
   justify-content: center;
   padding: 20px 0;
   display: flex;
 }
 
-/* Estilos para el contenedor de "Nuestras Marcas" */
-.nuestras-marcas {
-  background-color: transparent;
-  padding: 20px;
-  border-radius: 8px;
-  text-align: center;
-  transition: opacity 0.3s; /* Transición suave para la opacidad */
-}
-
-/* Estilos para el título "Nuestras Marcas" */
-.nuestras-marcas h2 {
-  font-size: 24px;
-  font-family: 'Poppins', sans-serif;
-  color: #191919;
-  font-weight: bold;
-  margin-bottom: 30px;
-}
-
-/* Estilos para la lista de marcas */
-.nuestras-marcas ul {
-  list-style: none;
-  padding: 0;
-}
-
-/* Estilos para los elementos de la lista de marcas */
-.nuestras-marcas li {
-  display: inline-block; /* Mostrar elementos en línea */
-  margin-right: 10px; /* Espacio entre elementos */
-}
-
-/* Estilos para las imágenes de las marcas */
-.nuestras-marcas li img {
-  width: 100px; /* Ancho de las imágenes */
-  height: auto; /* Altura ajustada automáticamente */
-}
-
-/* Estilos para las imágenes de las marcas al pasar el mouse por encima */
-.nuestras-marcas li img:hover {
-  opacity: 0.7; /* Cambia la opacidad al pasar el mouse por encima */
-}
-
-/* Estilos para el contenedor de promociones */
-.promociones .container-promociones {
-  background-color: pink;
-  padding: 20px 0; /* Relleno superior e inferior de 20px, y sin relleno a los lados */
-  margin: 0 auto 50px; /* Margen superior e inferior de 50px y márgenes laterales automáticos */
-  display: flex; /* Activar el modelo de caja flexible */
-  flex-direction: column; /* Apilar los elementos hijos verticalmente */
-  align-items: center; /* Centrar horizontalmente los elementos hijos */
-  text-align: center; /* Alinear horizontalmente el texto dentro de los elementos */
-  justify-content: center; /* Centrar verticalmente los elementos */
-  height: 150px; /* Establecer una altura fija de 150px */
-  width: 82%;
-}
-
-.promociones h2,
-.promociones p {
-  padding-left: 20px;
-  text-align: center;
-}
-
+/* -------------------------------------------- ASIDE --------------------------------------------------- */
 aside {
   height: 1120px;
   display: flex;
@@ -245,6 +331,7 @@ aside ul li {
   transition: transform 0.3s ease; /* Agregar una transición suave */
 }
 
+/* -------------------------------------------- ARTICLE -------------------------------------------------- */
 article {
   height: 1120px;
   display: flex;
@@ -263,6 +350,78 @@ article h2 {
   text-align: center;
 }
 
+/* ------------------------------------------------------------------------------------------------------- */
+/* ------------------------------------------ INDEX.HTML ------------------------------------------------- */
+/* ------------------------------------------------------------------------------------------------------- */
+.container {
+  width: 100%;
+  height: 100vh;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nuestras-marcas {
+  background-color: transparent;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  transition: opacity 0.3s; /* Transición suave para la opacidad */
+}
+
+/* Estilos para el título "Nuestras Marcas" */
+.nuestras-marcas h2 {
+  font-size: 24px;
+  font-family: 'Poppins', sans-serif;
+  color: #191919;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+/* Estilos para la lista de marcas */
+.nuestras-marcas ul {
+  list-style: none;
+  padding: 0;
+}
+
+/* Estilos para los elementos de la lista de marcas */
+.nuestras-marcas li {
+  display: inline-block; /* Mostrar elementos en línea */
+  margin-right: 10px; /* Espacio entre elementos */
+}
+
+/* Estilos para las imágenes de las marcas */
+.nuestras-marcas li img {
+  width: 100px; /* Ancho de las imágenes */
+  height: auto; /* Altura ajustada automáticamente */
+}
+
+/* Estilos para las imágenes de las marcas al pasar el mouse por encima */
+.nuestras-marcas li img:hover {
+  opacity: 0.7; /* Cambia la opacidad al pasar el mouse por encima */
+}
+
+/* Estilos para el contenedor de promociones */
+.promociones .container-promociones {
+  background-color: pink;
+  padding: 20px 0; /* Relleno superior e inferior de 20px, y sin relleno a los lados */
+  margin: 0 auto 50px; /* Margen superior e inferior de 50px y márgenes laterales automáticos */
+  display: flex; /* Activar el modelo de caja flexible */
+  flex-direction: column; /* Apilar los elementos hijos verticalmente */
+  align-items: center; /* Centrar horizontalmente los elementos hijos */
+  text-align: center; /* Alinear horizontalmente el texto dentro de los elementos */
+  justify-content: center; /* Centrar verticalmente los elementos */
+  height: 150px; /* Establecer una altura fija de 150px */
+  width: 82%;
+}
+
+.promociones h2,
+.promociones p {
+  padding-left: 20px;
+  text-align: center;
+}
+
 .tendencia {
   margin-bottom: 30px;
 }
@@ -271,7 +430,6 @@ article h2 {
   color: #FF69B4; /* Color rosa */
 }
 
-/* Estilos para los videos */
 .video-contain-tendencia {
   position: relative;
   width: 100%;
@@ -287,123 +445,31 @@ article h2 {
   height: 100%;
 }
 
-.footer {
-  display: inline-block;
-  background-color: lightpink;
-  color: #333333;
-  width: 100%;
-  align-items: center;
-  text-align: center;
-  justify-content: center;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 14px;
-  padding-left: 70px;
-  padding-right: 70px;
-  padding-top: 40px;
-  margin-top: 50px;
-}
-
-.container-footer {
+.productos-destacados{
   display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  width: 1200px;
-  text-align: center;
-  margin: 0 auto;
-  align-items: center;
+  flex-direction: column; 
   justify-content: center;
-}
-
-.footer-info,
-.footer-contacto,
-.footer-social {
-  flex: 0 0 30%;
-  max-width: 30%;
-  padding: 0 20px;
-}
-
-.footer-info h3,
-.footer-contacto h3,
-.footer-social h3 {
-  font-weight: bold;
-  font-size: 18px;
-  margin-bottom: 15px;
-}
-
-.footer-info p,
-.footer-contacto p,
-.footer-social ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  text-align: left;
-}
-
-.footer-contacto p {
-  margin-bottom: 10px;
-}
-
-.footer-social ul li {
-  margin-bottom: 8px;
-}
-
-.footer-social ul li a {
-  text-decoration: none;
-  color: #333333;
-}
-
-.footer-social a:hover {
-  color: #ff1493; 
-  font-weight: bold;
-}
-
-.footer-social img {
-  width: 30px; /* Ajusta el ancho de las imágenes según sea necesario */
-  height: auto; /* Esto mantiene la proporción de la imagen */
-}
-
-.linea-separadora {
-  border-top: 1px solid #837c7c;
-  margin-top: 45px;
-  margin-bottom: 20px;
-  width: 1160px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.copyright {
-  text-align: center;
-  margin-top: 30px;
-  color: #666;
-  font-size: 14px;
-}
-
-.galeria-productos {
-  margin-top: 50px;
-  margin-bottom: 50px;
-  width: 100%;
-}
-
-.featured-products {
-  margin-bottom: 50px;
-  margin-top: 50px;
   text-align: center; 
-}
-
-.featured-products h2 {
-  text-align: center;
-  margin-bottom: 30px;
-}
-
-.featured-products .container {
-  display: flex;
-  justify-content: center;
   align-items: center;
   width: 100%;
-  height: 100vh;
+  height: auto;
+  background-color: transparent;
+  box-shadow: 0 1px 20px rgba(0, 0, 0, 0.3);
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
 }
 
-.featured-products .product {
+.productos-destacados h2 {
+  text-align: center;
+  margin-bottom: -280px;
+}
+
+.producto-destacado-card {
+  float: left;
+  width: 30%;
+  margin-right: 3%;
+  text-align: center;
   display: flex; 
   flex-direction: column; 
   align-items: center; 
@@ -415,82 +481,13 @@ article h2 {
   width: 600px;
 }
 
-.featured-products .product img {
+.producto-destacado-card img {
+  width: 100%;
+  border-radius: 5px;
   max-width: 100%; 
   height: auto; 
   max-width: 200px; 
   margin-bottom: 20px;
-}
-
-.container {
-    width: 100%;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-}
-  
-nav {
-    width: 100%;
-    background-color: #ff1493;
-    float: right;
-    margin-bottom: 50px; 
-}
-  
-nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-}
-  
-nav ul li {
-    display: inline;
-    margin-right: 20px;
-}
-  
-nav ul li a {
-    text-decoration: none;
-    color: white;
-}
-
-.navbar-nav {
-    width: 100%; /* Asegura que la lista de navegación ocupe todo el ancho disponible */
-    display: flex; /* Usa flexbox para alinear los elementos */
-    justify-content: center; /* Centra horizontalmente los elementos */
-}
-
-.navbar-nav .nav-item {
-    text-align: center; /* Centra el texto dentro de cada elemento */
-    font-size: 17px;
-    font-weight: bold;
-}
-  
-.btn-rosa {
-    background-color: #c71585;
-    border-color: #c71585;
-    color: #fff;
-}
-  
-.product {
-    float: left;
-    width: 30%;
-    margin-right: 3%;
-    text-align: center;
-}
-  
-.product img {
-    width: 100%;
-    border-radius: 5px;
-}
-  
-button {
-    background-color: pink;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    text-transform: uppercase;
-    font-weight: bold;
-    border-radius: 5px;
-    cursor: pointer;
 }
 
 .carousel-item {
@@ -498,21 +495,17 @@ button {
   display: block; /* Muestra la imagen activa */
 }
 
-.manual-transition {
-  transition: transform 0.8s ease;
-}
-
 .carousel-item img {
   width: 200px; /* Ajusta el ancho de la imagen al 100% del contenedor */
   height: 600px;
-  animation: slideInOut 13s infinite; /* Aplica la animación a todas las imágenes */
+  animation: desplazamientoInfinito 13s infinite; /* Aplica la animación a todas las imágenes */
 }
 
 .carousel-item.active {
   display: block; /* Muestra la imagen activa */
 }
 
-@keyframes slideInOut {
+@keyframes desplazamientoInfinito {
   0% {
     transform: translateX(100%); /* Desliza la imagen fuera de la pantalla hacia la derecha */
   }
@@ -525,6 +518,10 @@ button {
   100% {
     transform: translateX(-100%); /* Desliza la imagen fuera de la pantalla hacia la izquierda */
   }
+}
+
+.transicion-manual {
+  transition: transform 0.8s ease;
 }
 
 #transicion1,
@@ -566,209 +563,50 @@ button {
   margin-left: 25%;
 }
 
-/* Estilos básicos del botón de ubicación */
-.location-btn {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background-color: #ff69b4;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  font-size: 16px;
-  border-radius: 5px;
-  cursor: pointer;
-  z-index: 9999; /* Asegura que esté por encima de otros elementos */
-}
-
-/* Efecto de hover */
-.location-btn:hover {
-  background-color: #ff1493;
-}
-
-#map-container {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    width: 300px; /* Ancho deseado del contenedor */
-    height: 300px; /* Alto deseado del contenedor */
-    border-radius: 10px; /* Añade bordes redondeados */
-    overflow: hidden; /* Oculta el desbordamiento */
-    z-index: 9998; /* Asegura que esté por debajo del botón */
-}
-
-/* Estilos adicionales para el logotipo */
-#logo {
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Agrega una sombra al logotipo */
-  border-radius: 10px; /* Redondea las esquinas del logotipo */
-}
-
-.contain-form {
-  max-width: 400px;
-  margin: 70px auto;
-  padding: 20px;
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.contain-form h2 {
-  margin-bottom: 20px;
-  text-align: center;
-  color: #333;
-}
-
-.contain-form p {
-  max-width: 300px; /* Establece el mismo ancho máximo que el formulario */
-  margin: 0 auto; /* Centra el párrafo horizontalmente dentro del formulario */
-  text-align: justify;
-  margin-bottom: 25px;
-}
-
-.contain-form h2:hover {
-  color: rgb(151, 46, 151);
-}
-
-.form-group {
-  margin-bottom: 15px;
-}
-
-.contain-form label {
-  font-weight: bold;
-}
-
-.contain-form input[type="text"],
-.contain-form input[type="email"],
-.contain-form select,
-.contain-form button {
-  width: 100%;
-  padding: 10px;
-  margin-top: 5px;
-  margin-bottom: 15px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-sizing: border-box;
-}
-
-.contain-form input[type="date"] {
-  width: calc(100% - 22px);
-}
-
-.contain-form button {
-  background-color: #4caf50;
-  color: #fff;
-  border: none;
-  cursor: pointer;
-}
-
-.contain-form button:hover {
-  background-color: #45a049;
-}
-
-.contain-form button:active {
-  background-color: #3e8e41;
-}
-
-.contain-form select {
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  background-image: url('data:image/svg+xml;utf8,<svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>');
-  background-repeat: no-repeat;
-  background-position-x: 95%;
-  background-position-y: 50%;
-}
-
-.contain-form select::-ms-expand {
-  display: none;
-}
-
+/* ------------------------------------------------------------------------------------------------------- */
+/* ---------------------------------------- PRODUCTOS.HTML ----------------------------------------------- */
+/* ------------------------------------------------------------------------------------------------------- */
 #temporizador {
   text-align: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
 
-.styled-table {
+.tabla-carrito {
   width: 80%;
   border-collapse: collapse;
   border: 1px solid #ddd;
   margin: 0 auto;
 }
 
-.styled-table th, .styled-table td {
+.tabla-carrito th, .tabla-carrito td {
   padding: 10px;
   text-align: left;
 }
 
-.styled-table th {
+.tabla-carrito th {
   background-color: #f2f2f2;
   border-bottom: 1px solid #ddd;
 }
 
-.styled-table tbody tr:nth-child(even) {
+.tabla-carrito tbody tr:nth-child(even) {
   background-color: #f2f2f2;
 }
 
-.styled-table tbody tr:hover {
+.tabla-carrito tbody tr:hover {
   background-color: #ddd;
 }
 
-.styled-table tfoot td:last-child {
+.tabla-carrito tfoot td:last-child {
   font-weight: bold; /* Hace que el texto sea más grueso */
   color: blue; /* Cambia el color del texto a rojo para destacarlo */
 }
 
-input[type="text"] {
-  border: none; /* Oculta el borde del input */
-  background-color: transparent; /* Hace el fondo transparente */
-  width: 100%; /* Ajusta el ancho del input */
-  text-align: center; /* Centra el texto */
+.eliminar-fila {
+  border-radius: 20px; /* Ajusta el radio de borde para hacerlo redondeado */
 }
 
-.contain-informacionAcercaDe {
-  max-width: 800px;
-  margin: 120px auto;
-  padding: 20px;
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.profile {
-  display: flex;
-  align-items: center;
-}
-
-.profile img {
-  width: 200px;
-  height: 200px;
-  border-radius: 100px;
-  margin-right: 20px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); 
-}
-
-.info {
-  flex-grow: 1;
-  background-color: #f9f9f9; /* Fondo ligeramente gris */
-  padding: 20px;
-  border-radius: 8px;
-}
-
-.info h1 {
-  margin-top: 0;
-  color: #333;
-}
-
-.info p {
-  margin: 10px 0;
-  color: #666;
-}
-
-.info strong {
-  font-weight: bold;
-  color: #333;
-}
-
-.sidebar {
+.contain-categorias {
   width: 300px;
   padding: 40px;
   background-color: #f2f2f2;
@@ -781,32 +619,34 @@ input[type="text"] {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
-.categories {
+.categorias {
   list-style: none;
   padding: 0;
 }
 
-.categories li {
+.categorias li {
   cursor: pointer;
   margin-bottom: 13px;
 }
 
-.categories li.active {
+.categorias li.active {
   color: blue; /* Color de texto al hacer hover o al seleccionar la categoría */
   font-weight: bold;
 }
 
 .contenedor-productos {
   display: flex;
+  /* align-items: center;  Centra horizontalmente los elementos */
 }
 
-.main-content {
+.contenedor-cards-productos {
   margin-top: 130px;
   margin-left: 50px;
   display: block;
+  width: 100%;
 }
 
-.products {
+.productos {
   width: 900px;
   height: auto;
   gap: 10px;
@@ -822,13 +662,14 @@ input[type="text"] {
   margin-bottom: 20px;
   display: flex;
   flex-direction: column;
-  align-items: flex-start; /* Cambia esto a flex-start para alinear los elementos a la izquierda */
+  align-items: flex-end; 
 }
 
 .card-body {
   width: 100%;
   margin-bottom: 50px;
   background-color: transparent;
+  justify-content: space-between; /* Alinea los elementos al inicio y al final */
   display: flex;
   flex-direction: row;
   padding: 10px;
@@ -860,6 +701,10 @@ input[type="text"] {
 .cantidad {
   text-align: right;
   margin-top: 5px; /* Ajusta el margen superior */
+}
+
+.btn-primary.agregar-al-carrito {
+  margin-left: auto; /* Mueve el botón al extremo derecho */
 }
 
 .card-title {
@@ -945,8 +790,82 @@ input[type="text"] {
   flex-wrap: wrap;
 }
 
-.contain-carrito {
-  max-width: 1000px;
+/* Configuración del contenedor principal del carrito */
+.contenedor-carrito {
+  display: none; /* Inicialmente oculto */
+  position: fixed; /* Fijo en la ventana */
+  top: 0; /* Arriba de la ventana */
+  right: -100%; /* Inicialmente fuera de la ventana hacia la derecha */
+  bottom: 0; /* Abajo de la ventana */
+  left: 0; /* Izquierda de la ventana */
+  background-color: rgba(0, 0, 0, 0.5); /* Fondo negro semi-transparente */
+  z-index: 999; /* Orden en capas, para estar por encima de otros elementos */
+  transition: right 0.3s ease; /* Transición suave al mostrar/ocultar */
+  right: 0; /* Trae el contenedor desde la derecha cuando se muestra */
+}
+
+/* Estilos para el contenido del carrito */
+.carrito-content {
+  max-width: 1200px; /* Ancho máximo del contenido del carrito */
+  height: 100%; /* Altura del contenido al 100% del contenedor */
+  margin: 70px auto; /* Margen superior e inferior de 70px, centrado horizontalmente */
+  background-color: #fff; /* Fondo blanco */
+  border-radius: 8px; /* Borde redondeado */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+  position: absolute; /* Posicionamiento absoluto con respecto al contenedor padre */
+  top: 0; /* Arriba del contenedor padre */
+  bottom: 0; /* Abajo del contenedor padre */
+  right: 0; /* Derecha del contenedor padre */
+  width: 80%; /* Ancho del contenido del carrito */
+  overflow-y: auto; /* Agrega desplazamiento vertical si el contenido es largo */
+  margin: 0; /* Elimina el margen predeterminado */
+}
+
+.active {
+  display: block; /* Mostrar el carrito cuando tenga la clase 'active' */
+}
+
+#botonMostrarCarrito {
+  border-radius: 20px; /* Radio de borde para redondear el botón */
+  color: #fff; /* Color del texto del botón */
+  cursor: pointer; /* Cambiar el cursor al pasar sobre el botón */
+}
+
+#mostrarCarrito {
+  justify-content: left; /* Alineamos el contenido a la derecha */
+  margin-left: 1025px;
+  margin-bottom: -150px;
+}
+
+#botonOcultarCarrito {
+  border-radius: 20px; /* Radio de borde para redondear el botón */
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 5px 10px; /* Espaciado interno */
+  cursor: pointer; /* Cambia el cursor al pasar por encima */
+}
+
+#cantidadMostrarCarrito {
+  background-color: #ff0000;
+  color: #ffffff;
+  border-radius: 50%;
+  padding: 2px 6px;
+  font-size: 12px;
+  margin-left: 5px;
+  animation: pulse 0.5s infinite alternate;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.1); }
+}
+
+/* ------------------------------------------------------------------------------------------------------- */
+/* ---------------------------------------- CONTACTO.HTML ------------------------------------------------ */
+/* ------------------------------------------------------------------------------------------------------- */
+.contain-formulario {
+  max-width: 400px;
   margin: 70px auto;
   padding: 20px;
   background-color: #fff;
@@ -954,30 +873,126 @@ input[type="text"] {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.contain-img-carrito {
+.contain-formulario h2 {
+  margin-bottom: 20px;
+  text-align: center;
+  color: #333;
+}
+
+.contain-formulario p {
+  max-width: 300px; /* Establece el mismo ancho máximo que el formulario */
+  margin: 0 auto; /* Centra el párrafo horizontalmente dentro del formulario */
+  text-align: justify;
+  margin-bottom: 25px;
+}
+
+.contain-formulario h2:hover {
+  color: rgb(151, 46, 151);
+}
+
+.contain-formulario label {
+  font-weight: bold;
+}
+
+.contain-formulario input[type="text"],
+.contain-formulario input[type="email"],
+.contain-formulario input[type="date"],
+.contain-formulario select,
+.contain-formulario button {
   width: 100%;
-  background-color: transparent;
-  height: 20px;
-  text-align: right;
-  margin: 0 auto;
+  padding: 10px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
 }
 
-.button-img-carrito {
+.contain-formulario button {
+  background-color: #4caf50;
+  color: #fff;
   border: none;
-  background-color: transparent;
-  padding: 0; /* Eliminar el relleno predeterminado del botón */
   cursor: pointer;
-  margin-right: 136px;
 }
 
-.button-img-carrito img {
-  width: 50px;
-  height: 50px;
-  margin-top: -15px; /* Mueve la imagen hacia arriba */
+.contain-formulario button:hover {
+  background-color: #45a049;
 }
 
-.button-img-carrito:hover img {
-  transform: scale(1.1);
+.contain-formulario button:active {
+  background-color: #3e8e41;
+}
+
+.contain-formulario select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url('data:image/svg+xml;utf8,<svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>');
+  background-repeat: no-repeat;
+  background-position-x: 95%;
+  background-position-y: 50%;
+}
+
+.contain-formulario select::-ms-expand {
+  display: none;
+}
+
+.campo-formulario {
+  margin-bottom: 15px;
+}
+
+input[type="text"] {
+  border: none; /* Oculta el borde del input */
+  background-color: transparent; /* Hace el fondo transparente */
+  width: 100%; /* Ajusta el ancho del input */
+  text-align: center; /* Centra el texto */
+}
+
+/* ------------------------------------------------------------------------------------------------------- */
+/* ---------------------------------------- ACERCA DE.HTML ----------------------------------------------- */
+/* ------------------------------------------------------------------------------------------------------- */
+.contain-informacionAcercaDe {
+  max-width: 800px;
+  margin: 120px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.cuadro-acerca-de {
+  display: flex;
+  align-items: center;
+}
+
+.cuadro-acerca-de img {
+  width: 200px;
+  height: 200px;
+  border-radius: 100px;
+  margin-right: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); 
+}
+
+.info {
+  flex-grow: 1;
+  background-color: #f9f9f9; /* Fondo ligeramente gris */
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.info h1 {
+  margin-top: 0;
+  color: #333;
+}
+
+.info p {
+  margin: 10px 0;
+  color: #666;
+}
+
+.info strong {
+  font-weight: bold;
+  color: #333;
 }
 
 .video-container {
@@ -996,16 +1011,27 @@ input[type="text"] {
   justify-content: center;
 }
 
-@media (min-width: 790px) {
-  footer {
-  background: #1b1e23;
-  padding-left: 120px;
-  padding-right: 80px;
-}
+/* ------------------------------------------------------------------------------------------------------- */
+/* ---------------------------------------- UBICACION.HTML ----------------------------------------------- */
+/* ------------------------------------------------------------------------------------------------------- */
+#map {
+  width: 100%;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-/* Media query para pantallas pequeñas (máximo 767px) */
-@media screen and (max-width: 767px) {
+.contenedor-info-map {
+  text-align: center;
+}
+
+.contenedor-info-map p {
+  margin-top: 5px;
+}
+
+/* -------------------------------------------- @MEDIA ---------------------------------------------------- */
+@media screen and (max-width: 767px) { /* Media query para pantallas pequeñas (máximo 767px) */
   /* Estilos para el encabezado */
   .contain-header {
       text-align: center;
@@ -1016,13 +1042,7 @@ input[type="text"] {
   .nav-item {
       margin-bottom: 10px;
   }
-  /* Estilos para la galería de productos */
-  .galeria {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-around;
-  }
-  .product {
+  .producto-destacado-card {
       width: 45%;
       margin-bottom: 20px;
   }
@@ -1034,6 +1054,7 @@ input[type="text"] {
   .li1, .li2, .li3, .li4, .li5 {
       padding-left: 20px;
   }
+  
   /* Estilos para el footer */
   .footer-info, .footer-contacto, .footer-social {
       text-align: center;
@@ -1100,113 +1121,17 @@ input[type="text"] {
   }
   
    /* Estilos para cada cuadro de productos o tendencias */
-   .featured-products .product,
+   .productos-destacados .producto-destacado-card,
    .tendencia {
        width: 90%; /* Ancho del 90% del contenedor */
        margin: 0 auto 20px; /* Margen inferior para separación */
    }
 
    /* Estilos para las imágenes dentro de los cuadros */
-   .featured-products img,
+   .productos-destacados img,
    .tendencia img {
        width: 100%; /* Ancho del 100% del contenedor */
        height: auto; /* Altura automática para mantener la proporción */
    }
 }
 
-/* Estilos para el contenedor del carrito */
-.cart-container {
-  display: none; /* El carrito estará oculto inicialmente */
-  position: fixed;
-  top: 0;
-  right: -100%; /* Comienza fuera de la pantalla */
-  bottom: 0;
-  left: 0;
-  background-color: rgba(0, 0, 0, 0.5); /* Fondo negro semi-transparente */
-  z-index: 999; /* Asegura que esté sobre otros elementos */
-  transition: right 0.3s ease; /* Transición suave al mostrar/ocultar */
-}
-
-.cart-content {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  width: 80%; /* Ancho del contenido del carrito */
-  background-color: #fff; /* Fondo blanco del contenido */
-  padding: 20px;
-  overflow-y: auto; /* Agrega desplazamiento si el contenido es demasiado largo */
-}
-
-/* Estilo para mostrar el contenedor del carrito */
-.cart-container {
-  right: 0; /* Muestra el contenedor desde la derecha */
-}
-
-.active {
-  display: block; /* Mostrar el carrito cuando tenga la clase 'active' */
-}
-
-/* Estilos para el botón "Ocultar Carrito" dentro del carrito */
-#hideCartButton {
-  border-radius: 20px; /* Radio de borde para redondear el botón */
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  padding: 5px 10px; /* Espaciado interno */
-  cursor: pointer; /* Cambia el cursor al pasar por encima */
-}
-
-#cartItemCount {
-  background-color: #ff0000;
-  color: #ffffff;
-  border-radius: 50%;
-  padding: 2px 6px;
-  font-size: 12px;
-  margin-left: 5px;
-  animation: pulse 0.5s infinite alternate;
-}
-
-@keyframes pulse {
-  0% { transform: scale(1); }
-  100% { transform: scale(1.1); }
-}
-
-#toggleCartButton {
-  justify-content: left; /* Alineamos el contenido a la derecha */
-  margin-left: 1025px;
-  margin-bottom: -150px;
-}
-
-/* Boton Mostrar Carrito */ 
-#cartButton {
-  border-radius: 20px; /* Radio de borde para redondear el botón */
-  color: #fff; /* Color del texto del botón */
-  cursor: pointer; /* Cambiar el cursor al pasar sobre el botón */
-}
-
-#temporizador {
-  margin-top: 50px;
-  margin-bottom: 50px;
-}
-
-#map {
-  position: fixed;
-  bottom: 20px;
-  left: 20px; /* Cambia 'right' a 'left' para posicionar a la izquierda */
-  width: 300px; /* Ancho deseado del contenedor */
-  height: 300px; /* Alto deseado del contenedor */
-  border-radius: 10px; /* Añade bordes redondeados */
-  overflow: hidden; /* Oculta el desbordamiento */
-  z-index: 9998; /* Asegura que esté por debajo del botón */
-}
-
-#info-panel {
-  position: absolute;
-  top: 20px;
-  right: 20px; /* Cambia la propiedad left por right */
-  width: 300px;
-  background-color: white;
-  padding: 20px;
-  border: 1px solid #ccc;
-}
