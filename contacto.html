@@ -18,7 +18,7 @@
         <header>
           <div class="contain-header">
             <img src="Imagenes/Logo Melany's Cosmetics.PNG" alt="Logo">
-            <h1 id="animated-heading">Melany's Cosmetics</h1>
+            <h1 id="animacion-header">Melany's Cosmetics</h1>
           </div>
         </header>
 
@@ -41,17 +41,8 @@
                   <li class="nav-item">
                     <a class="nav-link" href="acercaDe.html">Acerca de</a>
                   </li>
-                  <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Mas</a>
-                    <div class="dropdown-menu">
-                      <a class="dropdown-item" href="#">Historia del sitio</a>
-                      <div class="dropdown-divider"></div>
-                      <a class="dropdown-item" href="#">Galería de imágenes</a>
-                      <div class="dropdown-divider"></div>
-                      <a class="dropdown-item" href="#">Ubicación</a>
-                      <div class="dropdown-divider"></div>
-                      <a class="dropdown-item" href="#">Multimedia</a>
-                    </div>
+                  <li class="nav-item">
+                    <a class="nav-link" href="ubicacion.html">Sucursal</a>
                   </li>
               </ul>
             </div>
@@ -59,23 +50,23 @@
         </nav>
       
         <main>
-          <div class="contain-form">
+          <div class="contain-formulario">
               <h2>Formulario Contacto Comercial</h2>
               <p>Completa este formulario para que un representante de ventas se ponga en contacto contigo.</p>
               <form action="https://formsubmit.co/2a1680794fd69a882a28c2cdff5f6000" method="POST">
-                  <div class="form-group">
+                  <div class="campo-formulario">
                       <label for="Email">Correo Electrónico:</label>
                       <input type="Email" id="Email" name="Email" required>
                   </div>
-                  <div class="form-group">
+                  <div class="campo-formulario">
                       <label for="Nombre">Nombre Completo:</label>
                       <input type="text" id="Nombre" name="Nombre" required>
                   </div>
-                  <div class="form-group">
+                  <div class="campo-formulario">
                       <label for="Nacimiento">Fecha de Nacimiento:</label>
                       <input type="date" id="Nacimiento" name="Nacimiento" required>
                   </div>
-                  <div class="form-group">
+                  <div class="campo-formulario">
                       <label for="Genero">Género:</label>
                       <select id="Genero" name="Genero" required>
                           <option value="">Seleccionar</option>
@@ -84,7 +75,7 @@
                           <option value="otro">Otro</option>
                       </select>
                   </div>
-                  <div class="form-group">
+                  <div class="campo-formulario">
                       <label for="Tipo-Piel">Tipo de Piel:</label>
                       <select id="Tipo-Piel" name="Tipo-Piel" required>
                           <option value="">Seleccionar</option>
@@ -132,13 +123,7 @@
             <p>&copy; 2024 Melany's Cosmetics. Todos los derechos reservados.</p>
           </div>
         </footer>
-
-        <button id="location-btn" class="location-btn">Mostrar Ubicación</button>
-
-        <div id="map-container">
-        <iframe id="map-iframe" src="" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div>
-
+        
         <script src="script.js"></script>
 
         <!-- Enlace a Bootstrap JS y jQuery (requeridos para funcionalidad de la barra de navegación) -->
