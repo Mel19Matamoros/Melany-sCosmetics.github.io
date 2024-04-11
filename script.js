@@ -5,16 +5,16 @@ document.addEventListener('DOMContentLoaded', function() {
     var nextButton = carousel.querySelector('.carousel-control-next');
   
     prevButton.addEventListener('click', function() {
-      carousel.classList.remove('manual-transition');
+      carousel.classList.remove('transicion-manual');
       setTimeout(function() {
-        carousel.classList.add('manual-transition');
+        carousel.classList.add('transicion-manual');
       }, 50); // Agrega un pequeño retraso para permitir que se aplique la clase antes de la transición
     });
   
     nextButton.addEventListener('click', function() {
-      carousel.classList.remove('manual-transition');
+      carousel.classList.remove('transicion-manual');
       setTimeout(function() {
-        carousel.classList.add('manual-transition');
+        carousel.classList.add('transicion-manual');
       }, 50); // Agrega un pequeño retraso para permitir que se aplique la clase antes de la transición
     });
 });
@@ -55,28 +55,28 @@ $(document).ready(function() {
     });
     
     $(document).ready(function() {
-        $('#animated-heading').animate({'width': '100%'}, 2000);
+        $('#animacion-header').animate({'width': '100%'}, 2000);
     });
 });
 
 // Esto es para cuando presiono una categoria, aparezcan los cards segun su respectiva
 document.addEventListener('DOMContentLoaded', function() {
-    const categories = document.querySelectorAll('.categories li');
-    const products = document.querySelectorAll('.card');
+    const categorias = document.querySelectorAll('.categorias li');
+    const productos = document.querySelectorAll('.card');
   
-    categories.forEach(category => {
+    categorias.forEach(category => {
       category.addEventListener('click', function() {
         const selectedCategory = this.dataset.category;
         filterProducts(selectedCategory);
   
         // Remover la clase 'active' de todos los elementos y luego agregarla al elemento seleccionado
-        categories.forEach(item => item.classList.remove('active'));
+        categorias.forEach(item => item.classList.remove('active'));
         this.classList.add('active');
       });
     });
   
     function filterProducts(category) {
-      products.forEach(product => {
+      productos.forEach(product => {
         if (category === 'todo' || product.classList.contains(category)) {
           product.style.display = 'block';
         } else {
@@ -132,192 +132,192 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Funcion para la table del agregar al carrito
 document.addEventListener('DOMContentLoaded', function() {
-  const toggleCartButton = document.getElementById('toggleCartButton');
-  const cartContainer = document.getElementById('cartContainer');
-  const hideCartButton = document.getElementById('hideCartButton');
+  const botonMostrarCarrito = document.getElementById('botonMostrarCarrito');
+  const contenedorCarrito = document.getElementById('contenedor-carrito');
+  const botonOcultarCarrito = document.getElementById('botonOcultarCarrito');
 
   // Ocultar el carrito al cargar la página
-  cartContainer.classList.remove('active');
+  contenedorCarrito.classList.remove('active');
 
-  toggleCartButton.addEventListener('click', function() {
-    cartContainer.classList.toggle('active'); // Mostrar/ocultar el carrito al hacer clic en el botón principal
+  botonMostrarCarrito.addEventListener('click', function() {
+    contenedorCarrito.classList.toggle('active'); // Mostrar/ocultar el carrito al hacer clic en el botón principal
   });
 
-  hideCartButton.addEventListener('click', function() {
-    cartContainer.classList.remove('active'); // Ocultar el carrito al hacer clic en el botón "Ocultar Carrito"
+  botonOcultarCarrito.addEventListener('click', function() {
+    contenedorCarrito.classList.remove('active'); // Ocultar el carrito al hacer clic en el botón "Ocultar Carrito"
   });
 
-    let temporizadorIntervalo; // Variable para almacenar el intervalo del temporizador
-    let segundosRestantes = 60; // Duración inicial del temporizador en segundos (1 minuto)
+  let temporizadorIntervalo; // Variable para almacenar el intervalo del temporizador
+  let segundosRestantes = 60; // Duración inicial del temporizador en segundos (1 minuto)
 
-    // Función para cargar los datos del carrito desde el almacenamiento local
-    function cargarCarritoDesdeLocalStorage() {
-        const savedData = localStorage.getItem('cartData');
+  // Función para cargar los datos del carrito desde el almacenamiento local
+  function cargarCarritoDesdeLocalStorage() {
+    const datosGuardados = localStorage.getItem('cartData');
 
-        if (savedData) {
-            const parsedData = JSON.parse(savedData);
+    if (datosGuardados) {
+      const datosParseados = JSON.parse(datosGuardados);
 
-            parsedData.forEach(item => {
-                const newRow = document.createElement('tr');
-                newRow.dataset.codigo = item.codigo;
-                newRow.innerHTML = `
-                    <td>${item.codigo}</td>
-                    <td>${item.nombre}</td>
-                    <td>${item.precio}</td>
-                    <td class="cantidad"><input type="text" value="${item.cantidad}" readonly></td>
-                    <td class="total">${item.total}</td>
-                `;
+      datosParseados.forEach(item => {
+        const nuevaFila = document.createElement('tr');
+        nuevaFila.dataset.codigo = item.codigo;
+        nuevaFila.innerHTML = `
+          <td>${item.codigo}</td>
+          <td>${item.nombre}</td>
+          <td>${item.precio}</td>
+          <td class="cantidad"><input type="text" value="${item.cantidad}" readonly></td>
+          <td class="total">${item.total}</td>
+        `;
 
-                const tableBody = document.querySelector('.styled-table tbody');
-                tableBody.appendChild(newRow);
-            });
+        const cuerpoTabla = document.querySelector('.tabla-carrito tbody');
+        cuerpoTabla.appendChild(nuevaFila);
+      });
 
-            // Calcular el total general
-            calcularTotalGeneral();
-        }
+      // Calcular el total general
+      calcularTotalGeneral();
     }
+  }
 
-    // Función para guardar los datos del carrito en el almacenamiento local
-    function guardarCarritoEnLocalStorage() {
-        const tableRows = document.querySelectorAll('.styled-table tbody tr');
-        const savedData = [];
+  // Función para guardar los datos del carrito en el almacenamiento local
+  function guardarCarritoEnLocalStorage() {
+    const filasTabla = document.querySelectorAll('.tabla-carrito tbody tr');
+    const datosGuardados = [];
 
-        tableRows.forEach(row => {
-            const codigo = row.dataset.codigo;
-            const nombre = row.cells[1].textContent;
-            const precio = parseFloat(row.cells[2].textContent);
-            const cantidad = parseInt(row.querySelector('.cantidad input').value);
-            const total = parseFloat(row.cells[4].textContent);
+    filasTabla.forEach(fila => {
+      const codigo = fila.dataset.codigo;
+      const nombre = fila.cells[1].textContent;
+      const precio = parseFloat(fila.cells[2].textContent);
+      const cantidad = parseInt(fila.querySelector('.cantidad input').value);
+      const total = parseFloat(fila.cells[4].textContent);
 
-            savedData.push({
-                codigo: codigo,
-                nombre: nombre,
-                precio: precio,
-                cantidad: cantidad,
-                total: total
-            });
-        });
-
-        localStorage.setItem('cartData', JSON.stringify(savedData));
-    }
-
-    // Función para calcular el total general
-    function calcularTotalGeneral() {
-        const rows = document.querySelectorAll('.styled-table tbody tr');
-        let totalGeneral = 0;
-        rows.forEach(row => {
-            const totalRow = parseFloat(row.cells[4].textContent);
-            totalGeneral += totalRow;
-        });
-
-        // Redondear hacia abajo el total general y mostrarlo como número entero
-        totalGeneral = Math.floor(totalGeneral);
-
-        // Actualizar el total general en el pie de la tabla
-        const totalGeneralElement = document.querySelector('.styled-table tfoot td:last-child');
-        totalGeneralElement.textContent = '₡' + totalGeneral;
-    }
-
-    // Función para actualizar el temporizador en la página del carrito
-    function actualizarTemporizador() {
-        const temporizadorElemento = document.getElementById('temporizador');
-
-        temporizadorIntervalo = setInterval(function() {
-            segundosRestantes--;
-            if (segundosRestantes <= 0) {
-                clearInterval(temporizadorIntervalo); // Detener el temporizador cuando llegue a cero
-                temporizadorElemento.textContent = 'El tiempo ha expirado';
-                // Eliminar los datos del carrito del almacenamiento local
-                localStorage.removeItem('cartData');
-                // Actualizar la página después de eliminar el almacenamiento
-                location.reload();
-            } else {
-                const minutos = Math.floor(segundosRestantes / 60);
-                const segundos = segundosRestantes % 60;
-                temporizadorElemento.textContent = `Tiempo restante: ${minutos}:${segundos < 10 ? '0' : ''}${segundos}`;
-            }
-        }, 1000); // Actualizar cada segundo
-    }
-
-    function actualizarCantidadCarrito() {
-        const cartItemCountElement = document.getElementById('cartItemCount');
-        const cartItemCount = parseInt(cartItemCountElement.textContent) || 0;
-        cartItemCountElement.textContent = cartItemCount + 1;
-    }
-
-    // Llamar a la función para cargar los datos del carrito al cargar la página
-    cargarCarritoDesdeLocalStorage();
-
-    // Agregar un evento click a cada botón "Agregar al carrito"
-    const addToCartButtons = document.querySelectorAll('.agregar-al-carrito');
-    addToCartButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            // Iniciar el temporizador solo si aún no ha sido iniciado
-            if (!temporizadorIntervalo) {
-                actualizarTemporizador();
-            }
-
-            const codigo = button.getAttribute('data-codigo');
-            const nombre = button.getAttribute('data-nombre');
-            const precio = parseFloat(button.getAttribute('data-precio'));
-            const cantidadInput = button.parentElement.querySelector('.cantidad input');
-            const cantidad = parseInt(cantidadInput.value);
-            const total = precio * cantidad;
-
-            // Buscar si ya existe una fila con el mismo código
-            const existingRow = document.querySelector(`.styled-table tbody tr[data-codigo="${codigo}"]`);
-
-            if (existingRow) {
-                // Si existe, actualizar la cantidad y el total
-                const cantidadCell = existingRow.querySelector('.cantidad input');
-                const nuevaCantidad = parseInt(cantidadCell.value) + cantidad;
-                cantidadCell.value = nuevaCantidad;
-                existingRow.querySelector('.total').textContent = precio * nuevaCantidad;
-            } else {
-                // Si no existe, agregar una nueva fila
-                const newRow = document.createElement('tr');
-                newRow.dataset.codigo = codigo;
-                newRow.innerHTML = `
-                    <td>${codigo}</td>
-                    <td>${nombre}</td>
-                    <td>${precio}</td>
-                    <td class="cantidad"><input type="text" value="${cantidad}" readonly></td>
-                    <td class="total">${total}</td>
-                    <td><button class="eliminar-fila">Eliminar</button></td>
-                `;
-
-                const tableBody = document.querySelector('.styled-table tbody');
-                tableBody.appendChild(newRow);
-
-                // Agregar evento al botón de eliminar después de crear la fila
-                const deleteButton = newRow.querySelector('.eliminar-fila');
-                deleteButton.addEventListener('click', () => {
-                const tableRow = deleteButton.closest('tr'); // Obtener la fila que contiene el botón
-                tableRow.remove(); // Eliminar la fila al hacer clic en Eliminar
-
-                // Recalcular el total general y guardar el carrito en el almacenamiento local
-                calcularTotalGeneral();
-                guardarCarritoEnLocalStorage();
-                // Actualizar la cantidad en el botón
-                actualizarCantidadCarrito();
-                });
-                
-                // Estilo para el botón de eliminar (cursor pointer)
-                deleteButton.style.cursor = 'pointer';
-
-                cantidadInput.value = 1; // Establecer el valor a 1
-            }
-
-            // Calcular el total general
-            calcularTotalGeneral();
-
-            // Guardar el carrito en el almacenamiento local
-            guardarCarritoEnLocalStorage();
-
-            // Actualizar la cantidad en el botón
-            actualizarCantidadCarrito();
-        });
+      datosGuardados.push({
+        codigo: codigo,
+        nombre: nombre,
+        precio: precio,
+        cantidad: cantidad,
+        total: total
+      });
     });
+
+    localStorage.setItem('cartData', JSON.stringify(datosGuardados));
+  }
+
+  // Función para calcular el total general
+  function calcularTotalGeneral() {
+    const filas = document.querySelectorAll('.tabla-carrito tbody tr');
+    let totalGeneral = 0;
+    filas.forEach(fila => {
+      const totalFila = parseFloat(fila.cells[4].textContent);
+      totalGeneral += totalFila;
+    });
+
+    // Redondear hacia abajo el total general y mostrarlo como número entero
+    totalGeneral = Math.floor(totalGeneral);
+
+    // Actualizar el total general en el pie de la tabla
+    const totalGeneralElemento = document.querySelector('.tabla-carrito tfoot td:last-child');
+    totalGeneralElemento.textContent = '₡' + totalGeneral;
+  }
+
+  // Función para actualizar el temporizador en la página del carrito
+  function actualizarTemporizador() {
+    const temporizadorElemento = document.getElementById('temporizador');
+
+    temporizadorIntervalo = setInterval(function() {
+      segundosRestantes--;
+      if (segundosRestantes <= 0) {
+        clearInterval(temporizadorIntervalo); // Detener el temporizador cuando llegue a cero
+        temporizadorElemento.textContent = 'El tiempo ha expirado';
+        // Eliminar los datos del carrito del almacenamiento local
+        localStorage.removeItem('cartData');
+        // Actualizar la página después de eliminar el almacenamiento
+        location.reload();
+      } else {
+        const minutos = Math.floor(segundosRestantes / 60);
+        const segundos = segundosRestantes % 60;
+        temporizadorElemento.textContent = `Tiempo restante: ${minutos}:${segundos < 10 ? '0' : ''}${segundos}`;
+      }
+    }, 1000); // Actualizar cada segundo
+  }
+
+  function actualizarCantidadCarrito() {
+    const cantidadMostrarCarritoElemento = document.getElementById('cantidadMostrarCarrito');
+    const cantidadMostrarCarrito = parseInt(cantidadMostrarCarritoElemento.textContent) || 0;
+    cantidadMostrarCarritoElemento.textContent = cantidadMostrarCarrito + 1;
+  }
+
+  // Llamar a la función para cargar los datos del carrito al cargar la página
+  cargarCarritoDesdeLocalStorage();
+
+  // Agregar un evento click a cada botón "Agregar al carrito"
+  const botonesAgregarCarrito = document.querySelectorAll('.agregar-al-carrito');
+  botonesAgregarCarrito.forEach(boton => {
+    boton.addEventListener('click', () => {
+      // Iniciar el temporizador solo si aún no ha sido iniciado
+      if (!temporizadorIntervalo) {
+        actualizarTemporizador();
+      }
+
+      const codigo = boton.getAttribute('data-codigo');
+      const nombre = boton.getAttribute('data-nombre');
+      const precio = parseFloat(boton.getAttribute('data-precio'));
+      const cantidadInput = boton.parentElement.querySelector('.cantidad input');
+      const cantidad = parseInt(cantidadInput.value);
+      const total = precio * cantidad;
+
+      // Buscar si ya existe una fila con el mismo código
+      const filaExistente = document.querySelector(`.tabla-carrito tbody tr[data-codigo="${codigo}"]`);
+
+      if (filaExistente) {
+        // Si existe, actualizar la cantidad y el total
+        const cantidadCelda = filaExistente.querySelector('.cantidad input');
+        const nuevaCantidad = parseInt(cantidadCelda.value) + cantidad;
+        cantidadCelda.value = nuevaCantidad;
+        filaExistente.querySelector('.total').textContent = precio * nuevaCantidad;
+      } else {
+        // Si no existe, agregar una nueva fila
+        const nuevaFila = document.createElement('tr');
+        nuevaFila.dataset.codigo = codigo;
+        nuevaFila.innerHTML = `
+          <td>${codigo}</td>
+          <td>${nombre}</td>
+          <td>${precio}</td>
+          <td class="cantidad"><input type="text" value="${cantidad}" readonly></td>
+          <td class="total">${total}</td>
+          <td><button class="eliminar-fila">Eliminar</button></td>
+        `;
+
+        const cuerpoTabla = document.querySelector('.tabla-carrito tbody');
+        cuerpoTabla.appendChild(nuevaFila);
+
+        // Agregar evento al botón de eliminar después de crear la fila
+        const botonEliminar = nuevaFila.querySelector('.eliminar-fila');
+        botonEliminar.addEventListener('click', () => {
+          const filaTabla = botonEliminar.closest('tr'); // Obtener la fila que contiene el botón
+          filaTabla.remove(); // Eliminar la fila al hacer clic en Eliminar
+
+          // Recalcular el total general y guardar el carrito en el almacenamiento local
+          calcularTotalGeneral();
+          guardarCarritoEnLocalStorage();
+          // Actualizar la cantidad en el botón
+          actualizarCantidadCarrito();
+        });
+        
+        // Estilo para el botón de eliminar (cursor pointer)
+        botonEliminar.style.cursor = 'pointer';
+
+        cantidadInput.value = 1; // Establecer el valor a 1
+      }
+
+      // Calcular el total general
+      calcularTotalGeneral();
+
+      // Guardar el carrito en el almacenamiento local
+      guardarCarritoEnLocalStorage();
+
+      // Actualizar la cantidad en el botón
+      actualizarCantidadCarrito();
+    });
+  });
 });
 
 // Esto es para que cuando se envie el correo aparezca un mensaje 
