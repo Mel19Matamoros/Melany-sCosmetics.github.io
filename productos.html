@@ -15,7 +15,7 @@
         <header>
           <div class="contain-header">
             <img src="Imagenes/Logo Melany's Cosmetics.PNG" alt="Logo">
-            <h1 id="animated-heading">Melany's Cosmetics</h1>
+            <h1 id="animacion-header">Melany's Cosmetics</h1>
           </div>
         </header>
 
@@ -38,73 +38,64 @@
                   <li class="nav-item">
                     <a class="nav-link" href="acercaDe.html">Acerca de</a>
                   </li>
-                  <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Mas</a>
-                    <div class="dropdown-menu">
-                      <a class="dropdown-item" href="#">Historia del sitio</a>
-                      <div class="dropdown-divider"></div>
-                      <a class="dropdown-item" href="#">Galería de imágenes</a>
-                      <div class="dropdown-divider"></div>
-                      <a class="dropdown-item" href="#">Ubicación</a>
-                      <div class="dropdown-divider"></div>
-                      <a class="dropdown-item" href="#">Multimedia</a>
-                    </div>
+                  <li class="nav-item">
+                    <a class="nav-link" href="ubicacion.html">Sucursal</a>
                   </li>
               </ul>
             </div>
           </div>
         </nav>
 
-    <main>
-      <div id="toggleCartButton">
-        <button id="cartButton" class="active">
-          <span id="cartItemCount">0</span>
-          Mostrar carrito
-        </button>
-      </div>
-
-      <div id="cartContainer" class="cart-container active">
-       <div class="cart-content">
-        <button id="hideCartButton" class="hide-cart-button">Ocultar Carrito</button>
-         <div id="temporizador"></div>
-          <table class="styled-table">
-          <thead>
-              <tr>
-                  <th>Código</th>
-                  <th>Nombre del Producto</th>
-                  <th>Precio Unitario</th>
-                  <th>Cantidad</th>
-                  <th>Total</th>
-                  <th>Acciones</th> 
-              </tr>
-          </thead>
-          <tbody>
-              <!-- Aquí se agregarán dinámicamente las filas de productos -->
-          </tbody>
-          <tfoot>
-              <tr>
-                  <td colspan="4"><strong>Total General</strong></td>
-                  <td><strong>₡0</strong></td>
-              </tr>
-          </tfoot>
-      </table>
-      </div>
-      </div>
-     </main>
-
-        <div clas
-        <div class="contenedor-productos">
-          <div class="sidebar">
-              <h3>Categorías</h3>
-              <ul class="categories">
-                  <li data-category="bases">Bases</li>
-                  <li data-category="polvos">Polvos</li>
-                  <li data-category="labiales">Labiales</li>
-                  <li data-category="paletas">Paletas de sombras</li>
-              </ul>
+        <main>
+          <div id="mostrarCarrito">
+            <button id="botonMostrarCarrito" class="active">
+              <span id="cantidadMostrarCarrito">0</span>
+              Mostrar carrito
+            </button>
           </div>
-          <div class="main-content">
-              <div class="products">
+    
+          <div id="contenedor-carrito" class="contenedor-carrito active">
+           <div class="carrito-content">
+            <button id="botonOcultarCarrito" class="ocultar-carrito-boton">Ocultar Carrito</button>
+             <div id="temporizador"></div>
+              <table class="tabla-carrito">
+              <thead>
+                  <tr>
+                      <th>Código</th>
+                      <th>Nombre del Producto</th>
+                      <th>Precio Unitario</th>
+                      <th>Cantidad</th>
+                      <th>Total</th>
+                      <th>Acciones</th> 
+                  </tr>
+              </thead>
+              <tbody>
+                  <!-- Aquí se agregarán dinámicamente las filas de productos -->
+              </tbody>
+              <tfoot>
+                  <tr>
+                      <td colspan="4"><strong>Total General</strong></td>
+                      <td><strong>₡0</strong></td>
+                  </tr>
+              </tfoot>
+          </table>
+          </div>
+          </div>
+         </main>
+
+        <div class="contenedor-productos">
+          <div class="contain-categorias">
+            <h3>Categorías</h3>
+            <ul class="categorias">
+                <li data-category="todo">Todo</li> 
+                <li data-category="bases">Bases</li>
+                <li data-category="polvos">Polvos</li>
+                <li data-category="labiales">Labiales</li>
+                <li data-category="paletas">Paletas de sombras</li>
+            </ul>
+        </div>
+          <div class="contenedor-cards-productos">
+              <div class="productos">
                   <div class="card bases">
                       <div class="card-body">
                           <img src="Imagenes/Base Loreal Paris.jpg" class="card-img-top" alt="https://www.chedraui.com.mx/base-de-maquillaje-liquida-loreal-paris-infallible-202-creamy-natural-30ml-3478365/p">
@@ -140,7 +131,7 @@
                             <button class="btn btn-primary agregar-al-carrito" data-codigo="BAS002" data-nombre="Base de Maquillaje Líquida Maybelline Fit Me Mate 30ml" data-precio="14200">Agregar al carrito</button>
                         </div>
                     </div>
-                    <div class="card-body id="card-BAS003">
+                    <div class="card-body">
                       <img src="Imagenes/Base Beauty Creations.jpg" class="card-img-top" alt="https://hibeautycr.com/products/flawless-stay-foundation?variant=33875048398988">
                       <div class="info-card">
                           <h5 class="card-title">Base de Maquillaje Líquida Beauty Creations Flawless Stay Foundation 30ml</h5>
@@ -401,7 +392,7 @@
     </div>
     </div>
     </div>
-    </div>
+        </div>
       
         <footer class="footer">
           <div class="container-footer">
@@ -433,12 +424,12 @@
             <p>&copy; 2024 Melany's Cosmetics. Todos los derechos reservados.</p>
           </div>
         </footer>
-        
-        <script src="script.js"></script>
 
         <!-- Enlace a Bootstrap JS y jQuery (requeridos para funcionalidad de la barra de navegación) -->
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+        <script src="script.js"></script>
   </body>
 </html>
