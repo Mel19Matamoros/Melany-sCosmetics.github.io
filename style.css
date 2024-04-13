@@ -873,12 +873,17 @@ article h2 {
   border-radius: 20px; /* Radio de borde para redondear el botón */
   color: #fff; /* Color del texto del botón */
   cursor: pointer; /* Cambiar el cursor al pasar sobre el botón */
+  /* Posicionamiento */
+  position: fixed;
+  right: 0;
+  top: 10px; /* Puedes ajustar esta propiedad según tu preferencia */
 }
 
 #mostrarCarrito {
   justify-content: left; /* Alineamos el contenido a la derecha */
   margin-left: 1025px;
   margin-bottom: -150px;
+  width: 100%;
 }
 
 #botonOcultarCarrito {
