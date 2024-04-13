@@ -875,7 +875,7 @@ article h2 {
   cursor: pointer; /* Cambiar el cursor al pasar sobre el botón */
   /* Posicionamiento */
   right: 0;
-  top: 10px; /* Puedes ajustar esta propiedad según tu preferencia */
+  top: 20px; /* Puedes ajustar esta propiedad según tu preferencia */
 }
 
 #mostrarCarrito {
