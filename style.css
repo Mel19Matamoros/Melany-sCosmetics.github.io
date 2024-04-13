@@ -874,7 +874,6 @@ article h2 {
   color: #fff; /* Color del texto del botón */
   cursor: pointer; /* Cambiar el cursor al pasar sobre el botón */
   /* Posicionamiento */
-  position: fixed;
   right: 0;
   top: 10px; /* Puedes ajustar esta propiedad según tu preferencia */
 }
