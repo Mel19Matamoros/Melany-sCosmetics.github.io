@@ -1178,41 +1178,47 @@ video {
 
 /* Media query para pantallas muy pequeñas en el INDEX.HTML (máximo 575px) */
 @media screen and (max-width: 575px) {
+  header {
+    text-align: center;
+    padding: 20px 0;
+  }
+
+  header h1 {
+    margin: 0;
+  }
+
   header img {
     max-width: 60px; /* Tamaño del logo en pantallas pequeñas */
-}
+  }
 
-#animacion-header {
+  #animacion-header {
     font-size: 24px; /* Tamaño del título en pantallas pequeñas */
-}
+  }
 
-.navbar-toggler {
-  display: none;
-}
+  .navbar-toggler {
+    display: none;
+  }
 
-.navbar-collapse {
-  justify-content: flex-end;
-}
+  .navbar-collapse {
+    justify-content: flex-end;
+  }
 
+  .navbar-nav {
+    flex-direction: column;
+  }
 
-.navbar-nav {
-    text-align: left; /* Alinear el texto del menú a la izquierda en pantallas pequeñas */
-}
-
-
-.navbar-nav .nav-item {
+  .navbar-nav .nav-item {
     margin-bottom: 0; /* Eliminar el margen inferior entre elementos del menú en pantallas pequeñas */
-}
+  }
 
-.contenedor-info-map {
+  .contenedor-info-map {
     margin-top: 10px; /* Ajustar el margen superior del contenedor del mapa en pantallas pequeñas */
-}
+  }
 
-#map {
+  #map {
     height: 200px; /* Altura del mapa en pantallas pequeñas */
-}
+  }
 
-  /* Estilos para el footer */
   .footer-social ul {
     flex-direction: column;
     align-items: center;
@@ -1221,7 +1227,7 @@ video {
   .footer-info,
   .footer-contacto,
   .footer-social {
-    width: 100%;
+    width: 100%; /* Cambiado a 100% para que ocupen todo el ancho disponible */
   }
 }
 
