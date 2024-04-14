@@ -125,6 +125,22 @@ nav ul li a {
   color: white; /* Cambia el color del texto al pasar el mouse */
 }
 
+.centered-nav-items {
+  display: flex;
+  justify-content: center;
+  flex: 1; /* Para que ocupe el espacio restante y empuje el botón a la derecha */
+  margin-left: 180px;
+}
+
+#botonMostrarCarrito {
+  border-radius: 20px; /* Radio de borde para redondear el botón */
+  color: #fff; /* Color del texto del botón */
+  cursor: pointer; /* Cambiar el cursor al pasar sobre el botón */
+  margin-left: auto;
+  background-color: rgb(255, 132, 152);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* Efecto de sombra suave */
+}
+
 .setting-btn {
   width: 45px;
   height: 45px;
@@ -656,12 +672,18 @@ article h2 {
   padding: 40px;
   background-color: #f2f2f2;
   margin-left: 100px;
-  margin-top: 150px;
+  margin-top: 20px;
   margin-bottom: 100px;
   margin-right: 50px;
-  border-radius: 10px;
-  height: 320px;
+  border-radius: 20px;
+  height: 425px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  border: 2px solid #beb1b8; /* Color del borde */
+}
+
+.contain-categorias h3 {
+  text-align: center;
+  margin-bottom: 20px;
 }
 
 .categorias {
@@ -670,8 +692,17 @@ article h2 {
 }
 
 .categorias li {
-  cursor: pointer;
-  margin-bottom: 13px;
+  cursor: pointer; /* Cambia el cursor al pasar sobre los elementos */
+  margin-bottom: 16px; /* Espacio entre elementos */
+  text-align: center; /* Centra el texto dentro de los elementos */
+  padding: 10px; /* Añade un poco de relleno alrededor del texto */
+  background-color: #f2f2f2; /* Color de fondo */
+  border-radius: 8px; /* Bordes redondeados */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+.categorias li:hover {
+  background-color: #e0e0e0; /* Cambia el color de fondo al pasar sobre los elementos */
 }
 
 .categorias li.active {
@@ -685,7 +716,6 @@ article h2 {
 }
 
 .contenedor-cards-productos {
-  margin-top: 130px;
   margin-left: 50px;
   display: block;
   width: 80%;
@@ -710,29 +740,48 @@ article h2 {
   align-items: flex-end; 
 }
 
+.card-title {
+  font-size: 25px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #000000;
+  margin-left: 15px;
+}
+
 .card-body {
   width: 100%;
   margin-bottom: 50px;
   background-color: transparent;
-  justify-content: space-between; /* Alinea los elementos al inicio y al final */
   display: flex;
-  flex-direction: row;
+  flex-direction: row; /* Coloca los elementos en columnas */
   padding: 10px;
   flex: 1;
   box-shadow: 0 1px 20px rgba(0, 0, 0, 0.3);
+  border-radius: 20px; /* Radio de borde para redondear el botón */
 }
 
 .card-body p {
-  color: white;
+  color: #000000;
+  margin-left: 15px;
   margin-bottom: 15px;
-  text-align: right;
   margin-top: 5px;
+  text-align: justify;
+  font-size: 15px;
 }
 
 .card-body img {
   width: 30%;
   height: auto;
   border-radius: 10px;
+}
+
+.card-img-top {
+  transition: transform 0.3s ease; /* Transición suave */
+}
+
+.card-img-top:hover {
+  transform: scale(1.2); 
 }
 
 .info-card {
@@ -749,12 +798,8 @@ article h2 {
 }
 
 .btn-primary.agregar-al-carrito {
-  margin-left: auto; /* Mueve el botón al extremo derecho */
-}
-
-.card-title {
-  font-size: 18px;
-  margin-bottom: 10px;
+  margin-top: 20px;
+  margin-left: 375px; /* Elimina el margen izquierdo automático */
 }
 
 /* Estilos para los detalles del producto (código y precio) */
@@ -774,8 +819,17 @@ article h2 {
 }
 
 .detalle span:last-child {
-  color: #666; /* Color del texto */
+  color: #000000; /* Color del texto */
+  font-weight: bold;
   font-size: 30px
+}
+
+.linea-card {
+  border-bottom: 1px solid #ffffff; 
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* Efecto de sombra suave */
+  margin-left: 15px;
+  margin-top: 10px;
+  margin-bottom: 10px; 
 }
 
 .cantidad label {
@@ -783,8 +837,12 @@ article h2 {
 }
 
 .cantidad input {
-  height: 46px;
+  height: 43px;
   width: 100px;
+}
+
+input[type="number"] {
+  border: none; /* Elimina el borde */
 }
 
 /* Estilo para los botones de incremento y decremento */
@@ -835,7 +893,6 @@ article h2 {
   flex-wrap: wrap;
 }
 
-/* Configuración del contenedor principal del carrito */
 .contenedor-carrito {
   display: none; /* Inicialmente oculto */
   position: fixed; /* Fijo en la ventana */
@@ -870,13 +927,6 @@ article h2 {
   display: block; /* Mostrar el carrito cuando tenga la clase 'active' */
 }
 
-#botonMostrarCarrito {
-  border-radius: 20px; /* Radio de borde para redondear el botón */
-  color: #fff; /* Color del texto del botón */
-  cursor: pointer; /* Cambiar el cursor al pasar sobre el botón */
-  right: 0;
-}
-
 #mostrarCarrito {
   justify-content: left; /* Alineamos el contenido a la derecha */
   margin-left: 1025px;
@@ -898,6 +948,7 @@ article h2 {
   color: #ffffff;
   border-radius: 50%;
   padding: 2px 6px;
+  font-weight: bold;
   font-size: 12px;
   margin-left: 5px;
   animation: pulse 0.5s infinite alternate;
