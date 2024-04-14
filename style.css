@@ -1,463 +1,1318 @@
-<!DOCTYPE html>
-<html lang="es">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Melany's Cosmetics</title> 
-        <link rel="icon" href="Imagenes/Logo Melany's Cosmetics.PNG" type="image/x-icon">
-        <link rel="stylesheet" href="style.css">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    </head>
+/* -------------------------------------------- HTML ---------------------------------------------------- */
+html {
+  scroll-behavior: smooth; /* Efecto de desplazamiento suave */
+}
 
-    <body>
-        <header>
-          <div class="contain-header">
-            <img src="Imagenes/Logo Melany's Cosmetics.PNG" alt="Logo">
-            <h1 id="animacion-header">Melany's Cosmetics</h1>
-          </div>
-        </header>
+/* ----------------------------------------- BODY Y FONDO ----------------------------------------------- */
+body {
+  font-family: 'Poppins', sans-serif; /* Aplica la fuente de Google Fonts a todo el cuerpo */
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(120deg, #ff69b4, #87ceeb, #ff69b4);
+  animation: graduacion-del-fondo 10s ease infinite;
+}
 
-        <nav class="navbar navbar-expand-lg bg-rosado" id="navbar">
-          <div class="container-fluid" id="menu">
-              <button class="setting-btn d-lg-none" type="button" data-bs-toggle="collapse"
-                  data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false"
-                  aria-label="Toggle navigation">
-                  <span class="bar bar1"></span>
-                  <span class="bar bar2"></span>
-                  <span class="bar bar1"></span>
-              </button>
+@keyframes graduacion-del-fondo {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
 
-              <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-                <div class="centered-nav-items"> <!-- Nuevo contenedor -->
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item" id="elementos">
-                            <a class="nav-link active" id="elementos" aria-current="page" href="index.html">Inicio</a>
-                        </li>
-                        <li class="nav-item" id="elementos">
-                            <a class="nav-link active" id="elementos" href="productos.html">Productos</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" id="elementos" href="contacto.html">Contacto</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" id="elementos" href="acercaDe.html">Acerca de</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" id="elementos" href="ubicacion.html">Sucursal</a>
-                        </li>
-                    </ul>
-                </div>
-                <button id="botonMostrarCarrito" class="active"> <!-- Botón a la derecha -->
-                    <span id="cantidadMostrarCarrito">0</span>
-                    Mostrar carrito
-                </button>
-            </div>
-        </div>
-    </nav>
+/* -------------------------------------------- HEADER ---------------------------------------------------- */
+.contain-header{
+  width: 1000px;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
 
-        <main>
-          <!--
-          <div id="mostrarCarrito">
-          <button id="botonMostrarCarrito" class="active">
-          <span id="cantidadMostrarCarrito">0</span>
-          Mostrar carrito
-          </button>
-          </div>
-          -->
-    
-          <div id="contenedor-carrito" class="contenedor-carrito active">
-           <div class="carrito-content">
-            <button id="botonOcultarCarrito" class="ocultar-carrito-boton">Ocultar Carrito</button>
-             <div id="temporizador"></div>
-              <table class="tabla-carrito">
-              <thead>
-                  <tr>
-                      <th>Código</th>
-                      <th>Nombre del Producto</th>
-                      <th>Precio Unitario</th>
-                      <th>Cantidad</th>
-                      <th>Total</th>
-                  </tr>
-              </thead>
-              <tbody>
-                  <!-- Aquí se agregarán dinámicamente las filas de productos -->
-              </tbody>
-              <tfoot>
-                  <tr>
-                      <td colspan="4"><strong>Total General</strong></td>
-                      <td><strong>₡0</strong></td>
-                  </tr>
-              </tfoot>
-          </table>
-          </div>
-          </div>
-         </main>
+header {
+  background-color: lightpink;
+  padding: 20px 0;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  display: flex;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* Efecto de sombra suave */
+}
 
-        <div class="contenedor-productos">
-          <div class="contain-categorias">
-            <h3>Categorías</h3>
-            <ul class="categorias">
-                <li data-category="todo">Todo</li> 
-                <li data-category="bases">Bases</li>
-                <li data-category="polvos">Polvos</li>
-                <li data-category="labiales">Labiales</li>
-                <li data-category="paletas">Paletas de sombras</li>
-            </ul>
-        </div>
-          <div class="contenedor-cards-productos">
-              <div class="productos">
-                  <div class="card bases">
-                      <div class="card-body">
-                          <img src="Imagenes/Base Loreal Paris.jpg" class="card-img-top" alt="https://www.chedraui.com.mx/base-de-maquillaje-liquida-loreal-paris-infallible-202-creamy-natural-30ml-3478365/p">
-                          <div class="info-card">
-                              <h5 class="card-title">Base de Maquillaje Líquida L'Oréal Paris Infallible 30ml</h5>
-                              <div class="linea-card"></div>
-                              <p>Protege tu piel del sol e hidrátala al mismo tiempo con la Base de Maquillaje Infallible pro glow de L'Oréal Paris.</p>
-                              <div class="detalle">
-                                <span>Código: BAS001</span>
-                                <span>Precio: &#8353;8,900</span>
-                              </div>
-                              <div class="cantidad">
-                                  <label for="cantidad_base1">Cantidad:</label>
-                                  <input type="number" id="cantidad_base1" class="cantidad" value="1" min="1">
-                              </div>
-                              <button class="btn btn-primary agregar-al-carrito" data-codigo="BAS001" data-nombre="Base de Maquillaje Líquida L'Oréal Paris Infallible 30ml" data-precio="8900">Agregar al carrito</button>
-                          </div>
-                      </div>
-                      <div class="card-body">
-                        <img src="Imagenes/Base Liquida-Maybelline-Fit-Me-Mate.jpg" class="card-img-top" alt="https://www.walmart.co.cr/maybelline-fit-me-matte-poreless-natural-beige/p">
-                        <div class="info-card">
-                            <h5 class="card-title">Base de Maquillaje Líquida Maybelline Fit Me Mate 30ml</h5>
-                            <div class="linea-card"></div>
-                            <p>Ideal para la piel normal a grasa, nuestra exclusiva fórmula con micropolvos 
-                              controla la grasa y difumina los poros para un acabado natural e impecable. 
-                              Probada por dermatólogos. Probada contra alergias.</p>
-                            <div class="detalle">
-                                <span>Código: BAS002</span>
-                                <span>Precio: &#8353;14.200</span>
-                            </div>
-                            <div class="cantidad">
-                                <label for="cantidad_base2">Cantidad:</label>
-                                <input type="number" id="cantidad_base2" class="cantidad" value="1" min="1">
-                            </div>
-                            <button class="btn btn-primary agregar-al-carrito" data-codigo="BAS002" data-nombre="Base de Maquillaje Líquida Maybelline Fit Me Mate 30ml" data-precio="14200">Agregar al carrito</button>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                      <img src="Imagenes/Base Beauty Creations.jpg" class="card-img-top" alt="https://hibeautycr.com/products/flawless-stay-foundation?variant=33875048398988">
-                      <div class="info-card">
-                          <h5 class="card-title">Base de Maquillaje Líquida Beauty Creations Flawless Stay Foundation 30ml</h5>
-                          <div class="linea-card"></div>
-                          <p>Base Beauty Creations Flawless Stay Fundation. Excelente base para mantener de media 
-                            a alta cobertura.</p>
-                          <div class="detalle">
-                              <span>Código: BAS003</span>
-                              <span>Precio: &#8353;8,800</span>
-                          </div>
-                          <div class="cantidad">
-                              <label for="cantidad_base3">Cantidad:</label>
-                              <input type="number" id="cantidad_base3" class="cantidad" value="1" min="1">
-                          </div>
-                          <button class="btn btn-primary agregar-al-carrito" data-codigo="BAS003" data-nombre="Base de Maquillaje Líquida Beauty Creations Flawless Stay Foundation 30ml" data-precio="8800">Agregar al carrito</button>
-                      </div>
-                  </div>
-                  <div class="card-body">
-                    <img src="Imagenes/Base-MAC.jpg" class="card-img-top" alt="https://www.maccosmetics.cr/products/14775/products/vips/studio">
-                    <div class="info-card">
-                        <h5 class="card-title">Base de Maquillaje Líquida Studio Fix Fluid SPF 15 30ml</h5>
-                        <div class="linea-card"></div>
-                        <p>Fórmula de larga duración, que controla el exceso de grasa y proporciona un acabado mate y 
-                           una cobertura media a alta modulable.</p>
-                        <div class="detalle">
-                            <span>Código: BAS004</span>
-                            <span>Precio: &#8353;36,000</span>
-                        </div>
-                        <div class="cantidad">
-                            <label for="cantidad_base4">Cantidad:</label>
-                            <input type="number" id="cantidad_base4" class="cantidad" value="1" min="1">
-                        </div>
-                        <button class="btn btn-primary agregar-al-carrito" data-codigo="BAS004" data-nombre="Base de Maquillaje Líquida Studio Fix Fluid SPF 15 30ml" data-precio="36000">Agregar al carrito</button>
-                    </div>
-                  </div>
-                </div>
+header h1 {
+  margin: 0;
+  font-size: 28px;
+  color: white;
+}
 
-                <div class="card polvos">
-                  <div class="card-body">
-                      <img src="Imagenes/Polvo-Compacto-Maybelline.jpg" class="card-img-top" alt="https://www.walmart.co.cr/polvo-loreal-compac-sand-220/p">
-                      <div class="info-card">
-                          <h5 class="card-title">Polvos compactos L'Oréal Paris infallible 24h Fresh Wear 0.31oz</h5>
-                          <div class="linea-card"></div>
-                          <p>La base en polvo Infallible Fresh Wear cubre como un líquido 
-                            y matifica por hasta 24 horas. Textura de polvo ligera que te ofrece una 
-                            cobertura completa y un acabado mate natural. Resistentes al agua.</p>
-                          <div class="detalle">
-                              <span>Código: POL001</span>
-                              <span>Precio: &#8353;13,800</span>
-                          </div>
-                          <div class="cantidad">
-                              <label for="cantidad_polvos1">Cantidad:</label>
-                              <input type="number" id="cantidad_polvos1" class="cantidad" value="1" min="1">
-                          </div>
-                          <button class="btn btn-primary agregar-al-carrito" data-codigo="POL001" data-nombre="Polvos compactos L'Oréal Paris infallible 24h Fresh Wear 0.31oz" data-precio="13800">Agregar al carrito</button>
-                      </div>
-                  </div>
-                  <div class="card-body">
-                    <img src="Imagenes/Polvos Compactos Beauty Creations.jpeg" class="card-img-top" alt="https://www.jccosmeticos.net/product/polvos-compactos-beauty-creations-fsp10/">
-                    <div class="info-card">
-                        <h5 class="card-title">Polvos compactos Beauty Creations</h5>
-                        <div class="linea-card"></div>
-                        <p>La base Flawless Stay Powder es un polvo compacto de larga 
-                          duración. Puedes usar esta base en polvo sola o encima de nuestra base 
-                          líquida Flawless Stay para un glamour a prueba total.</p>
-                        <div class="detalle">
-                            <span>Código: POL002</span>
-                            <span>Precio: &#8353;8,500</span>
-                        </div>
-                        <div class="cantidad">
-                            <label for="cantidad_polvos2">Cantidad:</label>
-                            <input type="number" id="cantidad_polvos2" class="cantidad" value="1" min="1">
-                        </div>
-                        <button class="btn btn-primary agregar-al-carrito" data-codigo="POL002" data-nombre="Polvos compactos Beauty Creations" data-precio="8500">Agregar al carrito</button>
-                    </div>
-                </div>
-                <div class="card-body">
-                  <img src="Imagenes/Polvos Banana Beauty Creations.jpeg" class="card-img-top" alt="https://beautymarketcr.com/Invent/producto/polvo-banana-beauty-creations/">
-                  <div class="info-card">
-                      <h5 class="card-title">Polvo translúcido Banana- Beauty Creations</h5>
-                      <div class="linea-card"></div>
-                      <p>Beauty Creations Banana Setting Powder es un polvo ultra fino y proporcionan
-                         un acabado matte/sedoso. Ayuda a sellar el maquillaje todo el día.</p>
-                      <div class="detalle">
-                          <span>Código: POL003</span>
-                          <span>Precio: &#8353;3,900</span>
-                      </div>
-                      <div class="cantidad">
-                          <label for="cantidad_polvos3">Cantidad:</label>
-                          <input type="number" id="cantidad_polvos3" class="cantidad" value="1" min="1">
-                      </div>
-                      <button class="btn btn-primary agregar-al-carrito" data-codigo="POL003" data-nombre="Polvo translúcido Banana- Beauty Creations" data-precio="3900">Agregar al carrito</button>
-                  </div>
-              </div>
-              <div class="card-body">
-                <img src="Imagenes/Mac-Polvo-Suelto.jpg" class="card-img-top" alt="https://cr.siman.com/studio-fix-pro-set-blur-loose-powder-104190543/p">
-                <div class="info-card">
-                    <h5 class="card-title">Polvo translúcido MAC Studio Fix Pro Fija</h5>
-                    <div class="linea-card"></div>
-                    <p>Fija tu maquillaje con el poder de Studio Fix. Nuestros polvos fijadores transpirables,
-                      están fusionados con polvos dobles que absorben la grasa para ayudar a controlar el 
-                      brillo y matificar al instante.</p>
-                    <div class="detalle">
-                        <span>Código: POL004</span>
-                        <span>Precio: &#8353;33,000</span>
-                    </div>
-                    <div class="cantidad">
-                        <label for="cantidad_polvos4">Cantidad:</label>
-                        <input type="number" id="cantidad_polvos4" class="cantidad" value="1" min="1">
-                    </div>
-                    <button class="btn btn-primary agregar-al-carrito" data-codigo="POL004" data-nombre="Polvo translúcido MAC Studio Fix Pro Fija" data-precio="33000">Agregar al carrito</button>
-                </div>
-              </div>
-            </div>
+header img {
+  height: 80px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  transition: transform 0.3s ease;
+}
 
-            <div class="card labiales">
-              <div class="card-body">
-                  <img src="Imagenes/Labial loreal.jpg" class="card-img-top" alt="https://www.druni.es/color-riche-intense-volume-edicion-limitada-loreal-paris-barra-labios-acabado-mate">
-                  <div class="info-card">
-                      <h5 class="card-title">Labial en barra mate Riche Intense Volume Edición Limitada L'Oreal Paris</h5>
-                      <div class="linea-card"></div>
-                      <p>Nuestro icónico labial Color Riche en acabado mate, fórmula mejorada 
-                        que aporta volumen y larga duración de 16H a tus labios. También los cuida gracias 
-                        a su aceite de argán y ácido hialurónico, ofreciendo una sensación de hidratación 
-                        durante todo el día. No se transfiere.</p>
-                      <div class="detalle">
-                          <span>Código: LAB001</span>
-                          <span>Precio: &#8353;9,600</span>
-                      </div>
-                      <div class="cantidad">
-                          <label for="cantidad_labiales1">Cantidad:</label>
-                          <input type="number" id="cantidad_labiales1" class="cantidad" value="1" min="1">
-                      </div>
-                      <button class="btn btn-primary agregar-al-carrito" data-codigo="LAB001" data-nombre="Labial en barra mate Riche Intense Volume Edición Limitada L'Oreal Paris" data-precio="9600">Agregar al carrito</button>
-                  </div>
-              </div>
-              <div class="card-body">
-                <img src="Imagenes/Labial-Maybelline.jpg" class="card-img-top" alt="https://hibeautycr.com/products/labial-maybelline-superstay-ink?variant=41111649419404">
-                <div class="info-card">
-                    <h5 class="card-title">Labial Liquido Maybelline Superstay Ink</h5>
-                    <div class="linea-card"></div>
-                    <p>Superstay Matte Ink garantiza un acabado impecable que dura hasta 12 horas. 
-                      Su textura cremosa se desliza con facilidad por los labios, proporcionando un 
-                      resultado perfecto y completo.
-                    </p>
-                    <div class="detalle">
-                        <span>Código: LAB002</span>
-                        <span>Precio: &#8353;7,995</span>
-                    </div>
-                    <div class="cantidad">
-                        <label for="cantidad_labiales2">Cantidad:</label>
-                        <input type="number" id="cantidad_labiales2" class="cantidad" value="1" min="1">
-                    </div>
-                    <button class="btn btn-primary agregar-al-carrito" data-codigo="LAB002" data-nombre="Labial Liquido Maybelline Superstay Ink" data-precio="7995">Agregar al carrito</button>
-                </div>
-            </div>
-            <div class="card-body">
-              <img src="Imagenes/Labial-Liquido-S-Beauty-Creations.jpg" class="card-img-top" alt="https://kalaluacr.com/producto/labial-liquido-beauty-creations/">
-              <div class="info-card">
-                  <h5 class="card-title">Labial Liquido Beauty Creations</h5>
-                  <div class="linea-card"></div>
-                  <p>Labial Liquido Beauty Creations te dará un color, brillo y humectación que te encantarán.</p>
-                  <div class="detalle">
-                      <span>Código: LAB003</span>
-                      <span>Precio: &#8353;5,300</span>
-                  </div>
-                  <div class="cantidad">
-                      <label for="cantidad_labiales3">Cantidad:</label>
-                      <input type="number" id="cantidad_labiales3" class="cantidad" value="1" min="1">
-                  </div>
-                  <button class="btn btn-primary agregar-al-carrito" data-codigo="LAB003" data-nombre="Labial Liquido Beauty Creations" data-precio="5300">Agregar al carrito</button>
-              </div>
-          </div>
-          <div class="card-body">
-            <img src="Imagenes/Labial MAC.jpg" class="card-img-top" alt="https://cr.faces.com/love-me-lipstick-bmac3028/p">
-            <div class="info-card">
-                <h5 class="card-title">Labial en barra MAC Love Me</h5>
-                <div class="linea-card"></div>
-                <p>Fórmula innovadora que contiene una infusión de aceite de argán que brinda humectación, 
-                   color intenso y cobertura total dejando un acabado satinado durante todo el día.</p>
-                <div class="detalle">
-                    <span>Código: LAB004</span>
-                    <span>Precio: &#8353;9,400</span>
-                </div>
-                <div class="cantidad">
-                    <label for="cantidad_labiales4">Cantidad:</label>
-                    <input type="number" id="cantidad_labiales4" class="cantidad" value="1" min="1">
-                </div>
-                <button class="btn btn-primary agregar-al-carrito" data-codigo="LAB004" data-nombre="Labial en barra MAC Love Me" data-precio="9400">Agregar al carrito</button>
-            </div>
-          </div>
-        </div>
+header img:hover {
+  transform: scale(1.1);
+}
 
-        <div class="card paletas">
-          <div class="card-body">
-              <img src="Imagenes/Paleta Tease Me Beauty Creations.jpg" class="card-img-top" alt="https://www.jccosmeticos.net/product/paleta-tease-me-beauty-creations/">
-              <div class="info-card">
-                  <h5 class="card-title">Paleta de Sombras Tease me Beauty Creations</h5>
-                  <div class="linea-card"></div>
-                  <p>Paleta de sombras Tease Me de Beauty Creations tiene una gama de colores 
-                    para diseños clásicos e impactantes. Tiene textura suave y un pigmento increíble. 
-                    18 sombras en increíbles tonos. Colores metálicos de alta pigmentación.</p>
-                  <div class="detalle">
-                      <span>Código: PAL001</span>
-                      <span>Precio: &#8353;10,000</span>
-                  </div>
-                  <div class="cantidad">
-                      <label for="cantidad_paletas1">Cantidad:</label>
-                      <input type="number" id="cantidad_paletas1" class="cantidad" value="1" min="1">
-                  </div>
-                  <button class="btn btn-primary agregar-al-carrito" data-codigo="PAL001" data-nombre="Paleta de Sombras Tease me Beauty Creations" data-precio="10000">Agregar al carrito</button>
-              </div>
-          </div>
-          <div class="card-body">
-            <img src="Imagenes/Paleta-Maybelline-Nudes-of-New-York.jpg" class="card-img-top" alt="https://hibeautycr.com/products/sin-nombre-5ago_15-57">
-            <div class="info-card">
-                <h5 class="card-title">Paleta de Sombras Maybelline Nudes of New York</h5>
-                <div class="linea-card"></div>
-                <p>La paleta de Sombras Nudes of New York es la primera paleta de sombras de ojos 
-                  con diseño universal, pensada para favorecer a todo tipo de complexiones faciales 
-                  y tonos de piel, contando con 16 tonos neutrales con acabados matte y brillante.</p>
-                <div class="detalle">
-                    <span>Código: PAL002</span>
-                    <span>Precio: &#8353;16,200</span>
-                </div>
-                <div class="cantidad">
-                    <label for="cantidad_paletas2">Cantidad:</label>
-                    <input type="number" id="cantidad_paletas2" class="cantidad" value="1" min="1">
-                </div>
-                <button class="btn btn-primary agregar-al-carrito" data-codigo="PAL002" data-nombre="Paleta de Sombras Maybelline Nudes of New York" data-precio="16200">Agregar al carrito</button>
-            </div>
-        </div>
-        <div class="card-body">
-          <img src="Imagenes/Paleta-Milani-Gilded-Flora.jpg" class="card-img-top" alt="https://bellisima.mx/products/milani-gilded-flora-eyeshadow-palette">
-          <div class="info-card">
-              <h5 class="card-title">Paleta de Sombras Milani Gilded Flora</h5>
-              <div class="linea-card"></div>
-              <p>Paleta repleta de tonos neutros y de inspiración floral, esta paleta 
-                contiene 15 tonos multidimensionales súper pigmentados, desde mates mantecosos
-                hasta sombras súper brillantes y tonos metálicos complementarios.</p>
-              <div class="detalle">
-                  <span>Código: PAL003</span>
-                  <span>Precio: &#8353;18,500</span>
-              </div>
-              <div class="cantidad">
-                  <label for="cantidad_paletas3">Cantidad:</label>
-                  <input type="number" id="cantidad_paletas3" class="cantidad" value="1" min="1">
-              </div>
-              <button class="btn btn-primary agregar-al-carrito" data-codigo="PAL003" data-nombre="Paleta de Sombras Milani Gilded Flora" data-precio="18500">Agregar al carrito</button>
-          </div>
-      </div>
-      <div class="card-body">
-        <img src="Imagenes/Paleta-Mac-Connect.jpg" class="card-img-top" alt="https://cr.faces.com/paleta-de-sombras-mac-connect-in-colour-bmac3157/p">
-        <div class="info-card">
-            <h5 class="card-title">Paleta de sombras MAC Connect In Colour</h5>
-            <div class="linea-card"></div>
-            <p>Paleta de sombras de ojos de 12 bandejas, con colores llenos 
-              de pigmentos en una sola pasada para looks mínimos a máximos ilimitados. Esta línea de colores 
-              neutros y esenciales presenta una textura liviana y suave en una variedad de 
-              acabados mate, brillante, brillante y metálico.</p>
-            <div class="detalle">
-                <span>Código: PAL004</span>
-                <span>Precio: &#8353;22,400</span>
-            </div>
-            <div class="cantidad">
-                <label for="cantidad_paletas4">Cantidad:</label>
-                <input type="number" id="cantidad_paletas4" class="cantidad" value="1" min="1">
-            </div>
-            <button class="btn btn-primary agregar-al-carrito" data-codigo="PAL004" data-nombre="Paleta de sombras MAC Connect In Colour" data-precio="22400">Agregar al carrito</button>
-        </div>
-      </div>
-    </div>
-    </div>
-    </div>
-        </div>
-      
-        <footer class="footer">
-          <div class="container-footer">
-              <div class="footer-info">
-                  <h3>Sobre Melany's Cosmetics</h3>
-                  <p>Nuestra pasión por el maquillaje nos impulsa a ofrecerte 
-                    una selección única de productos que realzan tu belleza natural
-                    y te permiten expresar tu estilo personal. Descubre la autenticidad 
-                    en cada producto que ofrecemos, diseñados con amor y cuidado para 
-                    brindarte una experiencia de maquillaje excepcional.</p>
-              </div>
-              <div class="footer-contacto">
-                  <h3>Contacto</h3>
-                  <p>Correo electrónico: melanymatamoros19@gmail.com</p>
-                  <p>Teléfono: (506) 6320-6544</p>
-                  <p>Dirección: 50 metros de la iglesia Catolica del Cajon de Grecia, Grecia, Alajuela, Costa Rica</p>
-              </div>
-              <div class="footer-social">
-                <h3>Síguenos</h3>
-                <ul>
-                  <li><a href="#"><img src="Imagenes/instagram_2111463.png" alt="Instagram"> Instagram</a></li>
-                  <li><a href="#"><img src="Imagenes/facebook_5968764.png" alt="Facebook"> Facebook</a></li>
-                  <li><a href="#"><img src="Imagenes/whatsapp_3670051.png" alt="Whatsapp"> Whatsapp</a></li>
-                </ul>
-              </div>
-            <div class="linea-separadora"></div>
-          </div>
-          <div class="copyright">
-            <p>&copy; 2024 Melany's Cosmetics. Todos los derechos reservados.</p>
-          </div>
-        </footer>
+.negrita {
+  font-weight: bold;
+}
 
-        <!-- Enlace a Bootstrap JS y jQuery (requeridos para funcionalidad de la barra de navegación) -->
-        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+#animacion-header {
+  opacity: 0;
+  animation: animacionOpacacidad 2s ease forwards;
+}
 
-        <script src="script.js"></script>
-  </body>
-</html>
+@keyframes animacionOpacacidad {
+  to {
+      opacity: 1;
+  }
+}
+
+#logo {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Agrega una sombra al logotipo */
+  border-radius: 10px; /* Redondea las esquinas del logotipo */
+}
+
+/* ---------------------------------------------- NAV ---------------------------------------------------- */
+nav {
+  width: 100%;
+  background-color: #ff1493;
+  float: right;
+  margin-bottom: 50px; 
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline;
+  margin-right: 20px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: white;
+}
+
+.navbar-nav {
+  width: 100%; /* Asegura que la lista de navegación ocupe todo el ancho disponible */
+  display: flex; /* Usa flexbox para alinear los elementos */
+  justify-content: center; /* Centra horizontalmente los elementos */
+}
+
+.navbar-nav .nav-item {
+  text-align: center; /* Centra el texto dentro de cada elemento */
+  font-size: 17px;
+  font-weight: bold;
+}
+
+#navbar .navbar-nav .nav-link {
+  color: rgba(255, 255, 255, 0.7); /* Texto con opacidad */
+  transition: color 0.3s ease; /* Agrega una transición suave */
+}
+
+#navbar .navbar-nav .nav-link:hover {
+  color: white; /* Cambia el color del texto al pasar el mouse */
+}
+
+.centered-nav-items {
+  display: flex;
+  justify-content: center;
+  flex: 1; /* Para que ocupe el espacio restante y empuje el botón a la derecha */
+  margin-left: 180px;
+}
+
+#botonMostrarCarrito {
+  border-radius: 20px; /* Radio de borde para redondear el botón */
+  color: #fff; /* Color del texto del botón */
+  cursor: pointer; /* Cambiar el cursor al pasar sobre el botón */
+  margin-left: auto;
+  background-color: rgb(255, 132, 152);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* Efecto de sombra suave */
+}
+
+.setting-btn {
+  width: 45px;
+  height: 45px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background-color: rgb(189, 36, 125);
+  border-radius: 10px;
+  cursor: pointer;
+  border: none;
+  box-shadow: 0px 0px 0px 2px rgb(255, 255, 255);
+}
+
+.bar {
+  width: 30px;
+  height: 2px;
+  background-color: rgb(229, 229, 229);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  border-radius: 2px;
+}
+
+/* -------------------------------------------- FOOTER --------------------------------------------------- */
+.container-footer {
+  bottom: 0; 
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  width: 100%;
+  text-align: center;
+  margin: 0 auto;
+  align-items: center;
+  padding: 20px; 
+  align-items: flex-start; 
+}
+
+.footer {
+  display: inline-block;
+  background-color: lightpink;
+  color: #333333;
+  width: 100%;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  padding-left: 70px;
+  padding-right: 70px;
+  padding-top: 40px;
+  margin-top: 50px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* Efecto de sombra suave */
+}
+
+.footer-info,
+.footer-contacto,
+.footer-social {
+  flex: 0 0 30%;
+  width: 30%;
+  padding: 0 20px;
+}
+
+.footer-info h3,
+.footer-contacto h3,
+.footer-social h3 {
+  display: inline-block;
+  font-weight: bold;
+  font-size: 18px;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.footer-info p, 
+.footer-contacto p, 
+.footer-social p {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  text-align: left
+}
+
+.footer-social ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  text-align: left
+}
+
+.footer-social ul li {
+  margin-bottom: 8px;
+}
+
+.footer-social ul li a {
+  text-decoration: none;
+  color: #333333;
+}
+
+.footer-social a:hover {
+  color: #ff1493; 
+  font-weight: bold;
+}
+
+.footer-social img {
+  width: 30px; /* Ajusta el ancho de las imágenes según sea necesario */
+  height: auto; /* Esto mantiene la proporción de la imagen */
+}
+
+.linea-separadora {
+  border-top: 1px solid #666;
+  margin-top: 45px;
+  margin-bottom: 20px;
+  width: 1160px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.copyright {
+  text-align: center;
+  margin-top: 30px;
+  color: #666;
+  font-size: 14px;
+}
+
+/* -------------------------------------------- BUTTON ---------------------------------------------------- */
+button {
+  background-color: pink;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-transform: uppercase;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* -------------------------------------------- MAIN ---------------------------------------------------- */
+main {
+  justify-content: center;
+  padding: 20px 0;
+  display: flex;
+  width: 100%;
+}
+
+/* -------------------------------------------- ASIDE --------------------------------------------------- */
+aside {
+  height: 1120px;
+  display: flex;
+  flex-direction: column;
+  width: 35%; 
+  background-color: transparent; 
+  padding: 20px 0;
+  text-align: center;
+  margin-bottom: 1050px;
+  margin-top: 600px; 
+  background-color: pink;
+}
+
+aside h2 {
+  color: #d81b60; /* Rosa más oscuro para el título */
+}
+
+aside ul li {
+  list-style: none;
+  text-align: left;
+  padding-right: 28px;
+  color: black; 
+  text-decoration: none;
+}
+
+.li1,
+.li2,
+.li3,
+.li4,
+.li5 {
+  text-align: left;
+  padding-bottom: 15px;
+}
+
+.li1:before {
+  content: ""; /* Crea un contenido vacío antes del elemento li4 */
+  display: inline-block; /* Hace que el elemento sea un bloque en línea */
+  width: 30px; /* Establece el ancho del elemento en 60 píxeles */
+  height: 30px; /* Establece la altura del elemento en 60 píxeles */
+  background-image: url('Imagenes/numero-1.png'); /* Establece la imagen de fondo */
+  background-size: cover; /* Escala la imagen de fondo para cubrir todo el área */
+  margin-right: 10px; /* Establece el margen derecho en 10 píxeles */
+  margin-top: 1px; /* Establece el margen superior en 41 píxeles */
+  vertical-align: middle; /* Alinea verticalmente el elemento */
+}
+
+.li2:before {
+  content: ""; 
+  display: inline-block;
+  width: 30px; 
+  height: 30px; 
+  background-image: url('Imagenes/dos.png'); 
+  background-size: cover; 
+  margin-right: 10px;
+  margin-top: 1px; 
+  vertical-align: middle; 
+}
+
+.li3:before {
+  content: ""; 
+  display: inline-block;
+  width: 30px; 
+  height: 30px; 
+  background-image: url('Imagenes/tres.png'); 
+  background-size: cover; 
+  margin-right: 10px;
+  margin-top: 1px; 
+  vertical-align: middle;
+}
+
+.li4:before{
+  content: ""; 
+  display: inline-block;
+  width: 30px; 
+  height: 30px; 
+  background-image: url('Imagenes/cuatro.png'); 
+  background-size: cover; 
+  margin-right: 10px;
+  margin-top: 1px; 
+  vertical-align: middle;
+}
+
+.li5:before {
+  content: ""; 
+  display: inline-block;
+  width: 30px; 
+  height: 30px; 
+  background-image: url('Imagenes/cinco.png'); 
+  background-size: cover; 
+  margin-right: 10px;
+  margin-top: 1px; 
+  vertical-align: middle;
+}
+
+.li1:hover,
+.li2:hover,
+.li3:hover,
+.li4:hover,
+.li5:hover {
+  transform: scale(1.1); /* Aumentar el tamaño */
+  transition: transform 0.3s ease; /* Agregar una transición suave */
+}
+
+/* -------------------------------------------- ARTICLE -------------------------------------------------- */
+article {
+  height: 1120px;
+  display: flex;
+  flex-direction: column;
+  margin-left: 50px;
+  background-color: transparent; 
+  width: 65%;
+  padding: 20px;
+  margin-bottom: 1050px;
+  max-width: 800px;
+  box-shadow: 0 0 20px gray;
+  margin-top: 600px; 
+  background-color: pink;
+}
+
+article h2 {
+  color: #d81b60; /* Rosa más oscuro para el título */
+  text-align: center;
+}
+
+/* ------------------------------------------------------------------------------------------------------- */
+/* ------------------------------------------ INDEX.HTML ------------------------------------------------- */
+/* ------------------------------------------------------------------------------------------------------- */
+.container {
+  width: 100%;
+  height: 100vh;
+  margin: 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nuestras-marcas {
+  background-color: transparent;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  transition: opacity 0.3s; /* Transición suave para la opacidad */
+}
+
+/* Estilos para el título "Nuestras Marcas" */
+.nuestras-marcas h2 {
+  font-size: 24px;
+  font-family: 'Poppins', sans-serif;
+  color: #191919;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+/* Estilos para la lista de marcas */
+.nuestras-marcas ul {
+  list-style: none;
+  padding: 0;
+}
+
+/* Estilos para los elementos de la lista de marcas */
+.nuestras-marcas li {
+  display: inline-block; /* Mostrar elementos en línea */
+  margin-right: 10px; /* Espacio entre elementos */
+}
+
+/* Estilos para las imágenes de las marcas */
+.nuestras-marcas li img {
+  width: 100px; /* Ancho de las imágenes */
+  height: auto; /* Altura ajustada automáticamente */
+}
+
+/* Estilos para las imágenes de las marcas al pasar el mouse por encima */
+.nuestras-marcas li img:hover {
+  opacity: 0.7; /* Cambia la opacidad al pasar el mouse por encima */
+}
+
+#carouselExampleAutoplaying {
+  margin-bottom: 50px;
+}
+
+/* Estilos para el contenedor de promociones */
+.promociones .container-promociones {
+  background-color: pink;
+  padding: 20px 0; /* Relleno superior e inferior de 20px, y sin relleno a los lados */
+  margin: 0 auto 50px; /* Margen superior e inferior de 50px y márgenes laterales automáticos */
+  display: flex; /* Activar el modelo de caja flexible */
+  flex-direction: column; /* Apilar los elementos hijos verticalmente */
+  align-items: center; /* Centrar horizontalmente los elementos hijos */
+  text-align: center; /* Alinear horizontalmente el texto dentro de los elementos */
+  justify-content: center; /* Centrar verticalmente los elementos */
+  height: 150px; /* Establecer una altura fija de 150px */
+  width: 82%;
+  margin-top: -1px;
+}
+
+.promociones h2,
+.promociones p {
+  padding-left: 20px;
+  text-align: center;
+}
+
+.tendencia {
+  margin-bottom: 40px;
+}
+
+.tendencia h3 {
+  color: #FF69B4; /* Color rosa */
+}
+
+.video-contain-tendencia {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* Proporción 16:9 para videos */
+  overflow: hidden;
+}
+
+.video-contain-tendencia iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.productos-destacados{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  background-color: transparent;
+  margin-bottom: 20px;
+}
+
+.productos-destacados h2 {
+  text-align: center;
+  margin-bottom: -100px;
+}
+
+.producto-destacado-card {
+  float: left;
+  width: 30%;
+  margin-right: 3%;
+  text-align: center;
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+  text-align: center; 
+  background-color: transparent;
+  box-shadow: 0 1px 20px rgba(0, 0, 0, 0.3);
+  padding-top: 20px;
+  padding-bottom: 20px;
+  width: 600px;
+  margin-bottom: 20px;
+  margin-right: 1px; 
+  margin-top: 20px;
+}
+
+.producto-destacado-card img {
+  width: 100%;
+  border-radius: 5px;
+  max-width: 100%; 
+  height: auto; 
+  max-width: 200px; 
+  margin-bottom: 20px;
+}
+
+.carousel-item {
+  position: absolute; /* Para que las imágenes no se superpongan */
+  display: block; /* Muestra la imagen activa */
+}
+
+.carousel-item img {
+  width: 200px; /* Ajusta el ancho de la imagen al 100% del contenedor */
+  height: 600px;
+  animation: desplazamientoInfinito 13s infinite; /* Aplica la animación a todas las imágenes */
+}
+
+.carousel-item.active {
+  display: block; /* Muestra la imagen activa */
+}
+
+@keyframes desplazamientoInfinito {
+  0% {
+    transform: translateX(100%); /* Desliza la imagen fuera de la pantalla hacia la derecha */
+  }
+  25% {
+    transform: translateX(0%); /* Detiene la imagen en su posición durante el 25% de la animación */
+  }
+  75% {
+    transform: translateX(0%); /* Mantiene la imagen en su posición durante el 75% de la animación */
+  }
+  100% {
+    transform: translateX(-100%); /* Desliza la imagen fuera de la pantalla hacia la izquierda */
+  }
+}
+
+.transicion-manual {
+  transition: transform 0.8s ease;
+}
+
+#transicion1,
+#transicion2,
+#transicion3,
+#transicion4,
+#transicion5,
+#transicion6,
+#transicion7,
+#transicion8,
+#transicion9,
+#transicion10,
+#transicion11,
+#transicion12,
+#transicion13,
+#transicion14,
+#transicion15,
+#transicion16 {
+  transition: transform 0.5s ease;
+}
+
+#tran1,
+#tran2,
+#tran3,
+#tran4,
+#tran5,
+#tran6,
+#tran7,
+#tran8,
+#tran9,
+#tran10,
+#tran11,
+#tran12,
+#tran13,
+#tran14,
+#tran15,
+#tran16 {
+  float: inline-start;
+  margin-left: 25%;
+}
+
+/* ------------------------------------------------------------------------------------------------------- */
+/* ---------------------------------------- PRODUCTOS.HTML ----------------------------------------------- */
+/* ------------------------------------------------------------------------------------------------------- */
+#temporizador {
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.tabla-carrito {
+  width: 80%;
+  border-collapse: collapse;
+  border: 1px solid #ddd;
+  margin: 0 auto;
+}
+
+.tabla-carrito th, .tabla-carrito td {
+  padding: 10px;
+  text-align: left;
+}
+
+.tabla-carrito th {
+  background-color: #f2f2f2;
+  border-bottom: 1px solid #ddd;
+}
+
+.tabla-carrito tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.tabla-carrito tbody tr:hover {
+  background-color: #ddd;
+}
+
+.tabla-carrito tfoot td:last-child {
+  font-weight: bold; /* Hace que el texto sea más grueso */
+  color: blue; /* Cambia el color del texto a rojo para destacarlo */
+}
+
+.eliminar-fila {
+  border-radius: 20px; /* Ajusta el radio de borde para hacerlo redondeado */
+}
+
+.contain-categorias {
+  width: 20%;
+  padding: 40px;
+  background-color: #f2f2f2;
+  margin-left: 100px;
+  margin-top: 20px;
+  margin-bottom: 100px;
+  margin-right: 50px;
+  border-radius: 20px;
+  height: 425px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  border: 2px solid #beb1b8; /* Color del borde */
+}
+
+.contain-categorias h3 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.categorias {
+  list-style: none;
+  padding: 0;
+}
+
+.categorias li {
+  cursor: pointer; /* Cambia el cursor al pasar sobre los elementos */
+  margin-bottom: 16px; /* Espacio entre elementos */
+  text-align: center; /* Centra el texto dentro de los elementos */
+  padding: 10px; /* Añade un poco de relleno alrededor del texto */
+  background-color: #f2f2f2; /* Color de fondo */
+  border-radius: 8px; /* Bordes redondeados */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+.categorias li:hover {
+  background-color: #e0e0e0; /* Cambia el color de fondo al pasar sobre los elementos */
+}
+
+.categorias li.active {
+  color: blue; /* Color de texto al hacer hover o al seleccionar la categoría */
+  font-weight: bold;
+}
+
+.contenedor-productos {
+  display: flex;
+  width: 100%;
+}
+
+.contenedor-cards-productos {
+  margin-left: 50px;
+  display: block;
+  width: 80%;
+}
+
+.productos {
+  width: 900px;
+  height: auto;
+  gap: 10px;
+  overflow-x: auto;
+  padding-bottom: 20px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card {
+  width: 100%; /* Ocupar todo el ancho del contenedor */
+  margin-right: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end; 
+}
+
+.card-title {
+  font-size: 25px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #000000;
+  margin-left: 15px;
+}
+
+.card-body {
+  width: 100%;
+  margin-bottom: 50px;
+  background-color: transparent;
+  display: flex;
+  flex-direction: row; /* Coloca los elementos en columnas */
+  padding: 10px;
+  flex: 1;
+  box-shadow: 0 1px 20px rgba(0, 0, 0, 0.3);
+  border-radius: 20px; /* Radio de borde para redondear el botón */
+}
+
+.card-body p {
+  color: #000000;
+  margin-left: 15px;
+  margin-bottom: 15px;
+  margin-top: 5px;
+  text-align: justify;
+  font-size: 15px;
+}
+
+.card-body img {
+  width: 30%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.card-img-top {
+  transition: transform 0.3s ease; /* Transición suave */
+}
+
+.card-img-top:hover {
+  transform: scale(1.2); 
+}
+
+.info-card {
+  width: 70%; /* Ajusta el ancho del contenido de la tarjeta */
+  background-color: transparent;
+  margin-left: 50px;
+}
+
+.card-title,
+.btn-primary,
+.cantidad {
+  text-align: right;
+  margin-top: 5px; /* Ajusta el margen superior */
+}
+
+.btn-primary.agregar-al-carrito {
+  margin-top: 20px;
+  margin-left: 375px; /* Elimina el margen izquierdo automático */
+}
+
+/* Estilos para los detalles del producto (código y precio) */
+.detalle {
+  margin-top: 10px;
+  font-size: 14px;
+  text-align: right;
+}
+
+.detalle span {
+  display: block;
+}
+
+.detalle span:first-child {
+  font-weight: bold;
+  color: #333; /* Color del texto */
+}
+
+.detalle span:last-child {
+  color: #000000; /* Color del texto */
+  font-weight: bold;
+  font-size: 30px
+}
+
+.linea-card {
+  border-bottom: 1px solid #ffffff; 
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* Efecto de sombra suave */
+  margin-left: 15px;
+  margin-top: 10px;
+  margin-bottom: 10px; 
+}
+
+.cantidad label {
+  margin-right: 5px; /* Ajusta el margen derecho del etiqueta */
+}
+
+.cantidad input {
+  height: 43px;
+  width: 100px;
+}
+
+input[type="number"] {
+  border: none; /* Elimina el borde */
+}
+
+/* Estilo para los botones de incremento y decremento */
+.increment-button,
+.decrement-button {
+    height: 30px;
+    width: 30px;
+    background-color: #f0f0f0;
+    cursor: pointer;
+}
+
+/* Estilo para separar los botones */
+.increment-button {
+    border-right: 1px solid #ccc;
+}
+
+.btn-primary {
+  background-color: #4caf50;
+  border: none;
+  width: fit-content;
+  margin-left: auto; /* Mueve el botón hacia la derecha */
+}
+
+.btn-primary:hover {
+  background-color: #45a049; /* Cambiar el color de fondo cuando se pasa el mouse sobre el botón */
+}
+
+.btn-primary:active {
+  background-color: #3e8e41;
+}
+
+.card.bases,
+.card.labiales,
+.card.polvos,
+.card.paletas {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: transparent;
+  border: none;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.contenedor-carrito {
+  display: none; /* Inicialmente oculto */
+  position: fixed; /* Fijo en la ventana */
+  top: 0; /* Arriba de la ventana */
+  right: -100%; /* Inicialmente fuera de la ventana hacia la derecha */
+  bottom: 0; /* Abajo de la ventana */
+  left: 0; /* Izquierda de la ventana */
+  background-color: rgba(0, 0, 0, 0.5); /* Fondo negro semi-transparente */
+  z-index: 999; /* Orden en capas, para estar por encima de otros elementos */
+  transition: right 0.3s ease; /* Transición suave al mostrar/ocultar */
+  right: 0; /* Trae el contenedor desde la derecha cuando se muestra */
+}
+
+/* Estilos para el contenido del carrito */
+.carrito-content {
+  max-width: 1200px; /* Ancho máximo del contenido del carrito */
+  height: 100%; /* Altura del contenido al 100% del contenedor */
+  margin: 70px auto; /* Margen superior e inferior de 70px, centrado horizontalmente */
+  background-color: #fff; /* Fondo blanco */
+  border-radius: 8px; /* Borde redondeado */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+  position: absolute; /* Posicionamiento absoluto con respecto al contenedor padre */
+  top: 0; /* Arriba del contenedor padre */
+  bottom: 0; /* Abajo del contenedor padre */
+  right: 0; /* Derecha del contenedor padre */
+  width: 80%; /* Ancho del contenido del carrito */
+  overflow-y: auto; /* Agrega desplazamiento vertical si el contenido es largo */
+  margin: 0; /* Elimina el margen predeterminado */
+}
+
+.active {
+  display: block; /* Mostrar el carrito cuando tenga la clase 'active' */
+}
+
+#mostrarCarrito {
+  justify-content: left; /* Alineamos el contenido a la derecha */
+  margin-left: 1025px;
+  margin-bottom: -150px;
+  width: 100%;
+}
+
+#botonOcultarCarrito {
+  border-radius: 20px; /* Radio de borde para redondear el botón */
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 5px 10px; /* Espaciado interno */
+  cursor: pointer; /* Cambia el cursor al pasar por encima */
+}
+
+#cantidadMostrarCarrito {
+  background-color: #ff0000;
+  color: #ffffff;
+  border-radius: 50%;
+  padding: 2px 6px;
+  font-weight: bold;
+  font-size: 12px;
+  margin-left: 5px;
+  animation: pulse 0.5s infinite alternate;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.1); }
+}
+
+/* ------------------------------------------------------------------------------------------------------- */
+/* ---------------------------------------- CONTACTO.HTML ------------------------------------------------ */
+/* ------------------------------------------------------------------------------------------------------- */
+.contain-formulario {
+  max-width: 400px;
+  margin: 70px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.contain-formulario h2 {
+  margin-bottom: 20px;
+  text-align: center;
+  color: #333;
+}
+
+.contain-formulario p {
+  max-width: 300px; /* Establece el mismo ancho máximo que el formulario */
+  margin: 0 auto; /* Centra el párrafo horizontalmente dentro del formulario */
+  text-align: justify;
+  margin-bottom: 25px;
+}
+
+.contain-formulario h2:hover {
+  color: rgb(151, 46, 151);
+}
+
+.contain-formulario label {
+  font-weight: bold;
+}
+
+.contain-formulario input[type="text"],
+.contain-formulario input[type="email"],
+.contain-formulario input[type="date"],
+.contain-formulario select,
+.contain-formulario button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.contain-formulario button {
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.contain-formulario button:hover {
+  background-color: #45a049;
+}
+
+.contain-formulario button:active {
+  background-color: #3e8e41;
+}
+
+.contain-formulario select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url('data:image/svg+xml;utf8,<svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>');
+  background-repeat: no-repeat;
+  background-position-x: 95%;
+  background-position-y: 50%;
+}
+
+.contain-formulario select::-ms-expand {
+  display: none;
+}
+
+.campo-formulario {
+  margin-bottom: 15px;
+}
+
+input[type="text"] {
+  border: none; /* Oculta el borde del input */
+  background-color: transparent; /* Hace el fondo transparente */
+  width: 100%; /* Ajusta el ancho del input */
+  text-align: center; /* Centra el texto */
+}
+
+/* ------------------------------------------------------------------------------------------------------- */
+/* ---------------------------------------- ACERCA DE.HTML ----------------------------------------------- */
+/* ------------------------------------------------------------------------------------------------------- */
+.contain-informacionAcercaDe {
+  max-width: 800px;
+  margin: 120px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.cuadro-acerca-de {
+  display: flex;
+  align-items: center;
+}
+
+.cuadro-acerca-de img {
+  width: 200px;
+  height: 200px;
+  border-radius: 100px;
+  margin-right: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); 
+}
+
+.info {
+  flex-grow: 1;
+  background-color: #f9f9f9; /* Fondo ligeramente gris */
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.info h1 {
+  margin-top: 0;
+  color: #333;
+}
+
+.info p {
+  margin: 10px 0;
+  color: #666;
+}
+
+.info strong {
+  font-weight: bold;
+  color: #333;
+}
+
+.video-container {
+  margin-top: -100px; /* Ajusta este valor según sea necesario para mover el video hacia arriba */
+  display: block; /* Asegura que el video sea un elemento de bloque para aplicar los márgenes correctamente */
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.audio-container {
+  margin-top: 20px; /* Ajusta este valor según sea necesario para mover el video hacia arriba */
+  display: block; /* Asegura que el video sea un elemento de bloque para aplicar los márgenes correctamente */
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ------------------------------------------------------------------------------------------------------- */
+/* ---------------------------------------- UBICACION.HTML ----------------------------------------------- */
+/* ------------------------------------------------------------------------------------------------------- */
+#map {
+  width: 100%;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contenedor-info-map {
+  text-align: center;
+}
+
+.contenedor-info-map p {
+  margin-top: 5px;
+}
+
+/* -------------------------------------------- @MEDIA ---------------------------------------------------- */
+@media screen and (max-width: 767px) { /* Media query para pantallas pequeñas (máximo 767px) */
+  /* Estilos para el encabezado */
+  .contain-header {
+      text-align: center;
+  }
+  .navbar-nav {
+      text-align: center;
+  }
+  .nav-item {
+      margin-bottom: 10px;
+  }
+  .producto-destacado-card {
+      width: 45%;
+      margin-bottom: 20px;
+  }
+  /* Estilos para el aside y el artículo */
+  aside, article {
+      width: 100%;
+      margin-bottom: 20px;
+  }
+  .li1, .li2, .li3, .li4, .li5 {
+      padding-left: 20px;
+  }
+  
+  /* Estilos para el footer */
+  .footer-info, .footer-contacto, .footer-social {
+      text-align: center;
+  }
+  .footer-social ul {
+      display: flex;
+      justify-content: center;
+  }
+}
+
+/* Media query para pantallas muy pequeñas (máximo 575px) */
+@media screen and (max-width: 575px) {
+  /* Estilos para el encabezado */
+  #animated-heading {
+      font-size: 24px;
+  }
+
+  /* Estilos para el navbar colapsable */
+  .navbar-collapse {
+      text-align: center;
+  }
+
+  .navbar-toggler {
+      display: block;
+      margin: 0 auto;
+  }
+
+  .navbar-nav {
+      text-align: center;
+  }
+
+  .navbar-nav .nav-item {
+      margin-bottom: 10px;
+  }
+
+  .navbar-nav .dropdown-menu {
+      position: static;
+  }
+
+  /* Estilos para el footer */
+  .footer-social ul {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  /* Estilos para el contenedor de aside y article */
+  .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+  }
+
+  /* Estilos para el aside y el artículo */
+  aside, article {
+      width: 90%; /* Ancho del 90% del contenedor */
+      margin-bottom: 20px; /* Separación entre aside y article */
+      box-sizing: border-box; /* Incluir padding en el ancho total */
+  }
+
+  /* Estilos para los elementos de lista dentro del aside y el artículo */
+  .li1, .li2, .li3, .li4, .li5 {
+      padding-left: 0; /* Reiniciar el padding izquierdo */
+      margin-left: 20px; /* Añadir margen izquierdo */
+  }
+  
+   /* Estilos para cada cuadro de productos o tendencias */
+   .productos-destacados .producto-destacado-card,
+   .tendencia {
+       width: 90%; /* Ancho del 90% del contenedor */
+       margin: 0 auto 20px; /* Margen inferior para separación */
+   }
+
+   /* Estilos para las imágenes dentro de los cuadros */
+   .productos-destacados img,
+   .tendencia img {
+       width: 100%; /* Ancho del 100% del contenedor */
+       height: auto; /* Altura automática para mantener la proporción */
+   }
+}
+
+/* Media queries para hacer responsive */
+@media (max-width: 768px) {
+  /* Estilos para el header */
+  header {
+    text-align: center;
+    padding: 20px 0;
+}
+header h1 {
+    margin: 0;
+}
+
+/* Estilos específicos para pantallas pequeñas */
+.navbar-nav {
+  flex-direction: column;
+}
+.navbar-nav .nav-item {
+  display: block;
+}
+.navbar-toggler {
+  display: block !important;
+}
+.navbar-collapse {
+  display: none;
+}
+.navbar-collapse.show {
+  display: flex !important;
+}
+
+/* Estilos para las secciones */
+section {
+    padding: 20px 0;
+    text-align: center;
+}
+section h2 {
+    margin-bottom: 20px;
+}
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.producto-destacado-card {
+    margin: 0 10px;
+}
+.producto-destacado-card img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Estilos para el footer */
+.footer {
+    background-color: #343a40;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+.footer p {
+    margin: 5px 0;
+}
+.footer ul {
+    padding: 0;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+.footer ul li {
+    margin: 0 10px;
+}
+.footer ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+.footer ul li a img {
+    max-width: 100%;
+    height: auto;
+}
+}
