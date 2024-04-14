@@ -1178,53 +1178,51 @@ video {
 
 /* Media query para pantallas muy pequeñas en el INDEX.HTML (máximo 575px) */
 @media screen and (max-width: 575px) {
-  /* Estilos para el header */
   header img {
-    max-width: 80px;
+    max-width: 60px; /* Tamaño del logo en pantallas pequeñas */
 }
 
 #animacion-header {
-    font-size: 24px;
-}
-
-/* Estilos para el navbar */
-.navbar-collapse {
-    text-align: center;
-}
-
-.navbar-nav {
-    text-align: center;
-}
-
-.navbar-nav .nav-item {
-    margin-bottom: 10px;
+    font-size: 24px; /* Tamaño del título en pantallas pequeñas */
 }
 
 .navbar-toggler {
-    display: block;
-    margin: 0 auto;
+  display: none;
 }
 
-/* Estilos para el mapa */
+.navbar-collapse {
+  justify-content: flex-end;
+}
+
+
+.navbar-nav {
+    text-align: left; /* Alinear el texto del menú a la izquierda en pantallas pequeñas */
+}
+
+
+.navbar-nav .nav-item {
+    margin-bottom: 0; /* Eliminar el margen inferior entre elementos del menú en pantallas pequeñas */
+}
+
 .contenedor-info-map {
-    margin-top: 10px;
+    margin-top: 10px; /* Ajustar el margen superior del contenedor del mapa en pantallas pequeñas */
 }
 
 #map {
-    height: 200px;
+    height: 200px; /* Altura del mapa en pantallas pequeñas */
 }
 
-/* Estilos para el footer */
-.footer-social ul {
+  /* Estilos para el footer */
+  .footer-social ul {
     flex-direction: column;
     align-items: center;
-}
+  }
 
-.footer-info,
-.footer-contacto,
-.footer-social {
+  .footer-info,
+  .footer-contacto,
+  .footer-social {
     width: 100%;
-}
+  }
 }
 
 /* Media queries para hacer responsive 
