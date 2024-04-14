@@ -727,7 +727,7 @@ article h2 {
 }
 
 .productos {
-  width: 900px;
+  width: 100%;
   height: auto;
   gap: 10px;
   overflow-x: auto;
