@@ -171,7 +171,7 @@ nav ul li a {
 .container-footer {
   bottom: 0; 
   display: flex;
-  justify-content: space-around;
+  justify-content: center; 
   flex-wrap: wrap;
   width: 100%;
   text-align: center;
@@ -201,7 +201,7 @@ nav ul li a {
 .footer-info,
 .footer-contacto,
 .footer-social {
-  flex: 0 0 30%;
+  flex: 1; /* Ocupa el espacio disponible */
   width: 30%;
   padding: 0 20px;
 }
@@ -299,6 +299,7 @@ aside {
   margin-bottom: 1050px;
   margin-top: 600px; 
   background-color: pink;
+  border-radius: 20px;
 }
 
 aside h2 {
@@ -405,6 +406,7 @@ article {
   box-shadow: 0 0 20px gray;
   margin-top: 600px; 
   background-color: pink;
+  border-radius: 20px;
 }
 
 article h2 {
@@ -545,6 +547,7 @@ article h2 {
   margin-bottom: 20px;
   margin-right: 1px; 
   margin-top: 20px;
+  border-radius: 20px;
 }
 
 .producto-destacado-card img {
@@ -972,7 +975,7 @@ input[type="number"] {
   margin: 70px auto;
   padding: 20px;
   background-color: #fff;
-  border-radius: 8px;
+  border-radius: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -1061,6 +1064,7 @@ input[type="text"] {
   background-color: #fff;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
 }
 
 .cuadro-acerca-de {
@@ -1104,6 +1108,10 @@ input[type="text"] {
   text-align: center;
   align-items: center;
   justify-content: center;
+}
+
+video {
+  border-radius: 20px;
 }
 
 .audio-container {
@@ -1168,80 +1176,61 @@ input[type="text"] {
   }
 }
 
-/* Media query para pantallas muy pequeñas (máximo 575px) */
+/* Media query para pantallas muy pequeñas en el INDEX.HTML (máximo 575px) */
 @media screen and (max-width: 575px) {
-  /* Estilos para el encabezado */
-  #animated-heading {
-      font-size: 24px;
-  }
-
-  /* Estilos para el navbar colapsable */
-  .navbar-collapse {
-      text-align: center;
-  }
-
-  .navbar-toggler {
-      display: block;
-      margin: 0 auto;
-  }
-
-  .navbar-nav {
-      text-align: center;
-  }
-
-  .navbar-nav .nav-item {
-      margin-bottom: 10px;
-  }
-
-  .navbar-nav .dropdown-menu {
-      position: static;
-  }
-
-  /* Estilos para el footer */
-  .footer-social ul {
-      flex-direction: column;
-      align-items: center;
-  }
-
-  /* Estilos para el contenedor de aside y article */
-  .container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-  }
-
-  /* Estilos para el aside y el artículo */
-  aside, article {
-      width: 90%; /* Ancho del 90% del contenedor */
-      margin-bottom: 20px; /* Separación entre aside y article */
-      box-sizing: border-box; /* Incluir padding en el ancho total */
-  }
-
-  /* Estilos para los elementos de lista dentro del aside y el artículo */
-  .li1, .li2, .li3, .li4, .li5 {
-      padding-left: 0; /* Reiniciar el padding izquierdo */
-      margin-left: 20px; /* Añadir margen izquierdo */
-  }
-  
-   /* Estilos para cada cuadro de productos o tendencias */
-   .productos-destacados .producto-destacado-card,
-   .tendencia {
-       width: 90%; /* Ancho del 90% del contenedor */
-       margin: 0 auto 20px; /* Margen inferior para separación */
-   }
-
-   /* Estilos para las imágenes dentro de los cuadros */
-   .productos-destacados img,
-   .tendencia img {
-       width: 100%; /* Ancho del 100% del contenedor */
-       height: auto; /* Altura automática para mantener la proporción */
-   }
+  /* Estilos para el header */
+  header img {
+    max-width: 80px;
 }
 
-/* Media queries para hacer responsive */
-@media (max-width: 768px) {
+#animacion-header {
+    font-size: 24px;
+}
+
+/* Estilos para el navbar */
+.navbar-collapse {
+    text-align: center;
+}
+
+.navbar-nav {
+    text-align: center;
+}
+
+.navbar-nav .nav-item {
+    margin-bottom: 10px;
+}
+
+.navbar-toggler {
+    display: block;
+    margin: 0 auto;
+}
+
+/* Estilos para el mapa */
+.contenedor-info-map {
+    margin-top: 10px;
+}
+
+#map {
+    height: 200px;
+}
+
+/* Estilos para el footer */
+.footer-social ul {
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer-info,
+.footer-contacto,
+.footer-social {
+    width: 100%;
+}
+}
+
+/* Media queries para hacer responsive 
+/*@media (max-width: 768px) {
   /* Estilos para el header */
-  header {
+ /* header {
     text-align: center;
     padding: 20px 0;
 }
@@ -1250,7 +1239,7 @@ header h1 {
 }
 
 /* Estilos específicos para pantallas pequeñas */
-.navbar-nav {
+/*.navbar-nav {
   flex-direction: column;
 }
 .navbar-nav .nav-item {
@@ -1267,7 +1256,7 @@ header h1 {
 }
 
 /* Estilos para las secciones */
-section {
+/*section {
     padding: 20px 0;
     text-align: center;
 }
@@ -1288,7 +1277,7 @@ section h2 {
 }
 
 /* Estilos para el footer */
-.footer {
+/*.footer {
     background-color: #343a40;
     color: #fff;
     padding: 20px 0;
@@ -1315,4 +1304,4 @@ section h2 {
     max-width: 100%;
     height: auto;
 }
-}
+}*/
