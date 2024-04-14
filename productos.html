@@ -19,40 +19,53 @@
           </div>
         </header>
 
-        <nav class="navbar navbar-expand-lg bg-rosado" data-bs-theme="dark">
-          <div class="container-fluid">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarColor01">
-              <ul class="navbar-nav me-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="index.html">Inicio</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="productos.html">Productos</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="contacto.html">Contacto</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="acercaDe.html">Acerca de</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="ubicacion.html">Sucursal</a>
-                  </li>
-              </ul>
+        <nav class="navbar navbar-expand-lg bg-rosado" id="navbar">
+          <div class="container-fluid" id="menu">
+              <button class="setting-btn d-lg-none" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false"
+                  aria-label="Toggle navigation">
+                  <span class="bar bar1"></span>
+                  <span class="bar bar2"></span>
+                  <span class="bar bar1"></span>
+              </button>
+
+              <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                <div class="centered-nav-items"> <!-- Nuevo contenedor -->
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item" id="elementos">
+                            <a class="nav-link active" id="elementos" aria-current="page" href="index.html">Inicio</a>
+                        </li>
+                        <li class="nav-item" id="elementos">
+                            <a class="nav-link active" id="elementos" href="productos.html">Productos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" id="elementos" href="contacto.html">Contacto</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" id="elementos" href="acercaDe.html">Acerca de</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" id="elementos" href="ubicacion.html">Sucursal</a>
+                        </li>
+                    </ul>
+                </div>
+                <button id="botonMostrarCarrito" class="active"> <!-- Botón a la derecha -->
+                    <span id="cantidadMostrarCarrito">0</span>
+                    Mostrar carrito
+                </button>
             </div>
-          </div>
-        </nav>
+        </div>
+    </nav>
 
         <main>
+          <!--
           <div id="mostrarCarrito">
-            <button id="botonMostrarCarrito" class="active">
-              <span id="cantidadMostrarCarrito">0</span>
-              Mostrar carrito
-            </button>
+          <button id="botonMostrarCarrito" class="active">
+          <span id="cantidadMostrarCarrito">0</span>
+          Mostrar carrito
+          </button>
           </div>
+          -->
     
           <div id="contenedor-carrito" class="contenedor-carrito active">
            <div class="carrito-content">
@@ -66,7 +79,6 @@
                       <th>Precio Unitario</th>
                       <th>Cantidad</th>
                       <th>Total</th>
-                      <th>Acciones</th> 
                   </tr>
               </thead>
               <tbody>
@@ -101,6 +113,7 @@
                           <img src="Imagenes/Base Loreal Paris.jpg" class="card-img-top" alt="https://www.chedraui.com.mx/base-de-maquillaje-liquida-loreal-paris-infallible-202-creamy-natural-30ml-3478365/p">
                           <div class="info-card">
                               <h5 class="card-title">Base de Maquillaje Líquida L'Oréal Paris Infallible 30ml</h5>
+                              <div class="linea-card"></div>
                               <p>Protege tu piel del sol e hidrátala al mismo tiempo con la Base de Maquillaje Infallible pro glow de L'Oréal Paris.</p>
                               <div class="detalle">
                                 <span>Código: BAS001</span>
@@ -117,6 +130,7 @@
                         <img src="Imagenes/Base Liquida-Maybelline-Fit-Me-Mate.jpg" class="card-img-top" alt="https://www.walmart.co.cr/maybelline-fit-me-matte-poreless-natural-beige/p">
                         <div class="info-card">
                             <h5 class="card-title">Base de Maquillaje Líquida Maybelline Fit Me Mate 30ml</h5>
+                            <div class="linea-card"></div>
                             <p>Ideal para la piel normal a grasa, nuestra exclusiva fórmula con micropolvos 
                               controla la grasa y difumina los poros para un acabado natural e impecable. 
                               Probada por dermatólogos. Probada contra alergias.</p>
@@ -135,6 +149,7 @@
                       <img src="Imagenes/Base Beauty Creations.jpg" class="card-img-top" alt="https://hibeautycr.com/products/flawless-stay-foundation?variant=33875048398988">
                       <div class="info-card">
                           <h5 class="card-title">Base de Maquillaje Líquida Beauty Creations Flawless Stay Foundation 30ml</h5>
+                          <div class="linea-card"></div>
                           <p>Base Beauty Creations Flawless Stay Fundation. Excelente base para mantener de media 
                             a alta cobertura.</p>
                           <div class="detalle">
@@ -152,6 +167,7 @@
                     <img src="Imagenes/Base-MAC.jpg" class="card-img-top" alt="https://www.maccosmetics.cr/products/14775/products/vips/studio">
                     <div class="info-card">
                         <h5 class="card-title">Base de Maquillaje Líquida Studio Fix Fluid SPF 15 30ml</h5>
+                        <div class="linea-card"></div>
                         <p>Fórmula de larga duración, que controla el exceso de grasa y proporciona un acabado mate y 
                            una cobertura media a alta modulable.</p>
                         <div class="detalle">
@@ -172,6 +188,7 @@
                       <img src="Imagenes/Polvo-Compacto-Maybelline.jpg" class="card-img-top" alt="https://www.walmart.co.cr/polvo-loreal-compac-sand-220/p">
                       <div class="info-card">
                           <h5 class="card-title">Polvos compactos L'Oréal Paris infallible 24h Fresh Wear 0.31oz</h5>
+                          <div class="linea-card"></div>
                           <p>La base en polvo Infallible Fresh Wear cubre como un líquido 
                             y matifica por hasta 24 horas. Textura de polvo ligera que te ofrece una 
                             cobertura completa y un acabado mate natural. Resistentes al agua.</p>
@@ -190,6 +207,7 @@
                     <img src="Imagenes/Polvos Compactos Beauty Creations.jpeg" class="card-img-top" alt="https://www.jccosmeticos.net/product/polvos-compactos-beauty-creations-fsp10/">
                     <div class="info-card">
                         <h5 class="card-title">Polvos compactos Beauty Creations</h5>
+                        <div class="linea-card"></div>
                         <p>La base Flawless Stay Powder es un polvo compacto de larga 
                           duración. Puedes usar esta base en polvo sola o encima de nuestra base 
                           líquida Flawless Stay para un glamour a prueba total.</p>
@@ -208,6 +226,7 @@
                   <img src="Imagenes/Polvos Banana Beauty Creations.jpeg" class="card-img-top" alt="https://beautymarketcr.com/Invent/producto/polvo-banana-beauty-creations/">
                   <div class="info-card">
                       <h5 class="card-title">Polvo translúcido Banana- Beauty Creations</h5>
+                      <div class="linea-card"></div>
                       <p>Beauty Creations Banana Setting Powder es un polvo ultra fino y proporcionan
                          un acabado matte/sedoso. Ayuda a sellar el maquillaje todo el día.</p>
                       <div class="detalle">
@@ -225,6 +244,7 @@
                 <img src="Imagenes/Mac-Polvo-Suelto.jpg" class="card-img-top" alt="https://cr.siman.com/studio-fix-pro-set-blur-loose-powder-104190543/p">
                 <div class="info-card">
                     <h5 class="card-title">Polvo translúcido MAC Studio Fix Pro Fija</h5>
+                    <div class="linea-card"></div>
                     <p>Fija tu maquillaje con el poder de Studio Fix. Nuestros polvos fijadores transpirables,
                       están fusionados con polvos dobles que absorben la grasa para ayudar a controlar el 
                       brillo y matificar al instante.</p>
@@ -246,6 +266,7 @@
                   <img src="Imagenes/Labial loreal.jpg" class="card-img-top" alt="https://www.druni.es/color-riche-intense-volume-edicion-limitada-loreal-paris-barra-labios-acabado-mate">
                   <div class="info-card">
                       <h5 class="card-title">Labial en barra mate Riche Intense Volume Edición Limitada L'Oreal Paris</h5>
+                      <div class="linea-card"></div>
                       <p>Nuestro icónico labial Color Riche en acabado mate, fórmula mejorada 
                         que aporta volumen y larga duración de 16H a tus labios. También los cuida gracias 
                         a su aceite de argán y ácido hialurónico, ofreciendo una sensación de hidratación 
@@ -265,6 +286,7 @@
                 <img src="Imagenes/Labial-Maybelline.jpg" class="card-img-top" alt="https://hibeautycr.com/products/labial-maybelline-superstay-ink?variant=41111649419404">
                 <div class="info-card">
                     <h5 class="card-title">Labial Liquido Maybelline Superstay Ink</h5>
+                    <div class="linea-card"></div>
                     <p>Superstay Matte Ink garantiza un acabado impecable que dura hasta 12 horas. 
                       Su textura cremosa se desliza con facilidad por los labios, proporcionando un 
                       resultado perfecto y completo.
@@ -284,6 +306,7 @@
               <img src="Imagenes/Labial-Liquido-S-Beauty-Creations.jpg" class="card-img-top" alt="https://kalaluacr.com/producto/labial-liquido-beauty-creations/">
               <div class="info-card">
                   <h5 class="card-title">Labial Liquido Beauty Creations</h5>
+                  <div class="linea-card"></div>
                   <p>Labial Liquido Beauty Creations te dará un color, brillo y humectación que te encantarán.</p>
                   <div class="detalle">
                       <span>Código: LAB003</span>
@@ -300,6 +323,7 @@
             <img src="Imagenes/Labial MAC.jpg" class="card-img-top" alt="https://cr.faces.com/love-me-lipstick-bmac3028/p">
             <div class="info-card">
                 <h5 class="card-title">Labial en barra MAC Love Me</h5>
+                <div class="linea-card"></div>
                 <p>Fórmula innovadora que contiene una infusión de aceite de argán que brinda humectación, 
                    color intenso y cobertura total dejando un acabado satinado durante todo el día.</p>
                 <div class="detalle">
@@ -320,6 +344,7 @@
               <img src="Imagenes/Paleta Tease Me Beauty Creations.jpg" class="card-img-top" alt="https://www.jccosmeticos.net/product/paleta-tease-me-beauty-creations/">
               <div class="info-card">
                   <h5 class="card-title">Paleta de Sombras Tease me Beauty Creations</h5>
+                  <div class="linea-card"></div>
                   <p>Paleta de sombras Tease Me de Beauty Creations tiene una gama de colores 
                     para diseños clásicos e impactantes. Tiene textura suave y un pigmento increíble. 
                     18 sombras en increíbles tonos. Colores metálicos de alta pigmentación.</p>
@@ -338,6 +363,7 @@
             <img src="Imagenes/Paleta-Maybelline-Nudes-of-New-York.jpg" class="card-img-top" alt="https://hibeautycr.com/products/sin-nombre-5ago_15-57">
             <div class="info-card">
                 <h5 class="card-title">Paleta de Sombras Maybelline Nudes of New York</h5>
+                <div class="linea-card"></div>
                 <p>La paleta de Sombras Nudes of New York es la primera paleta de sombras de ojos 
                   con diseño universal, pensada para favorecer a todo tipo de complexiones faciales 
                   y tonos de piel, contando con 16 tonos neutrales con acabados matte y brillante.</p>
@@ -356,6 +382,7 @@
           <img src="Imagenes/Paleta-Milani-Gilded-Flora.jpg" class="card-img-top" alt="https://bellisima.mx/products/milani-gilded-flora-eyeshadow-palette">
           <div class="info-card">
               <h5 class="card-title">Paleta de Sombras Milani Gilded Flora</h5>
+              <div class="linea-card"></div>
               <p>Paleta repleta de tonos neutros y de inspiración floral, esta paleta 
                 contiene 15 tonos multidimensionales súper pigmentados, desde mates mantecosos
                 hasta sombras súper brillantes y tonos metálicos complementarios.</p>
@@ -374,6 +401,7 @@
         <img src="Imagenes/Paleta-Mac-Connect.jpg" class="card-img-top" alt="https://cr.faces.com/paleta-de-sombras-mac-connect-in-colour-bmac3157/p">
         <div class="info-card">
             <h5 class="card-title">Paleta de sombras MAC Connect In Colour</h5>
+            <div class="linea-card"></div>
             <p>Paleta de sombras de ojos de 12 bandejas, con colores llenos 
               de pigmentos en una sola pasada para looks mínimos a máximos ilimitados. Esta línea de colores 
               neutros y esenciales presenta una textura liviana y suave en una variedad de 
