@@ -674,21 +674,21 @@ article h2 {
 
 .contain-categorias {
   width: 20%;
-  padding: 40px;
+  padding: 20px;
   background-color: #f2f2f2;
   margin-left: 100px;
   margin-top: 20px;
   margin-bottom: 100px;
   margin-right: 50px;
   border-radius: 20px;
-  height: 425px;
+  height: 365px; 
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
   border: 2px solid #beb1b8; /* Color del borde */
 }
 
 .contain-categorias h3 {
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 
 .categorias {
@@ -698,7 +698,7 @@ article h2 {
 
 .categorias li {
   cursor: pointer; /* Cambia el cursor al pasar sobre los elementos */
-  margin-bottom: 16px; /* Espacio entre elementos */
+  margin-bottom: 12px; /* Espacio entre elementos */
   text-align: center; /* Centra el texto dentro de los elementos */
   padding: 10px; /* Añade un poco de relleno alrededor del texto */
   background-color: #f2f2f2; /* Color de fondo */
