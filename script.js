@@ -283,27 +283,10 @@ document.addEventListener('DOMContentLoaded', function() {
           <td>${precio}</td>
           <td class="cantidad"><input type="text" value="${cantidad}" readonly></td>
           <td class="total">${total}</td>
-          <td><button class="eliminar-fila">Eliminar</button></td>
         `;
 
         const cuerpoTabla = document.querySelector('.tabla-carrito tbody');
         cuerpoTabla.appendChild(nuevaFila);
-
-        // Agregar evento al botón de eliminar después de crear la fila
-        const botonEliminar = nuevaFila.querySelector('.eliminar-fila');
-        botonEliminar.addEventListener('click', () => {
-          const filaTabla = botonEliminar.closest('tr'); // Obtener la fila que contiene el botón
-          filaTabla.remove(); // Eliminar la fila al hacer clic en Eliminar
-
-          // Recalcular el total general y guardar el carrito en el almacenamiento local
-          calcularTotalGeneral();
-          guardarCarritoEnLocalStorage();
-          // Actualizar la cantidad en el botón
-          actualizarCantidadCarrito();
-        });
-        
-        // Estilo para el botón de eliminar (cursor pointer)
-        botonEliminar.style.cursor = 'pointer';
 
         cantidadInput.value = 1; // Establecer el valor a 1
       }
@@ -376,3 +359,23 @@ document.querySelector('form').addEventListener('submit', function(event) {
     guardarDatos();
 });
 
+// Función para obtener datos de un servicio REST
+function obtenerDatos() {
+  fetch('https://ejemplo.com/api/productos')
+  .then(response => {
+      if (!response.ok) {
+          throw new Error('No se pudo obtener los datos.');
+      }
+      return response.json();
+  })
+  .then(data => {
+      // Hacer algo con los datos obtenidos, como mostrarlos en la página
+      console.log(data);
+  })
+  .catch(error => {
+      console.error('Error:', error);
+  });
+}
+
+// Llamar a la función para obtener los datos cuando la página se cargue
+window.onload = obtenerDatos;
