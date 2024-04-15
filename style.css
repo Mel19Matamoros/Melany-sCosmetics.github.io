@@ -1143,25 +1143,191 @@ video {
 
 /* -------------------------------------------- @MEDIA ---------------------------------------------------- */
 @media screen and (max-width: 767px) { /* Media query para pantallas pequeñas (máximo 767px) */
-  /* Estilos para el encabezado */
   .contain-header {
-      text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
+
+  .contain-header img {
+    margin: 0 auto;
+    max-width: 80%;
+    display: block;
+  }
+
+  #animacion-header {
+    margin-left: 0; /* Elimina el margen izquierdo en pantallas pequeñas */
+    text-align: center;
+  }
+
+  .carousel-item img {
+    height: 300px;
+  }
+
+  /* Cambios en la disposición de los elementos de navegación */
+  .centered-nav-items {
+    text-align: center;
+  }
+
+  /* Estilos para el contenido principal */
+  .contain-categorias {
+    padding: 10px;
+    width: 50%;
+}
+
+.categorias {
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.categorias li {
+  margin: 5px auto; /* Centra los elementos */
+  padding: 10px;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+  text-align: center;
+  display: block; /* Cambia el display a block para que cada elemento esté en una línea */
+  width: 80%; /* Anchura para que no sean demasiado anchos en pantallas pequeñas */
+}
+
+  .contenedor-productos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contenedor-cards-productos {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.cantidad {
+    margin-top: 10px;
+}
+
+.cantidad input {
+    width: 50px;
+}
+
+.increment-button,
+.decrement-button {
+    display: flex;
+}
+
+/* Estilos para los detalles de los productos */
+.detalle {
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 12px; /* Reducir el tamaño del texto de los detalles */
+}
+
+/* Estilos para la imagen dentro de los cards */
+.card-img {
+  width: 100%;
+  height: 200px; /* Establecer una altura fija para las imágenes */
+  object-fit: cover; /* Ajustar la imagen para que cubra completamente el contenedor */
+  border-radius: 5px 5px 0 0; /* Agregar un borde redondeado solo en la parte superior */
+}
+
+/* Estilos para el contenido dentro de los cards */
+.card-content {
+  padding: 15px;
+  height: 150px; /* Establecer una altura fija para el contenido dentro de los cards */
+  overflow: hidden; /* Ocultar el contenido que se desborde del card */
+}
+
+/* Estilos para la imagen dentro del card */
+.card-img-top {
+  width: 100%; /* Ajusta el ancho de la imagen al 100% del contenedor */
+  height: auto; /* Ajusta la altura automáticamente para mantener la proporción */
+  border-radius: 5px 5px 0 0; /* Agrega un borde redondeado solo en la parte superior */
+  margin-bottom: 50px;
+  display: block; /* Asegura que la imagen ocupe todo el ancho del contenedor */
+  margin: 0 auto; /* Centra horizontalmente la imagen */
+}
+
+/* Estilos para el contenedor del card */
+.card-body {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.card-body img {
+  display: block; /* Asegura que la imagen ocupe todo el ancho del contenedor */
+  margin: 0 auto; /* Centra horizontalmente la imagen */
+}
+
+/* Estilos para el contenido dentro del card */
+.info-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centra los elementos horizontalmente dentro del card */
+  justify-content: space-between; /* Distribuye uniformemente el espacio entre los elementos */
+  height: 100%; /* Establece la altura del contenedor para ocupar todo el espacio disponible */
+}
+
+/* Ajustar el tamaño del título y el texto dentro de los cards */
+.card-title,
+.card-text {
+  font-size: 16px; /* Aumentar el tamaño del texto para que sea más legible */
+  line-height: 1.5; /* Ajustar el espaciado entre líneas para mejorar la legibilidad */
+  overflow: hidden; /* Ocultar el texto que se desborde del card */
+  text-overflow: ellipsis; /* Mostrar puntos suspensivos (...) cuando el texto se desborde */
+  white-space: normal; /* Permitir que el texto se desborde hacia abajo si es necesario */
+  text-align: center;
+}
+
+.card-title {
+  margin-top: 20px;
+  margin-bottom: -10px;
+}
+
+.btn-primary.agregar-al-carrito {
+  width: 100%; /* Asegura que el botón ocupe todo el ancho del card */
+  margin-top: 10px; /* Espacio superior para separar el botón del contenido anterior */
+  margin-bottom: 10px; /* Espacio inferior para separar el botón del contenido siguiente */
+}
+
+/* Estilos adicionales para los botones "Agregar al carrito" cuando están dentro de un card-body */
+.card-body .agregar-al-carrito {
+  display: flex;
+  justify-content: center; /* Centra horizontalmente el contenido */
+}
+
+  /* Cambios en el tamaño del botón del carrito */
+  #botonMostrarCarrito {
+    font-size: 18px;
+  }
+
   .navbar-nav {
       text-align: center;
   }
+
   .nav-item {
       margin-bottom: 10px;
   }
+
+  .productos-destacados {
+    display: flex;
+  }
+
   .producto-destacado-card {
       width: 45%;
       margin-bottom: 20px;
   }
+
   /* Estilos para el aside y el artículo */
   aside, article {
       width: 100%;
       margin-bottom: 20px;
   }
+
   .li1, .li2, .li3, .li4, .li5 {
       padding-left: 20px;
   }
@@ -1169,30 +1335,34 @@ video {
   /* Estilos para el footer */
   .footer-info, .footer-contacto, .footer-social {
       text-align: center;
+      margin-bottom: 30px;
   }
+
   .footer-social ul {
       display: flex;
       justify-content: center;
+      text-align: center;
   }
 }
 
 /* Media query para pantallas muy pequeñas en el INDEX.HTML (máximo 575px) */
 @media screen and (max-width: 575px) {
-  header {
-    text-align: center;
-    padding: 20px 0;
+  .contain-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
 
-  header h1 {
-    margin: 0;
-  }
-
-  header img {
-    max-width: 60px; /* Tamaño del logo en pantallas pequeñas */
+  .contain-header img {
+    margin: 0 auto;
+    max-width: 80%;
+    display: block;
   }
 
   #animacion-header {
-    font-size: 24px; /* Tamaño del título en pantallas pequeñas */
+    margin-left: 0; /* Elimina el margen izquierdo en pantallas pequeñas */
+    text-align: center;
   }
 
   .navbar-toggler {
