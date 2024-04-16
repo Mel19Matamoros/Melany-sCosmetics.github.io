@@ -149,7 +149,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   let temporizadorIntervalo; // Variable para almacenar el intervalo del temporizador
   let segundosRestantes = 60; // Duración inicial del temporizador en segundos (1 minuto)
-
+  
   // Función para cargar los datos del carrito desde el almacenamiento local
   function cargarCarritoDesdeLocalStorage() {
     const datosGuardados = localStorage.getItem('cartData');
@@ -304,7 +304,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // Esto es para que cuando se envie el correo aparezca un mensaje 
-document.querySelector('form').addEventListener('submit', function(event) {
+document.querySelector('formulario-contacto').addEventListener('submit', function(event) {
     event.preventDefault(); // Evitar que el formulario se envíe automáticamente
     
     // Envía el formulario de forma asincrónica utilizando Fetch API o XMLHttpRequest
@@ -314,7 +314,7 @@ document.querySelector('form').addEventListener('submit', function(event) {
     })
     .then(response => {
         if (response.ok) {
-            alert("El correo ha sido enviado satisfactoriamente al correo suministrado.");
+            alert("Pronto nos pondremos en contacto contigo.");
             // Redirigir a la página de destino después de enviar el formulario
             window.location.href = 'https://mel19matamoros.github.io/MelanyCosmetics.github.io/contacto.html';
         } else {
@@ -355,27 +355,71 @@ function cargarDatos() {
 window.onload = cargarDatos;
 
 // Guardar los datos cuando el formulario se envía
-document.querySelector('form').addEventListener('submit', function(event) {
+document.querySelector('formulario-contacto').addEventListener('submit', function(event) {
     guardarDatos();
 });
 
-// Función para obtener datos de un servicio REST
-function obtenerDatos() {
-  fetch('https://ejemplo.com/api/productos')
-  .then(response => {
-      if (!response.ok) {
-          throw new Error('No se pudo obtener los datos.');
-      }
-      return response.json();
-  })
-  .then(data => {
-      // Hacer algo con los datos obtenidos, como mostrarlos en la página
-      console.log(data);
-  })
-  .catch(error => {
-      console.error('Error:', error);
-  });
-}
+// Para cuando presiono el boton de comprar me aparezca otra hoja de html
+document.addEventListener('DOMContentLoaded', function() {
+  const listaProductos = document.getElementById('lista-productos');
 
-// Llamar a la función para obtener los datos cuando la página se cargue
-window.onload = obtenerDatos;
+  // Recuperar los datos del carrito del almacenamiento local
+  const datosGuardados = localStorage.getItem('cartData');
+
+  if (datosGuardados) {
+      const datosParseados = JSON.parse(datosGuardados);
+
+      // Iterar sobre los datos del carrito y mostrarlos en la lista de productos
+      datosParseados.forEach(item => {
+          const nombreProducto = item.nombre;
+          const cantidadProducto = item.cantidad;
+
+          // Crear un elemento de lista para cada producto
+          const itemProducto = document.createElement('li');
+          itemProducto.textContent = `${nombreProducto} - Cantidad: ${cantidadProducto}`;
+
+          // Agregar el elemento de lista al contenedor de lista de productos
+          listaProductos.appendChild(itemProducto);
+      });
+  }
+
+  // Agregar evento para limpiar el carrito cuando se envía el formulario
+  const formularioCompra = document.getElementById('formulario-compra');
+  formularioCompra.addEventListener('submit', function(event) {
+      // Evitar que el formulario se envíe por defecto
+      event.preventDefault();
+
+      // Limpiar la tabla del carrito (eliminar filas)
+      const cuerpoTabla = document.querySelector('.tabla-carrito tbody');
+      cuerpoTabla.innerHTML = '';
+
+      // Limpiar el almacenamiento local
+      localStorage.removeItem('cartData');
+
+      window.location.href = 'productos.html';
+  });
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+  const botonCompraAzul = document.getElementById('botonComprarAzul');
+  const listaProductosCarrito = document.getElementById('lista-productos');
+
+  botonCompraAzul.addEventListener('click', function() {
+      const filasProductos = document.querySelectorAll('.tabla-carrito tbody tr');
+      
+      // Limpiamos la lista de productos en el carrito antes de agregar nuevos
+      listaProductosCarrito.innerHTML = '';
+
+      filasProductos.forEach(function(fila) {
+          const nombre = fila.querySelector('td:nth-child(2)').innerText;
+          const cantidad = fila.querySelector('td:nth-child(4)').innerText;
+
+          // Creamos un elemento de lista con los detalles del producto
+          const productoItem = document.createElement('li');
+          productoItem.textContent = `${nombre} - Cantidad: ${cantidad}`;
+
+          // Agregamos el elemento de lista a la lista de productos en el carrito
+          listaProductosCarrito.appendChild(productoItem);
+      });
+  });
+});
