@@ -207,6 +207,8 @@ nav ul li a {
   padding: 0 20px;
   text-align: center; /* Alinea el contenido al centro */
   margin: 0 auto; /* Centra horizontalmente */
+  
+  background-color: #223ac4;
 }
 
 .footer-info h3,
