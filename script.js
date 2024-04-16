@@ -1,22 +1,31 @@
 // Esto es para el carousel
 document.addEventListener('DOMContentLoaded', function() {
-    var carousel = document.querySelector('#carouselExampleAutoplaying');
-    var prevButton = carousel.querySelector('.carousel-control-prev');
-    var nextButton = carousel.querySelector('.carousel-control-next');
-  
-    prevButton.addEventListener('click', function() {
-      carousel.classList.remove('transicion-manual');
-      setTimeout(function() {
-        carousel.classList.add('transicion-manual');
-      }, 50); // Agrega un pequeño retraso para permitir que se aplique la clase antes de la transición
-    });
-  
-    nextButton.addEventListener('click', function() {
-      carousel.classList.remove('transicion-manual');
-      setTimeout(function() {
-        carousel.classList.add('transicion-manual');
-      }, 50); // Agrega un pequeño retraso para permitir que se aplique la clase antes de la transición
-    });
+  // Selecciona el elemento del carrusel
+  var carrusel = document.querySelector('#carouselExampleAutoplaying');
+  // Selecciona el botón de anterior del carrusel
+  var botonAnterior = carrusel.querySelector('.carousel-control-prev');
+  // Selecciona el botón de siguiente del carrusel
+  var botonSiguiente = carrusel.querySelector('.carousel-control-next');
+
+  // Agrega un evento al botón de anterior
+  botonAnterior.addEventListener('click', function() {
+    // Remueve la clase de transición manual para evitar una transición no deseada
+    carrusel.classList.remove('transicion-manual');
+    // Agrega la clase de transición manual con un pequeño retraso
+    setTimeout(function() {
+      carrusel.classList.add('transicion-manual');
+    }, 50); // Agrega un pequeño retraso para permitir que se aplique la clase antes de la transición
+  });
+
+  // Agrega un evento al botón de siguiente
+  botonSiguiente.addEventListener('click', function() {
+    // Remueve la clase de transición manual para evitar una transición no deseada
+    carrusel.classList.remove('transicion-manual');
+    // Agrega la clase de transición manual con un pequeño retraso
+    setTimeout(function() {
+      carrusel.classList.add('transicion-manual');
+    }, 50); // Agrega un pequeño retraso para permitir que se aplique la clase antes de la transición
+  });
 });
 
 // Función que se ejecuta cuando el mouse entra o sale de la línea separadora
@@ -61,77 +70,90 @@ $(document).ready(function() {
 
 // Esto es para cuando presiono una categoria, aparezcan los cards segun su respectiva
 document.addEventListener('DOMContentLoaded', function() {
-    const categorias = document.querySelectorAll('.categorias li');
-    const productos = document.querySelectorAll('.card');
-  
-    categorias.forEach(category => {
-      category.addEventListener('click', function() {
-        const selectedCategory = this.dataset.category;
-        filterProducts(selectedCategory);
-  
-        // Remover la clase 'active' de todos los elementos y luego agregarla al elemento seleccionado
-        categorias.forEach(item => item.classList.remove('active'));
-        this.classList.add('active');
-      });
+  // Selecciona todas las categorías y productos
+  const categorias = document.querySelectorAll('.categorias li');
+  const productos = document.querySelectorAll('.card');
+
+  // Agrega un evento a cada categoría
+  categorias.forEach(categoria => {
+    categoria.addEventListener('click', function() {
+      // Obtiene la categoría seleccionada
+      const categoriaSeleccionada = this.dataset.category;
+      // Filtra los productos según la categoría seleccionada
+      filtrarProductos(categoriaSeleccionada);
+
+      // Remueve la clase 'active' de todas las categorías y luego la agrega a la categoría seleccionada
+      categorias.forEach(item => item.classList.remove('active'));
+      this.classList.add('active');
     });
-  
-    function filterProducts(category) {
-      productos.forEach(product => {
-        if (category === 'todo' || product.classList.contains(category)) {
-          product.style.display = 'block';
-        } else {
-          product.style.display = 'none';
-        }
-      });
-    }
+  });
+
+  // Función para filtrar los productos según la categoría
+  function filtrarProductos(categoria) {
+    productos.forEach(producto => {
+      // Si la categoría es 'todo' o el producto contiene la categoría, se muestra, de lo contrario se oculta
+      if (categoria === 'todo' || producto.classList.contains(categoria)) {
+        producto.style.display = 'block';
+      } else {
+        producto.style.display = 'none';
+      }
+    });
+  }
 });
 
 // Funcion para los botones de los incrementa y decrementa la cantidad de los cards
 document.addEventListener('DOMContentLoaded', function() {
-    const cantidadInputs = document.querySelectorAll('.cantidad');
+  // Selecciona todos los inputs de cantidad
+  const inputsCantidad = document.querySelectorAll('.cantidad');
 
-    cantidadInputs.forEach(input => {
-        input.addEventListener('click', function() {
-            this.select(); // Selecciona todo el texto en el input al hacer clic en él
-        });
+  // Agrega eventos a cada input de cantidad
+  inputsCantidad.forEach(input => {
+      // Agrega evento para seleccionar todo el texto al hacer clic en el input
+      input.addEventListener('click', function() {
+          this.select();
+      });
 
-        // Verificar si ya se han agregado los botones
-        if (!input.parentNode.querySelector('button')) {
-            // Agregar botones para aumentar y disminuir la cantidad
-            const incrementButton = document.createElement('button');
-            incrementButton.textContent = '+';
-            incrementButton.style.fontWeight = 'bold';
-            incrementButton.addEventListener('click', function() {
-                increment(input);
-            });
+      // Verifica si ya se han agregado los botones de incremento y decremento
+      if (!input.parentNode.querySelector('button')) {
+          // Crea botones para incrementar y decrementar la cantidad
+          const botonIncremento = document.createElement('button');
+          botonIncremento.textContent = '+';
+          botonIncremento.style.fontWeight = 'bold';
+          botonIncremento.addEventListener('click', function() {
+              incrementar(input);
+          });
 
-            const decrementButton = document.createElement('button');
-            decrementButton.textContent = '-';
-            decrementButton.style.fontWeight = 'bold';
-            decrementButton.addEventListener('click', function() {
-                decrement(input);
-            });
+          const botonDecremento = document.createElement('button');
+          botonDecremento.textContent = '-';
+          botonDecremento.style.fontWeight = 'bold';
+          botonDecremento.addEventListener('click', function() {
+              decrementar(input);
+          });
 
-            input.parentNode.appendChild(incrementButton);
-            input.parentNode.appendChild(decrementButton);
-        }
-    });
+          // Agrega los botones al padre del input
+          input.parentNode.appendChild(botonIncremento);
+          input.parentNode.appendChild(botonDecremento);
+      }
+  });
 
-    function increment(input) {
-        const currentValue = parseInt(input.value);
-        input.value = currentValue + 1;
-    }
+  // Función para incrementar la cantidad
+  function incrementar(input) {
+      const valorActual = parseInt(input.value);
+      input.value = valorActual + 1;
+  }
 
-    function decrement(input) {
-        const currentValue = parseInt(input.value);
-        if (currentValue > 1) {
-            input.value = currentValue - 1;
-        }
-    }
+  // Función para decrementar la cantidad
+  function decrementar(input) {
+      const valorActual = parseInt(input.value);
+      if (valorActual > 1) {
+          input.value = valorActual - 1;
+      }
+  }
 });
 
 // Funcion para la table del agregar al carrito
 document.addEventListener('DOMContentLoaded', function() {
+  // Seleccionar los elementos necesarios del DOM
   const botonMostrarCarrito = document.getElementById('botonMostrarCarrito');
   const contenedorCarrito = document.getElementById('contenedor-carrito');
   const botonOcultarCarrito = document.getElementById('botonOcultarCarrito');
@@ -139,167 +161,176 @@ document.addEventListener('DOMContentLoaded', function() {
   // Ocultar el carrito al cargar la página
   contenedorCarrito.classList.remove('active');
 
+  // Agregar evento al botón para mostrar/ocultar el carrito
   botonMostrarCarrito.addEventListener('click', function() {
-    contenedorCarrito.classList.toggle('active'); // Mostrar/ocultar el carrito al hacer clic en el botón principal
+      contenedorCarrito.classList.toggle('active');
   });
 
+  // Agregar evento al botón para ocultar el carrito
   botonOcultarCarrito.addEventListener('click', function() {
-    contenedorCarrito.classList.remove('active'); // Ocultar el carrito al hacer clic en el botón "Ocultar Carrito"
+      contenedorCarrito.classList.remove('active');
   });
 
-  let temporizadorIntervalo; // Variable para almacenar el intervalo del temporizador
-  let segundosRestantes = 60; // Duración inicial del temporizador en segundos (1 minuto)
-  
+  // Variables para el temporizador
+  let temporizadorIntervalo;
+  let segundosRestantes = 60;
+
   // Función para cargar los datos del carrito desde el almacenamiento local
   function cargarCarritoDesdeLocalStorage() {
-    const datosGuardados = localStorage.getItem('cartData');
+      // Obtener los datos del carrito guardados en el almacenamiento local
+      const datosGuardados = localStorage.getItem('cartData');
 
-    if (datosGuardados) {
-      const datosParseados = JSON.parse(datosGuardados);
+      // Si hay datos guardados, cargarlos en el carrito
+      if (datosGuardados) {
+          const datosParseados = JSON.parse(datosGuardados);
 
-      datosParseados.forEach(item => {
-        const nuevaFila = document.createElement('tr');
-        nuevaFila.dataset.codigo = item.codigo;
-        nuevaFila.innerHTML = `
-          <td>${item.codigo}</td>
-          <td>${item.nombre}</td>
-          <td>${item.precio}</td>
-          <td class="cantidad"><input type="text" value="${item.cantidad}" readonly></td>
-          <td class="total">${item.total}</td>
-        `;
+          datosParseados.forEach(item => {
+              const nuevaFila = document.createElement('tr');
+              nuevaFila.dataset.codigo = item.codigo;
+              nuevaFila.innerHTML = `
+                  <td>${item.codigo}</td>
+                  <td>${item.nombre}</td>
+                  <td>${item.precio}</td>
+                  <td class="cantidad"><input type="text" value="${item.cantidad}" readonly></td>
+                  <td class="total">${item.total}</td>
+              `;
 
-        const cuerpoTabla = document.querySelector('.tabla-carrito tbody');
-        cuerpoTabla.appendChild(nuevaFila);
-      });
+              const cuerpoTabla = document.querySelector('.tabla-carrito tbody');
+              cuerpoTabla.appendChild(nuevaFila);
+          });
 
-      // Calcular el total general
-      calcularTotalGeneral();
-    }
+          // Calcular el total general
+          calcularTotalGeneral();
+      }
   }
 
   // Función para guardar los datos del carrito en el almacenamiento local
   function guardarCarritoEnLocalStorage() {
-    const filasTabla = document.querySelectorAll('.tabla-carrito tbody tr');
-    const datosGuardados = [];
+      // Obtener las filas de la tabla del carrito
+      const filasTabla = document.querySelectorAll('.tabla-carrito tbody tr');
+      const datosGuardados = [];
 
-    filasTabla.forEach(fila => {
-      const codigo = fila.dataset.codigo;
-      const nombre = fila.cells[1].textContent;
-      const precio = parseFloat(fila.cells[2].textContent);
-      const cantidad = parseInt(fila.querySelector('.cantidad input').value);
-      const total = parseFloat(fila.cells[4].textContent);
+      // Iterar sobre cada fila y guardar los datos en un array
+      filasTabla.forEach(fila => {
+          const codigo = fila.dataset.codigo;
+          const nombre = fila.cells[1].textContent;
+          const precio = parseFloat(fila.cells[2].textContent);
+          const cantidad = parseInt(fila.querySelector('.cantidad input').value);
+          const total = parseFloat(fila.cells[4].textContent);
 
-      datosGuardados.push({
-        codigo: codigo,
-        nombre: nombre,
-        precio: precio,
-        cantidad: cantidad,
-        total: total
+          datosGuardados.push({
+              codigo: codigo,
+              nombre: nombre,
+              precio: precio,
+              cantidad: cantidad,
+              total: total
+          });
       });
-    });
 
-    localStorage.setItem('cartData', JSON.stringify(datosGuardados));
+      // Guardar los datos en el almacenamiento local como cadena JSON
+      localStorage.setItem('cartData', JSON.stringify(datosGuardados));
   }
 
-  // Función para calcular el total general
+  // Función para calcular el total general del carrito
   function calcularTotalGeneral() {
-    const filas = document.querySelectorAll('.tabla-carrito tbody tr');
-    let totalGeneral = 0;
-    filas.forEach(fila => {
-      const totalFila = parseFloat(fila.cells[4].textContent);
-      totalGeneral += totalFila;
-    });
+      // Obtener todas las filas del carrito
+      const filas = document.querySelectorAll('.tabla-carrito tbody tr');
+      let totalGeneral = 0;
 
-    // Redondear hacia abajo el total general y mostrarlo como número entero
-    totalGeneral = Math.floor(totalGeneral);
+      // Sumar los totales de todas las filas
+      filas.forEach(fila => {
+          const totalFila = parseFloat(fila.cells[4].textContent);
+          totalGeneral += totalFila;
+      });
 
-    // Actualizar el total general en el pie de la tabla
-    const totalGeneralElemento = document.querySelector('.tabla-carrito tfoot td:last-child');
-    totalGeneralElemento.textContent = '₡' + totalGeneral;
+      // Redondear hacia abajo el total general y mostrarlo en el pie de la tabla
+      totalGeneral = Math.floor(totalGeneral);
+      const totalGeneralElemento = document.querySelector('.tabla-carrito tfoot td:last-child');
+      totalGeneralElemento.textContent = '₡' + totalGeneral;
   }
 
   // Función para actualizar el temporizador en la página del carrito
   function actualizarTemporizador() {
-    const temporizadorElemento = document.getElementById('temporizador');
+      const temporizadorElemento = document.getElementById('temporizador');
 
-    temporizadorIntervalo = setInterval(function() {
-      segundosRestantes--;
-      if (segundosRestantes <= 0) {
-        clearInterval(temporizadorIntervalo); // Detener el temporizador cuando llegue a cero
-        temporizadorElemento.textContent = 'El tiempo ha expirado';
-        // Eliminar los datos del carrito del almacenamiento local
-        localStorage.removeItem('cartData');
-        // Actualizar la página después de eliminar el almacenamiento
-        location.reload();
-      } else {
-        const minutos = Math.floor(segundosRestantes / 60);
-        const segundos = segundosRestantes % 60;
-        temporizadorElemento.textContent = `Tiempo restante: ${minutos}:${segundos < 10 ? '0' : ''}${segundos}`;
-      }
-    }, 1000); // Actualizar cada segundo
+      temporizadorIntervalo = setInterval(function() {
+          segundosRestantes--;
+          if (segundosRestantes <= 0) {
+              clearInterval(temporizadorIntervalo);
+              temporizadorElemento.textContent = 'El tiempo ha expirado';
+              localStorage.removeItem('cartData');
+              location.reload();
+          } else {
+              const minutos = Math.floor(segundosRestantes / 60);
+              const segundos = segundosRestantes % 60;
+              temporizadorElemento.textContent = `Tiempo restante: ${minutos}:${segundos < 10 ? '0' : ''}${segundos}`;
+          }
+      }, 1000);
   }
 
+  // Función para actualizar la cantidad de productos en el carrito
   function actualizarCantidadCarrito() {
-    const cantidadMostrarCarritoElemento = document.getElementById('cantidadMostrarCarrito');
-    const cantidadMostrarCarrito = parseInt(cantidadMostrarCarritoElemento.textContent) || 0;
-    cantidadMostrarCarritoElemento.textContent = cantidadMostrarCarrito + 1;
+      const cantidadMostrarCarritoElemento = document.getElementById('cantidadMostrarCarrito');
+      const cantidadMostrarCarrito = parseInt(cantidadMostrarCarritoElemento.textContent) || 0;
+      cantidadMostrarCarritoElemento.textContent = cantidadMostrarCarrito + 1;
   }
 
   // Llamar a la función para cargar los datos del carrito al cargar la página
   cargarCarritoDesdeLocalStorage();
 
-  // Agregar un evento click a cada botón "Agregar al carrito"
+  // Obtener los botones "Agregar al carrito" y agregar evento click a cada uno
   const botonesAgregarCarrito = document.querySelectorAll('.agregar-al-carrito');
   botonesAgregarCarrito.forEach(boton => {
-    boton.addEventListener('click', () => {
-      // Iniciar el temporizador solo si aún no ha sido iniciado
-      if (!temporizadorIntervalo) {
-        actualizarTemporizador();
-      }
+      boton.addEventListener('click', () => {
+          // Iniciar el temporizador si aún no ha sido iniciado
+          if (!temporizadorIntervalo) {
+              actualizarTemporizador();
+          }
 
-      const codigo = boton.getAttribute('data-codigo');
-      const nombre = boton.getAttribute('data-nombre');
-      const precio = parseFloat(boton.getAttribute('data-precio'));
-      const cantidadInput = boton.parentElement.querySelector('.cantidad input');
-      const cantidad = parseInt(cantidadInput.value);
-      const total = precio * cantidad;
+          // Obtener los datos del producto del botón
+          const codigo = boton.getAttribute('data-codigo');
+          const nombre = boton.getAttribute('data-nombre');
+          const precio = parseFloat(boton.getAttribute('data-precio'));
+          const cantidadInput = boton.parentElement.querySelector('.cantidad input');
+          const cantidad = parseInt(cantidadInput.value);
+          const total = precio * cantidad;
 
-      // Buscar si ya existe una fila con el mismo código
-      const filaExistente = document.querySelector(`.tabla-carrito tbody tr[data-codigo="${codigo}"]`);
+          // Buscar si ya existe una fila con el mismo código
+          const filaExistente = document.querySelector(`.tabla-carrito tbody tr[data-codigo="${codigo}"]`);
 
-      if (filaExistente) {
-        // Si existe, actualizar la cantidad y el total
-        const cantidadCelda = filaExistente.querySelector('.cantidad input');
-        const nuevaCantidad = parseInt(cantidadCelda.value) + cantidad;
-        cantidadCelda.value = nuevaCantidad;
-        filaExistente.querySelector('.total').textContent = precio * nuevaCantidad;
-      } else {
-        // Si no existe, agregar una nueva fila
-        const nuevaFila = document.createElement('tr');
-        nuevaFila.dataset.codigo = codigo;
-        nuevaFila.innerHTML = `
-          <td>${codigo}</td>
-          <td>${nombre}</td>
-          <td>${precio}</td>
-          <td class="cantidad"><input type="text" value="${cantidad}" readonly></td>
-          <td class="total">${total}</td>
-        `;
+          if (filaExistente) {
+              // Si existe, actualizar la cantidad y el total
+              const cantidadCelda = filaExistente.querySelector('.cantidad input');
+              const nuevaCantidad = parseInt(cantidadCelda.value) + cantidad;
+              cantidadCelda.value = nuevaCantidad;
+              filaExistente.querySelector('.total').textContent = precio * nuevaCantidad;
+          } else {
+              // Si no existe, agregar una nueva fila al carrito
+              const nuevaFila = document.createElement('tr');
+              nuevaFila.dataset.codigo = codigo;
+              nuevaFila.innerHTML = `
+                  <td>${codigo}</td>
+                  <td>${nombre}</td>
+                  <td>${precio}</td>
+                  <td class="cantidad"><input type="text" value="${cantidad}" readonly></td>
+                  <td class="total">${total}</td>
+              `;
 
-        const cuerpoTabla = document.querySelector('.tabla-carrito tbody');
-        cuerpoTabla.appendChild(nuevaFila);
+              const cuerpoTabla = document.querySelector('.tabla-carrito tbody');
+              cuerpoTabla.appendChild(nuevaFila);
 
-        cantidadInput.value = 1; // Establecer el valor a 1
-      }
+              cantidadInput.value = 1; // Establecer el valor a 1
+          }
 
-      // Calcular el total general
-      calcularTotalGeneral();
+          // Calcular el total general del carrito
+          calcularTotalGeneral();
 
-      // Guardar el carrito en el almacenamiento local
-      guardarCarritoEnLocalStorage();
+          // Guardar los datos del carrito en el almacenamiento local
+          guardarCarritoEnLocalStorage();
 
-      // Actualizar la cantidad en el botón
-      actualizarCantidadCarrito();
-    });
+          // Actualizar la cantidad de productos en el carrito
+          actualizarCantidadCarrito();
+      });
   });
 });
 
@@ -400,6 +431,7 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
+// se encarga de mostrar los productos del carrito en una lista, incluyendo sus nombres y cantidades, en el momento en que se hace clic en el botón "Comprar Azul"
 document.addEventListener('DOMContentLoaded', function() {
   const botonCompraAzul = document.getElementById('botonComprarAzul');
   const listaProductosCarrito = document.getElementById('lista-productos');
