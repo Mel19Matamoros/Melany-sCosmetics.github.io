@@ -239,6 +239,7 @@ nav ul li a {
   margin-bottom: 8px;
   align-items: center;
   justify-content: center;
+  font-size: 18px;
 }
 
 .footer-social ul li a {
@@ -751,6 +752,7 @@ article h2 {
   background-color: #f2f2f2; /* Color de fondo */
   border-radius: 8px; /* Bordes redondeados */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  font-size: 18PX;
 }
 
 .categorias li:hover {
@@ -842,6 +844,10 @@ article h2 {
   margin-left: 50px;
 }
 
+.info-card p{
+  font-size: 18PX;
+}
+
 .card-title,
 .btn-primary,
 .cantidad {
@@ -851,7 +857,6 @@ article h2 {
 
 .btn-primary.agregar-al-carrito {
   margin-top: 20px;
-  margin-left: 381px;
 }
 
 /* Estilos para los detalles del producto (código y precio) */
